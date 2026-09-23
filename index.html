@@ -1109,6 +1109,10 @@ Buatkan minimal 3 alternatif pendekatan pengemasan MPI untuk materi ini (berbeda
         text: `Saya memilih alternatif nomor [tulis nomor] dengan judul "[tulis judul MPI]".
 Kembangkan alternatif tersebut menjadi rancangan (desain) lengkap yang mencakup storyboard alur halaman DAN desain visual/UI, siap dilanjutkan ke tahap penentuan aset.
 
+WAJIB PERTAHANKAN keputusan yang sudah dipilih pada Prompt 0 PRO, jangan diubah atau diasumsikan ulang:
+- Tautkan Canva Sheet: [Ya / Tidak — isi sesuai pilihan di Prompt 0 PRO]
+- Akses menu: [Bertahap / Bebas — isi sesuai pilihan di Prompt 0 PRO]
+
 Data MPI:
 - Mata pelajaran: [isi]
 - Kelas: [isi]
@@ -1116,29 +1120,59 @@ Data MPI:
 - Tujuan Pembelajaran: [isi 2-3 tujuan terukur]
 - Perangkat: [HP/laptop/IFP]
 
+ATURAN KONSISTENSI DENGAN PROMPT 0 PRO:
+1. Jika Canva Sheet = Ya:
+   - Halaman Pembuka wajib meminta Nama dan Kelas sebelum siswa masuk ke pembelajaran.
+   - Rancang data yang dicatat minimal: Nama, Kelas, Nilai/Hasil Evaluasi, Kategori Hasil, dan status pengiriman.
+   - Setelah evaluasi selesai, sediakan alur pengiriman data ke Canva Sheet.
+2. Jika Canva Sheet = Tidak:
+   - Jangan membuat integrasi Canva Sheet/spreadsheet atau form pengiriman nilai.
+   - Nama dan Kelas boleh dibuat opsional sesuai kebutuhan desain.
+   - Hasil evaluasi cukup dikelola dan ditampilkan di dalam sesi MPI.
+3. Jika Akses menu = Bertahap:
+   - Menu berikutnya terkunci sampai tahap sebelumnya selesai.
+   - Tampilkan status progres: belum dibuka / sedang dipelajari / selesai.
+   - Siswa boleh kembali ke tahap yang sudah terbuka, tetapi tidak boleh melompati tahap yang masih terkunci.
+4. Jika Akses menu = Bebas:
+   - Semua menu utama langsung dapat dipilih sejak awal.
+   - Jangan menerapkan lock/unlock yang menghalangi siswa berpindah menu.
+
 Buatkan rancangan dengan format:
 1. Judul & Identitas MPI (mapel, kelas, materi)
-2. Storyboard / Alur Halaman Lengkap — sesuai 6 menu wajib; pecah tiap menu jadi sub-halaman jika materi panjang; untuk tiap halaman sebutkan nomor, nama, tujuan, elemen yang tampil, aksi yang tersedia, dan halaman tujuan berikutnya
-3. Detail Tiap Sub-Materi — poin kunci, contoh/ilustrasi, cara penyajian (teks singkat + gambar/animasi, bukan paragraf panjang)
-4. Rancangan Elemen Interaktif — apa yang dilakukan pengguna, apa yang terjadi setelah berinteraksi, bagaimana ini memperkuat pemahaman konsep
-5. Database Soal Evaluasi — minimal [5/10] soal, variasi bentuk (pilihan ganda, benar/salah, menjodohkan, mengurutkan, isian singkat — lihat Prompt Kuis Interaktif untuk variasi lebih lengkap); tiap soal berisi pertanyaan, pilihan (jika ada), jawaban benar, serta Opsi Feedback Benar & Salah (opsional — bisa dihapus/diubah jadi hanya skor, cocok untuk evaluasi/asesmen yang lebih serius tanpa feedback langsung)
-6. Sistem Navigasi — menu utama selalu bisa diakses kembali; tombol lanjut/kembali di tiap halaman
-7. Desain Visual/UI:
-- Palet warna: warna utama, sekunder, aksen beserta kode HEX
-- Tipografi: jenis font judul & isi, ukuran relatif tiap elemen
-- Gaya komponen: bentuk tombol, kartu, panel, ikon
-- Layout tiap jenis halaman (pembuka, materi, evaluasi, hasil)
-- Karakter/maskot pemandu (jika ada): deskripsi visual singkat
-- Mood/gaya visual keseluruhan
-8. Checklist Kualitas MPI — semua 6 menu wajib tersedia; materi disajikan bertahap; evaluasi bervariasi & sesuai materi; navigasi mudah dipahami; tampilan modern & minim scroll; siap dibuat kode
+2. Ringkasan Keputusan Prompt 0 PRO — tuliskan dengan jelas pilihan Canva Sheet dan mode akses menu yang sedang dipakai, lalu jadikan keduanya sebagai aturan desain tetap
+3. Storyboard / Alur Halaman Lengkap — sesuai 6 menu wajib; pecah tiap menu menjadi sub-halaman jika materi panjang; untuk tiap halaman sebutkan nomor, nama, tujuan, elemen yang tampil, aksi yang tersedia, status akses (jika mode Bertahap), dan halaman tujuan berikutnya
+4. Detail Tiap Sub-Materi — poin kunci, contoh/ilustrasi, cara penyajian (teks singkat + gambar/animasi, bukan paragraf panjang)
+5. Rancangan Elemen Interaktif — apa yang dilakukan pengguna, apa yang terjadi setelah berinteraksi, bagaimana ini memperkuat pemahaman konsep
+6. Database Soal Evaluasi — minimal [5/10] soal, variasi bentuk (pilihan ganda, benar/salah, menjodohkan, mengurutkan, isian singkat — lihat Prompt Kuis Interaktif untuk variasi lebih lengkap); tiap soal berisi pertanyaan, pilihan (jika ada), jawaban benar, serta Opsi Feedback Benar & Salah (opsional — bisa dihapus/diubah jadi hanya skor, cocok untuk evaluasi/asesmen yang lebih serius tanpa feedback langsung)
+7. Sistem Navigasi & Progres:
+   - Tombol menu utama, lanjut, dan kembali harus mudah dijangkau.
+   - Jika mode Bertahap, jelaskan aturan unlock setiap tahap dan kondisi kapan tombol/menu berikutnya aktif.
+   - Jika mode Bebas, semua menu utama aktif sejak awal dan progress hanya berfungsi sebagai penanda, bukan pengunci.
+8. Integrasi Canva Sheet (kondisional):
+   - Jika Ya: jelaskan titik input identitas, data yang dikirim, waktu pengiriman, tampilan status berhasil/gagal, dan perilaku jika pengiriman perlu diulang.
+   - Jika Tidak: tulis tegas "Tidak menggunakan Canva Sheet" dan jangan menambahkan alur pengiriman data.
+9. Desain Visual/UI:
+   - Palet warna: warna utama, sekunder, aksen beserta kode HEX
+   - Tipografi: jenis font judul & isi, ukuran relatif tiap elemen
+   - Gaya komponen: bentuk tombol, kartu, panel, ikon
+   - Layout tiap jenis halaman (pembuka, materi, evaluasi, hasil)
+   - Karakter/maskot pemandu (jika ada): deskripsi visual singkat
+   - Mood/gaya visual keseluruhan
+10. Checklist Kualitas MPI — semua 6 menu wajib tersedia; pilihan Canva Sheet dipatuhi; mode akses menu dipatuhi; materi disajikan bertahap; evaluasi bervariasi & sesuai materi; navigasi mudah dipahami; tampilan modern & minim scroll; siap dibuat kode
 
-Pastikan hasilnya rapi dan detail, karena akan menjadi acuan tunggal untuk pembuatan aset dan pengkodean.
+Jangan mengubah pilihan Canva Sheet atau mode akses menu dari Prompt 0 PRO saat menyusun rancangan.
 
 [Tempel silabus/modul ajar/materi di sini jika belum dilampirkan di Prompt 0 PRO]`
       },
       {
         title: "Prompt 2 PRO Asset Inventory MPI",
-        text: `Berdasarkan rancangan desain MPI di atas (Prompt 1 PRO), buatkan Daftar Inventaris Aset (Asset Inventory) khusus untuk MPI ini — semua aset visual dan audio yang dibutuhkan.
+        text: `Berdasarkan rancangan desain MPI di atas (Prompt 1 PRO), buatkan Daftar Inventaris Aset (Asset Inventory) khusus untuk MPI ini — semua aset visual dan audio yang benar-benar dibutuhkan.
+
+WAJIB mengacu pada keputusan yang sudah dikunci sejak Prompt 0 PRO dan dirinci di Prompt 1 PRO:
+- Tautkan Canva Sheet: [Ya / Tidak]
+- Akses menu: [Bertahap / Bebas]
+
+Jangan membuat aset untuk fitur yang tidak dipilih.
 
 Kelompokkan aset berdasarkan kategori:
 1. Maskot/Karakter Pemandu (jika ada)
@@ -1146,24 +1180,39 @@ Kelompokkan aset berdasarkan kategori:
 3. Ikon Menu & Navigasi
 4. Ilustrasi/Diagram Pendukung Materi
 5. Ikon/Ilustrasi Soal Evaluasi
-6. Aset Audio — narasi, backsound, efek interaksi (jika diperlukan)
+6. Aset Status Progres/Navigasi — sesuaikan dengan mode akses menu
+7. Aset Canva Sheet/Identitas — hanya jika Canva Sheet = Ya
+8. Aset Audio — narasi, backsound, efek interaksi (jika diperlukan)
+
+Ketentuan kondisional:
+- Jika Akses menu = Bertahap, inventaris wajib mencakup kebutuhan visual untuk status terkunci, terbuka, sedang dipelajari, selesai, dan indikator progres bila memang menggunakan aset gambar/ikon.
+- Jika Akses menu = Bebas, jangan membuat aset status terkunci; cukup aset menu aktif/terpilih dan indikator progres jika dibutuhkan.
+- Jika Canva Sheet = Ya, sertakan aset pendukung yang relevan untuk input Nama/Kelas dan status pengiriman data (misalnya ikon kirim, berhasil, gagal, coba lagi) hanya bila diperlukan oleh desain.
+- Jika Canva Sheet = Tidak, jangan membuat aset khusus Canva Sheet, spreadsheet, kirim nilai, atau status sinkronisasi.
 
 Untuk setiap aset, sajikan dalam bentuk tabel dengan kolom:
 - Nama Aset (gunakan nama file konsisten, misal: bg_pembuka.png, ikon_menu_materi.png)
 - Digunakan di Menu/Halaman mana
+- Kondisi Pemakaian (Selalu / hanya Canva Sheet=Ya / hanya mode Bertahap / hanya mode Bebas)
 - Deskripsi Visual singkat
 - Gaya (sesuai arahan visual Prompt 1 PRO)
 - Format file disarankan (PNG transparan/SVG/MP3, dst)
 - Ukuran/dimensi disarankan
 - Prioritas (Wajib/Opsional)
 
-Tambahkan Ringkasan Jumlah Aset di akhir (total gambar, total audio, total keseluruhan).
+Tambahkan Ringkasan Jumlah Aset di akhir (total gambar, total audio, total keseluruhan), serta cek bahwa tidak ada aset yang bertentangan dengan pilihan Prompt 0 PRO.
 
 Output harus dalam bentuk tabel rapi, siap dijadikan checklist produksi maupun bahan untuk Prompt 3 PRO.`
       },
       {
         title: "Prompt 3 PRO Generate Prompt Aset MPI",
         text: `Berdasarkan Daftar Inventaris Aset MPI (Prompt 2 PRO), buatkan kumpulan prompt siap pakai untuk menghasilkan setiap aset menggunakan AI image/audio generator (misalnya Gemini, ChatGPT/DALL-E, Midjourney, Ideogram, Canva AI, atau ElevenLabs/Suno untuk audio).
+
+Tetap patuhi keputusan proyek dari Prompt 0 PRO/Prompt 1 PRO:
+- Tautkan Canva Sheet: [Ya / Tidak]
+- Akses menu: [Bertahap / Bebas]
+
+Hanya buat prompt aset yang memang tercantum dan dibutuhkan pada Prompt 2 PRO. Jangan menambahkan aset untuk fitur yang tidak dipilih.
 
 Ketentuan:
 1. Buat satu prompt terpisah untuk setiap aset, atau gabungkan aset sejenis dalam satu prompt jika gayanya identik.
@@ -1172,6 +1221,8 @@ Ketentuan:
 4. Beri nomor & nama tiap prompt sesuai nama aset pada Prompt 2 PRO.
 5. Jika ada aset audio (narasi/backsound), buat prompt terpisah yang memuat mood, tempo, perkiraan durasi, dan jenis suasana suara.
 6. Sertakan instruksi singkat pengeditan pasca-generate jika perlu (hapus background, kompres ukuran file).
+7. Jika Akses menu = Bertahap, pastikan prompt aset status lock/unlock/progres konsisten satu sama lain. Jika Akses menu = Bebas, jangan menghasilkan aset lock yang tidak dipakai.
+8. Jika Canva Sheet = Ya, buat prompt aset status pengiriman hanya jika aset tersebut memang tercantum pada Prompt 2 PRO. Jika Canva Sheet = Tidak, jangan menghasilkan aset bertema spreadsheet/sinkronisasi nilai.
 
 Output:
 Daftar prompt siap copy, dikelompokkan per kategori aset, masing-masing diberi judul singkat yang sama dengan nama aset di Prompt 2 PRO.`
@@ -1182,32 +1233,62 @@ Daftar prompt siap copy, dikelompokkan per kategori aset, masing-masing diberi j
 
 Engine/Platform tujuan: [pilih satu — Canva Code / dikerjakan bersama Claude / Gemini / ChatGPT]
 
+WAJIB mempertahankan keputusan proyek dari Prompt 0 PRO dan Prompt 1 PRO:
+- Tautkan Canva Sheet: [Ya / Tidak — isi sesuai pilihan sebelumnya]
+- Akses menu: [Bertahap / Bebas — isi sesuai pilihan sebelumnya]
+
+Jangan mengubah dua pilihan tersebut saat membuat kode.
+
 Ketentuan umum:
 1. Harus langsung bisa dijalankan di [Canva Code/browser].
-2. Jangan gunakan library atau database eksternal (kecuali disebutkan lain) — gunakan penyimpanan sementara berbasis variabel/array JavaScript, bukan localStorage.
-3. Semua teks berbahasa Indonesia.
+2. Jangan gunakan library atau database eksternal yang tidak diminta. Gunakan penyimpanan sesi berbasis variabel/array JavaScript untuk state MPI.
+3. Semua teks antarmuka berbahasa Indonesia.
 4. Tampilan responsif HP, laptop, dan IFP; minim scroll per halaman.
-5. Tombol navigasi besar, jelas, selalu terlihat (menu utama, lanjut, kembali).
+5. Tombol navigasi besar, jelas, selalu mudah dijangkau (menu utama, lanjut, kembali).
 6. Kode rapi dan diberi komentar singkat.
 7. Satu layar dinamis (single page app), bukan banyak file terpisah.
 
+Aturan Canva Sheet — KONDISIONAL:
+8. Jika Canva Sheet = Ya:
+   - Halaman Pembuka wajib meminta Nama dan Kelas sebelum siswa masuk ke pembelajaran.
+   - Validasi Nama/Kelas tidak boleh kosong.
+   - Setelah evaluasi selesai, siapkan alur pengiriman Nama, Kelas, Nilai/Hasil Evaluasi, Kategori Hasil, dan status pengiriman ke Canva Sheet sesuai mekanisme yang digunakan pada rancangan.
+   - Tampilkan status pengiriman: mengirim, berhasil, gagal, dan tombol coba lagi jika diperlukan.
+9. Jika Canva Sheet = Tidak:
+   - Jangan membuat integrasi Canva Sheet/spreadsheet, endpoint, form kirim nilai, atau status sinkronisasi.
+   - Nama dan Kelas boleh opsional sesuai rancangan.
+   - Hasil evaluasi cukup ditampilkan/dikelola di dalam sesi MPI.
+
+Aturan Akses Menu — KONDISIONAL:
+10. Jika Akses menu = Bertahap:
+   - Menu berikutnya terkunci sampai tahap sebelumnya selesai.
+   - Tampilkan status belum dibuka / terbuka / selesai.
+   - Siswa boleh kembali ke menu yang sudah terbuka, tetapi tidak dapat melompati menu yang terkunci.
+   - Progress bar/indikator harus terhubung dengan logika unlock sebenarnya, bukan dekorasi saja.
+11. Jika Akses menu = Bebas:
+   - Semua menu utama aktif sejak awal.
+   - Jangan menjalankan logika lock/unlock.
+   - Progress boleh ditampilkan sebagai penanda halaman yang pernah dipelajari, tetapi tidak membatasi perpindahan menu.
+
 Integrasi Aset:
-8. Sebutkan daftar nama file aset (sesuai Prompt 2/3 PRO) beserta tempat pemakaiannya di kode.
-9. Gunakan path placeholder yang jelas untuk gambar (misal "assets/nama_file.png"), ATAU sertakan base64 jika file sudah tersedia dan berukuran kecil.
-10. Jika aset belum tersedia, gunakan bentuk/warna sederhana (CSS shape/emoji) sebagai penanda sementara, diberi komentar "// TODO: ganti dengan aset asli".
-11. Pastikan warna, font, dan posisi elemen konsisten dengan Desain Visual/UI pada Prompt 1 PRO.
+12. Sebutkan daftar nama file aset (sesuai Prompt 2/3 PRO) beserta tempat pemakaiannya di kode.
+13. Gunakan path placeholder yang jelas untuk gambar (misal "assets/nama_file.png"), ATAU sertakan base64 jika file sudah tersedia dan berukuran kecil.
+14. Jika aset belum tersedia, gunakan bentuk/warna sederhana (CSS shape/emoji) sebagai penanda sementara, diberi komentar "// TODO: ganti dengan aset asli".
+15. Pastikan warna, font, posisi elemen, aset status menu, dan aset Canva Sheet (jika ada) konsisten dengan Desain Visual/UI pada Prompt 1 PRO.
 
 Struktur MPI: [ikuti Peta Menu & Storyboard dari Prompt 1 PRO — Pembuka, Tujuan Pembelajaran, Materi Bertahap, Evaluasi, Simulasi/Games opsional]
 
 Fitur wajib:
-12. Menu utama yang selalu bisa diakses kembali dari halaman manapun
-13. Progress/penanda halaman yang sudah dipelajari
-14. Skor otomatis untuk evaluasi + kategori hasil akhir
-15. Opsi Feedback benar/salah yang menjelaskan alasan (opsional — bisa dihapus/diubah jadi hanya skor, cocok untuk evaluasi/asesmen yang lebih serius tanpa feedback langsung)
-16. Tombol ulang evaluasi
+16. Menu utama dapat diakses kembali dari halaman manapun; pada mode Bertahap, item yang belum terbuka tetap terkunci di menu utama.
+17. Progress/penanda halaman yang sudah dipelajari sesuai mode akses menu yang dipilih.
+18. Skor otomatis untuk evaluasi + kategori hasil akhir.
+19. Opsi Feedback benar/salah yang menjelaskan alasan (opsional — bisa dihapus/diubah jadi hanya skor, cocok untuk evaluasi/asesmen yang lebih serius tanpa feedback langsung).
+20. Tombol ulang evaluasi.
 
 Testing & Revisi:
-Sertakan catatan singkat bagian mana yang perlu dites manual (responsivitas di HP, keterbacaan warna di IFP).
+- Tes mode akses menu sesuai pilihan: pastikan mode Bertahap benar-benar mengunci tahap berikutnya, atau mode Bebas benar-benar membuka semua menu.
+- Tes pilihan Canva Sheet: jika Ya, pastikan identitas dan alur pengiriman bekerja; jika Tidak, pastikan tidak ada komponen/integrasi Sheet yang tersisa.
+- Tes responsivitas di HP, laptop, dan IFP serta keterbacaan warna.
 
 Deploy:
 Jika akan di-deploy ke Vercel/GitHub Pages/Netlify, sertakan langkah singkat mengunggah file HTML tunggal ke platform tersebut.
@@ -1754,6 +1835,10 @@ Setelah 3 ide ditampilkan, beri rekomendasi singkat: ide mana yang paling mudah 
 
 Kembangkan ide tersebut menjadi rancangan MPI lengkap yang siap dibuat di Canva Code.
 
+WAJIB PERTAHANKAN keputusan dari Prompt 0, jangan diubah:
+- Tautkan Canva Sheet: [Ya / Tidak — isi sesuai pilihan di Prompt 0]
+- Akses menu: [Bertahap / Bebas — isi sesuai pilihan di Prompt 0]
+
 Data MPI:
 - Mata pelajaran: [isi]
 - Kelas: [isi]
@@ -1762,23 +1847,44 @@ Data MPI:
 - Perangkat: [HP/laptop/IFP]
 - Bahasa Konten: [Bahasa Indonesia saja / + Bahasa Inggris / + Bahasa Arab untuk ayat Al-Qur'an]
 
+ATURAN KONSISTENSI DENGAN PROMPT 0:
+1. Jika Canva Sheet = Ya:
+   - Nama dan Kelas WAJIB diisi pada Halaman Pembuka sebelum siswa melanjutkan.
+   - Setelah Evaluasi selesai, rancang pengiriman minimal Nama, Kelas, Nilai, Kategori Hasil, dan status pengiriman ke Canva Sheet.
+2. Jika Canva Sheet = Tidak:
+   - Jangan membuat integrasi Canva Sheet/spreadsheet atau form pengiriman nilai.
+   - Nama dan Kelas boleh opsional sesuai kebutuhan MPI.
+   - Nilai cukup ditampilkan/dikelola di dalam sesi MPI.
+3. Jika Akses menu = Bertahap:
+   - Menu berikutnya hanya terbuka setelah tahap sebelumnya selesai.
+   - Tampilkan status menu: terkunci / terbuka / selesai.
+   - Siswa boleh kembali ke tahap yang sudah terbuka, tetapi tidak boleh melompati tahap yang masih terkunci.
+4. Jika Akses menu = Bebas:
+   - Semua menu utama langsung aktif dan dapat dipilih sejak awal.
+   - Progress boleh menjadi penanda, tetapi tidak mengunci menu.
+
 Buatkan rancangan dengan format:
 
 1. Judul & Identitas MPI (mapel, kelas, materi)
-2. Gerbang Identitas & Pencatatan Nilai — jelaskan: siswa WAJIB mengisi Nama dan Kelas di Halaman Pembuka sebelum bisa lanjut ke menu lain (validasi: tombol lanjut tidak aktif/muncul peringatan jika kosong); setelah Evaluasi selesai, sistem mengirim Nama, Kelas, Nilai, dan Kategori Hasil lewat form yang benar-benar disubmit, supaya otomatis tercatat di Canva Sheet yang terhubung ke Canva Code ini (bukan database eksternal buatan sendiri)
-3. Tema Tampilan Terpilih — ringkas ulang nama tema, palet warna, gaya ikon dari Prompt 0
-4. Alur Halaman Lengkap — sesuai 6 menu wajib; pecah tiap menu jadi sub-halaman jika materi panjang
-5. Detail Tiap Sub-Materi — poin kunci, contoh/ilustrasi, cara penyajian (teks singkat + gambar/animasi, bukan paragraf panjang); jika ada teks Arab (ayat/istilah), sertakan transliterasi dan terjemahan Indonesia di bagian yang sama
-6. Rancangan Elemen Interaktif — apa yang dilakukan pengguna, apa yang terjadi setelah berinteraksi, bagaimana ini memperkuat pemahaman konsep
-7. Database Soal Evaluasi — minimal [5/10] soal, variasi bentuk (pilihan ganda, benar/salah, menjodohkan, mengurutkan, isian singkat); tiap soal berisi pertanyaan, pilihan (jika ada), jawaban benar, feedback benar, feedback salah; jika soal memuat teks Arab/Inggris, tulis dengan jelas bahasa mana yang dipakai
-8. Sistem Navigasi — WAJIB dijelaskan sebagai berikut:
-   - Tombol menu utama, lanjut, dan kembali diletakkan pada posisi TETAP (fixed/sticky) di layar — misalnya melekat di bagian bawah atau atas — sehingga selalu terlihat dan bisa langsung dijangkau dari halaman manapun tanpa perlu scroll dulu.
-   - Jika isi satu halaman cukup panjang, hanya AREA KONTEN yang boleh scroll secara internal; tombol navigasi tidak boleh ikut bergeser/scroll bersama konten.
-   - Ukuran tombol minimal cukup besar untuk disentuh di layar IFP (touchscreen).
-9. Arahan Visual Canva — tema warna, karakter/maskot (jika ada), gaya tombol, ikon per menu, font Arab (jika ada teks Arab) yang jelas dan mudah dibaca
-10. Checklist Kualitas MPI — semua 6 menu wajib tersedia; Nama & Kelas wajib terisi sebelum masuk materi; nilai akhir tercatat otomatis ke Canva Sheet lewat form submit (bukan hanya tampil di layar); materi disajikan bertahap, tidak menumpuk; evaluasi bervariasi & sesuai materi; navigasi mudah dipahami DAN tombol selalu mudah dijangkau tanpa scroll; tampilan modern; bahasa konten sesuai mapel; siap dibuat di Canva Code
+2. Ringkasan Keputusan Prompt 0 — tuliskan pilihan Canva Sheet dan mode akses menu yang dipakai, lalu jadikan sebagai aturan tetap sepanjang rancangan
+3. Gerbang Identitas & Pencatatan Nilai (kondisional):
+   - Jika Canva Sheet = Ya: Nama/Kelas wajib, validasi sebelum lanjut, serta alur pengiriman hasil evaluasi ke Canva Sheet.
+   - Jika Canva Sheet = Tidak: identitas boleh opsional dan tidak ada pengiriman ke Sheet.
+4. Tema Tampilan Terpilih — ringkas ulang nama tema, palet warna, gaya ikon dari Prompt 0
+5. Alur Halaman Lengkap — sesuai 6 menu wajib; pecah tiap menu jadi sub-halaman jika materi panjang; beri keterangan status akses tiap menu jika mode Bertahap
+6. Detail Tiap Sub-Materi — poin kunci, contoh/ilustrasi, cara penyajian (teks singkat + gambar/animasi, bukan paragraf panjang); jika ada teks Arab (ayat/istilah), sertakan transliterasi dan terjemahan Indonesia di bagian yang sama
+7. Rancangan Elemen Interaktif — apa yang dilakukan pengguna, apa yang terjadi setelah berinteraksi, bagaimana ini memperkuat pemahaman konsep
+8. Database Soal Evaluasi — minimal [5/10] soal, variasi bentuk (pilihan ganda, benar/salah, menjodohkan, mengurutkan, isian singkat); tiap soal berisi pertanyaan, pilihan (jika ada), jawaban benar, feedback benar, feedback salah; jika soal memuat teks Arab/Inggris, tulis dengan jelas bahasa mana yang dipakai
+9. Sistem Navigasi — WAJIB dijelaskan sebagai berikut:
+   - Tombol menu utama, lanjut, dan kembali diletakkan pada posisi TETAP (fixed/sticky) di layar sehingga selalu terlihat dan bisa dijangkau tanpa perlu scroll dulu.
+   - Jika isi satu halaman cukup panjang, hanya AREA KONTEN yang boleh scroll secara internal; tombol navigasi tidak boleh ikut bergeser bersama konten.
+   - Jika mode Bertahap, jelaskan aturan unlock dan kapan tombol/menu berikutnya aktif.
+   - Jika mode Bebas, semua menu aktif sejak awal dan tidak ada lock/unlock.
+   - Ukuran tombol cukup besar untuk layar sentuh IFP.
+10. Arahan Visual Canva — tema warna, karakter/maskot (jika ada), gaya tombol, ikon per menu, font Arab (jika ada teks Arab) yang jelas dan mudah dibaca
+11. Checklist Kualitas MPI — semua 6 menu wajib tersedia; pilihan Canva Sheet dipatuhi; pilihan akses menu dipatuhi; materi disajikan bertahap; evaluasi bervariasi & sesuai materi; navigasi mudah dipahami dan selalu mudah dijangkau; tampilan modern; bahasa konten sesuai mapel; siap dibuat di Canva Code
 
-Pastikan hasilnya rapi, mudah dipahami guru pemula, dan siap dilanjutkan menjadi prompt Canva Code.
+Pastikan hasilnya rapi, mudah dipahami guru pemula, dan jangan mengubah pilihan Canva Sheet atau mode akses menu dari Prompt 0.
 
 [Tempel Modul D1 di sini jika belum dilampirkan di Prompt 0]`
       },
@@ -1788,33 +1894,62 @@ Pastikan hasilnya rapi, mudah dipahami guru pemula, dan siap dilanjutkan menjadi
 
 Tugas: buat prompt untuk membangun MPI dalam satu file HTML lengkap (HTML, CSS, JavaScript).
 
-Ketentuan umum:
+WAJIB mempertahankan keputusan dari Prompt 0 dan Prompt 1:
+- Tautkan Canva Sheet: [Ya / Tidak — sesuai pilihan sebelumnya]
+- Akses menu: [Bertahap / Bebas — sesuai pilihan sebelumnya]
 
+Jangan mengubah dua pilihan tersebut saat membuat kode.
+
+Ketentuan umum:
 1. Harus langsung bisa dijalankan di Canva Code.
-2. Jangan gunakan library atau database eksternal buatan sendiri. Untuk mencatat nilai evaluasi, manfaatkan fitur bawaan Canva Code yang otomatis menyimpan data ke Canva Sheet setiap kali sebuah <form> benar-benar di-submit — ini fitur native Canva, bukan library/database eksternal, sehingga tetap diperbolehkan.
+2. Jangan gunakan library atau database eksternal buatan sendiri.
 3. Bahasa teks navigasi/instruksi/antarmuka (menu, tombol, label sistem): Bahasa Indonesia. Bahasa materi/konten mengikuti mata pelajaran — gunakan Bahasa Inggris untuk materi Bahasa Inggris, dan sertakan teks Arab (font Arab yang jelas, arah teks kanan-ke-kiri/RTL yang benar) untuk ayat Al-Qur'an/hadits/materi Bahasa Arab, selalu disertai terjemahan Bahasa Indonesia.
-4. Tampilan responsif HP, laptop, dan IFP. Konten utama dirancang agar ringkas dan tidak butuh scroll berlebihan, TAPI jika materi memang panjang, buat AREA KONTEN itu saja yang scroll secara internal (misalnya overflow-y: auto dengan max-height pada container konten) — jangan sampai seluruh halaman ikut scroll.
-5. Tombol navigasi (menu utama, lanjut, kembali) HARUS diletakkan pada posisi fixed/sticky (misalnya position: fixed atau position: sticky di bagian bawah/atas layar) dengan z-index tinggi, sehingga SELALU terlihat dan bisa langsung diklik dari posisi manapun tanpa perlu scroll dulu. Beri jarak/padding pada area konten supaya tidak tertutup oleh bar navigasi.
-6. Tombol besar, jelas, dan mudah diklik/disentuh (sebagian pengguna mengoperasikan lewat layar sentuh IFP).
+4. Tampilan responsif HP, laptop, dan IFP. Konten utama dirancang ringkas; jika materi panjang, buat AREA KONTEN saja yang scroll secara internal, bukan seluruh halaman.
+5. Tombol navigasi (menu utama, lanjut, kembali) HARUS berada pada posisi fixed/sticky dengan z-index tinggi sehingga selalu terlihat dan bisa diklik tanpa perlu scroll dulu. Beri ruang pada area konten agar tidak tertutup bar navigasi.
+6. Tombol besar, jelas, dan mudah diklik/disentuh di layar IFP.
 7. Kode rapi dan diberi komentar singkat.
 8. Gunakan satu layar dinamis (single page app), bukan banyak file terpisah.
-9. Sebelum siswa bisa mengakses menu apa pun selain Halaman Pembuka, wajib mengisi Nama dan Kelas (validasi: tidak boleh kosong, tampilkan peringatan jika belum diisi). Simpan Nama dan Kelas ini di variabel sepanjang sesi, untuk disertakan saat mengirim nilai evaluasi di akhir.
+
+ATURAN CANVA SHEET — KONDISIONAL:
+9. Jika Canva Sheet = Ya:
+   - Sebelum siswa mengakses pembelajaran, wajib mengisi Nama dan Kelas; validasi tidak boleh kosong.
+   - Simpan Nama dan Kelas di variabel sepanjang sesi.
+   - Setelah evaluasi selesai, kirim Nama, Kelas, Nilai, dan Kategori Hasil melalui mekanisme form Canva Sheet yang dipakai pada rancangan; tampilkan status mengirim/berhasil/gagal dan opsi coba lagi jika diperlukan.
+10. Jika Canva Sheet = Tidak:
+   - Jangan membuat form pengiriman nilai, integrasi spreadsheet, endpoint, atau status sinkronisasi.
+   - Nama dan Kelas boleh opsional sesuai rancangan.
+   - Hasil evaluasi cukup tampil di halaman hasil dan dikelola selama sesi berjalan.
+
+ATURAN AKSES MENU — KONDISIONAL:
+11. Jika Akses menu = Bertahap:
+   - Hanya Halaman Pembuka yang aktif saat mulai.
+   - Menu/tahap berikutnya terbuka setelah syarat tahap sebelumnya selesai.
+   - Tampilkan state terkunci / terbuka / selesai secara visual.
+   - Siswa boleh kembali ke tahap yang sudah terbuka, tetapi tidak boleh melompati tahap terkunci.
+   - Progress bar/indikator harus mencerminkan logika unlock sebenarnya.
+12. Jika Akses menu = Bebas:
+   - Semua menu utama aktif sejak awal.
+   - Jangan menggunakan logika lock/unlock.
+   - Progress hanya sebagai penanda halaman yang sudah dipelajari, bukan pengunci akses.
 
 Struktur MPI: [ikuti Peta Menu dari rancangan — Pembuka, Tujuan Pembelajaran, Materi Bertahap, Evaluasi, Simulasi/Games]
 
 Fitur wajib:
-
-1. Menu utama yang selalu bisa diakses kembali dari halaman manapun, lewat tombol fixed/sticky yang sama.
-2. Progress/penanda halaman yang sudah dipelajari.
+1. Menu utama selalu bisa diakses kembali; pada mode Bertahap, menu yang belum terbuka tetap tampil terkunci.
+2. Progress/penanda halaman yang sudah dipelajari sesuai mode akses yang dipilih.
 3. Skor otomatis untuk evaluasi + kategori hasil akhir.
 4. Feedback benar/salah yang menjelaskan alasan, bukan sekadar "benar/salah".
 5. Tombol ulang evaluasi.
-6. Jika ada teks Arab: gunakan font yang mendukung huruf Arab (misalnya Amiri/Scheherazade/font sistem Arab) dan pastikan arah teks benar (RTL) tanpa merusak tata letak tombol.
-7. Setelah evaluasi selesai, kirim data Nama, Kelas, Nilai, dan Kategori Hasil lewat elemen <form> yang BENAR-BENAR di-submit (gunakan tombol type="submit" di dalam <form>, atau form.submit() lewat JavaScript — jangan hanya menangkap nilainya ke variabel/array tanpa mengirim form sungguhan), supaya otomatis tercatat di Canva Sheet yang terhubung ke Canva Code ini.
+6. Jika ada teks Arab: gunakan font yang mendukung huruf Arab dan pastikan arah teks benar (RTL) tanpa merusak tata letak tombol.
+7. Jika Canva Sheet = Ya, pastikan nilai benar-benar dikirim sesuai mekanisme form pada rancangan. Jika Canva Sheet = Tidak, pastikan tidak ada komponen Canva Sheet tersisa di kode.
 
 Desain visual: modern, bersih, warna nyaman untuk ditampilkan lama di IFP, sesuai arahan visual dan tema tampilan pada rancangan sebelumnya.
 
-Sebelum output final, cek ulang: apakah tombol navigasi tetap terlihat & bisa diklik di SETIAP halaman tanpa harus scroll? Apakah teks Arab (jika ada) tampil dengan arah yang benar dan tidak terpotong? Apakah Nama & Kelas wajib diisi sebelum siswa lanjut ke menu lain? Apakah nilai akhir benar-benar dikirim lewat form submit (bukan hanya ditampilkan di layar)?
+Sebelum output final, cek ulang:
+- Apakah pilihan Canva Sheet sama dengan Prompt 0/1 dan diterapkan secara konsisten?
+- Apakah mode akses menu sama dengan Prompt 0/1 dan logikanya benar-benar bekerja?
+- Apakah tombol navigasi selalu terlihat dan bisa diklik di setiap halaman?
+- Apakah teks Arab (jika ada) tampil dengan arah yang benar dan tidak terpotong?
 
 Output: Prompt siap copy.
 
