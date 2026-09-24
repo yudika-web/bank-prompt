@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="theme-color" content="#6d5dfc" />
 <title>Bank Prompt</title>
-<meta name="bank-prompt-build" content="2026-09-23-layout-fix-1" />
+<meta name="bank-prompt-build" content="2026-09-24-prompt-pro-assets-batch-v3" />
 <style>
 :root{
   --bg:#f4f7fb;
@@ -826,7 +826,7 @@ const simulasi2026Categories = [
     id: "paket-pro-simulasi",
     name: "Paket PRO — Simulasi & Lab Maya",
     icon: "🔬",
-    keywords: "prompt pro paket pro PRO simulasi interaktif lab maya laboratorium virtual virtual lab ideasi desain model variabel storyboard asset inventory generate aset prompt web app coding hukum newton siklus air titrasi asam basa fotosintesis persamaan kuadrat slider lembar pengamatan refleksi LKPD prosedur praktikum alat bahan virtual",
+    keywords: "prompt pro paket pro PRO simulasi interaktif lab maya laboratorium virtual virtual lab ideasi desain model variabel storyboard asset inventory generate aset generate aset otomatis chatgpt claude prompt web app coding hukum newton siklus air titrasi asam basa fotosintesis persamaan kuadrat slider lembar pengamatan refleksi LKPD prosedur praktikum alat bahan virtual",
     prompts: [
       {
         title: "Prompt 0 PRO Ideasi Simulasi & Lab Maya",
@@ -939,26 +939,77 @@ Ketentuan:
 7. Sertakan instruksi singkat pengeditan pasca-generate jika perlu (hapus background, kompres ukuran file).
 
 Output:
-Daftar prompt siap copy, dikelompokkan per kategori aset, masing-masing diberi judul singkat yang sama dengan nama aset di Prompt 2 PRO.`
+Daftar prompt siap copy, dikelompokkan per kategori aset, masing-masing diberi judul singkat yang sama dengan nama aset di Prompt 2 PRO, siap digunakan pada Prompt 4 PRO untuk generate aset otomatis.`
       },
       {
-        title: "Prompt 4 PRO Susun Prompt Web App Simulasi & Lab Maya",
-        text: `Berdasarkan rancangan desain (Prompt 1 PRO — termasuk Model Variabel & Rumus) dan Daftar Inventaris Aset beserta hasil generate-nya (Prompt 2 PRO & 3 PRO) di atas, JANGAN langsung tuliskan kode HTML/CSS/JS.
+        title: "Prompt 4 PRO Generate Semua Aset Otomatis Simulasi & Lab Maya di ChatGPT/Claude",
+        text: `Berdasarkan rancangan desain (Prompt 1 PRO), Daftar Inventaris Aset (Prompt 2 PRO), dan kumpulan prompt aset (Prompt 3 PRO), sekarang GENERATE semua aset proyek ini secara otomatis langsung di percakapan ChatGPT/Claude ini. Jangan berhenti pada daftar atau prompt saja jika platform yang digunakan memiliki kemampuan membuat gambar/aset; lanjutkan sampai aset utama benar-benar dibuat. Kerjakan secara bertahap per batch sesuai kemampuan image generation AI yang sedang digunakan; jangan memaksa seluruh aset dibuat sekaligus dalam satu proses.
 
-Sebagai gantinya, susun SATU prompt lengkap dan siap pakai yang akan saya tempel ke tool/AI pembuat web app lain (misalnya Claude Code, Canva Code, v0, bolt.new, Cursor, Replit AI, atau Lovable) agar tool tersebut yang membangun seluruh web app-nya sekaligus — jadi prompt ini harus berdiri sendiri (self-contained), lengkap dengan semua konteks yang dibutuhkan tanpa perlu melampirkan Prompt 0-3 PRO lagi.
+Platform: [ChatGPT / Claude]
+
+PRIORITAS ASET UTAMA — WAJIB DIDAHULUKAN:
+1. Aset yang berhubungan langsung dengan materi/fenomena — misalnya alat & bahan virtual, objek eksperimen, elemen simulasi, diagram konsep, ilustrasi proses, objek yang berubah karena variabel, atau visual data yang memang diperlukan untuk memahami materi.
+2. Ikon menu utama — buat konsisten untuk Pembuka, Tujuan Pembelajaran, Konsep Dasar, Ruang Simulasi/Praktikum, Lembar Pengamatan, Refleksi, dan Evaluasi bila menu tersebut digunakan.
+3. Maskot/karakter pemandu — jika tercantum dalam desain; pertahankan ciri visual yang sama pada semua pose/ekspresi.
+4. Karakter/objek interaktif utama — jika simulasi/lab membutuhkan karakter, avatar, petugas lab, objek bergerak, atau objek yang dapat diseret/diklik.
+5. Bangunan/ruang/latar penting — misalnya laboratorium, ruang eksperimen, lingkungan alam, pabrik, kelas, atau lokasi tematik yang memang menjadi bagian dari materi/aktivitas.
+6. Obstacle/rintangan/objek tantangan — hanya jika rancangan simulasi/game mini memang menggunakannya.
+
+ASET OPSIONAL:
+- Audio: backsound, narasi, efek klik, alarm, efek reaksi, atau efek keberhasilan. Generate hanya jika benar-benar diperlukan atau saya minta.
+- Tombol navigasi: Mulai, Lanjut, Kembali, Reset, Jeda, Home, dan sejenisnya. Tidak wajib dibuat sebagai gambar; utamakan tombol CSS/HTML. Buat aset gambar tombol hanya jika desain memang membutuhkan bentuk khusus.
+
+ATURAN OUTPUT GAMBAR & SISTEM BATCH — WAJIB:
+1. Prioritas utama: 1 aset/gambar = 1 file terpisah agar paling mudah digunakan saat coding, disimpan, dan di-crop bila diperlukan.
+2. Jika keterbatasan AI membuat beberapa aset harus digenerate dalam 1 file/canvas, susun aset dalam grid yang rapi dan mudah dipotong.
+3. Dalam 1 baris, tampilkan maksimal 4 gambar/aset. Jika jumlah aset pada batch kurang dari 4, tidak perlu memaksakan menjadi 4.
+4. Setiap gambar/aset harus memiliki ruang kosong/gutter minimal 6 px pada sisi kiri, kanan, atas, dan bawah. Jarak minimal 6 px juga harus dipertahankan antar-aset agar hasil dapat di-crop tanpa mengenai aset di sebelahnya.
+5. Jangan biarkan karakter, bayangan, efek cahaya, outline, atau bagian objek lain melewati area batas/gutter aset tetangga. Setiap aset harus benar-benar terpisah secara visual.
+6. Jika memakai background transparan, pertahankan transparansi di area pemisah. Jika transparansi tidak didukung, gunakan background polos yang kontras dan konsisten agar proses crop mudah.
+7. Generate aset PER BATCH sesuai kemampuan AI/platform yang digunakan. Jangan memaksa seluruh inventaris aset dibuat dalam satu kali generate.
+8. Ukuran batch bersifat adaptif: gunakan jumlah aset yang masih dapat dihasilkan dengan kualitas dan konsistensi yang baik oleh AI saat itu. Jika kualitas mulai turun atau detail tercampur, kecilkan batch berikutnya.
+9. Beri label urutan kerja di luar gambar: Batch 1, Batch 2, Batch 3, dan seterusnya. Jangan menambahkan nama file/label panjang di dalam gambar aset kecuali memang bagian dari desain.
+10. Setelah setiap batch selesai, tampilkan daftar aset pada batch tersebut beserta nama file yang disarankan, status Selesai/Perlu Ulang, lalu lanjutkan ke batch berikutnya. Jika ada aset gagal atau tercampur, regenerate hanya aset tersebut dalam batch kecil atau satu per satu.
+11. Untuk aset yang membutuhkan beberapa pose/state, usahakan setiap pose/state menjadi file terpisah. Jika harus digabung dalam satu canvas, tetap gunakan aturan maksimal 4 aset per baris dan gutter minimal 6 px.
+
+ATURAN GENERATE:
+1. Gunakan nama aset dan fungsi aset dari Prompt 2 PRO sebagai sumber utama. Prompt 3 PRO menjadi panduan visual/gaya, tetapi boleh diperbaiki agar hasil lebih konsisten.
+2. Generate aset Wajib terlebih dahulu, baru aset Opsional.
+3. Untuk aset yang dapat digunakan ulang, utamakan PNG transparan atau SVG/vektor bila platform mendukung.
+4. Jangan menaruh teks panjang di dalam gambar. Label/teks antarmuka sebaiknya dibuat dengan HTML/CSS agar mudah diedit.
+5. Pertahankan gaya visual, palet warna, proporsi, sudut pandang, dan tingkat detail yang konsisten dengan Prompt 1 PRO.
+6. Untuk alat/bahan/objek materi, prioritaskan kejelasan bentuk dan fungsi edukatif daripada dekorasi berlebihan.
+7. Jangan menggabungkan seluruh inventaris aset ke satu gambar besar/sprite sheet. Gunakan 1 aset per file sebagai prioritas; penggabungan beberapa aset hanya sebagai fallback per batch dengan aturan maksimal 4 aset per baris dan gutter minimal 6 px.
+8. Untuk setiap aset yang selesai dibuat, tampilkan: nomor, nama file, kategori, halaman pemakaian, format yang disarankan, dan status Selesai.
+9. Jika satu aset memerlukan beberapa pose/state, generate setiap state yang benar-benar dibutuhkan (misalnya normal/aktif/berubah, kosong/terisi, sebelum/sesudah reaksi).
+10. Setelah semua aset utama selesai, buat Rekap Manifest Aset Final yang memisahkan: Wajib selesai, Opsional selesai, dan Opsional belum dibuat.
+
+PENTING:
+- Jangan hanya menjelaskan cara membuat aset.
+- Jangan hanya mengulang prompt dari Prompt 3 PRO.
+- Jika fitur image generation tersedia, langsung gunakan fitur tersebut untuk menghasilkan aset secara berurutan.
+- Jika platform yang dipakai tidak dapat menghasilkan file gambar/audio secara langsung, tetap susun paket prompt final per aset dengan nama file yang konsisten dan tandai secara jelas sebagai "perlu dieksekusi pada generator aset"; jangan mengubah daftar aset utama.
+
+Mulai dari aset prioritas tertinggi yang paling berhubungan dengan materi, lalu lanjutkan otomatis sampai semua aset utama selesai.`
+      },
+      {
+        title: "Prompt 5 PRO Susun Prompt Web App Simulasi & Lab Maya",
+        text: `Berdasarkan rancangan desain (Prompt 1 PRO — termasuk Model Variabel & Rumus) dan Daftar Inventaris Aset, prompt aset, dan hasil aset yang sudah digenerate (Prompt 2 PRO, Prompt 3 PRO, dan Prompt 4 PRO) di atas, JANGAN langsung tuliskan kode HTML/CSS/JS.
+
+Sebagai gantinya, susun SATU prompt lengkap dan siap pakai yang akan saya tempel ke tool/AI pembuat web app lain (misalnya Claude Code, Canva Code, v0, bolt.new, Cursor, Replit AI, atau Lovable) agar tool tersebut yang membangun seluruh web app-nya sekaligus — jadi prompt ini harus berdiri sendiri (self-contained), lengkap dengan semua konteks yang dibutuhkan tanpa perlu melampirkan Prompt 0-4 PRO lagi.
 
 Prompt yang disusun harus memuat, secara berurutan:
 1. Ringkasan konteks — mata pelajaran, kelas, jenis (Simulasi Interaktif/Lab Maya), fenomena/materi, dan tujuan pembelajaran
 2. Struktur halaman lengkap — sesuai storyboard Prompt 1 PRO, tiap halaman disebutkan nama, tujuan, elemen, dan kontrol interaktifnya
 3. Model Variabel & Rumus lengkap — nama, simbol, satuan, rentang nilai, nilai default, dan rumus/logika perhitungannya, ditulis selengkap hasil Prompt 1 PRO
 4. [Khusus Lab Maya] Prosedur Praktikum Virtual — langkah percobaan berurutan sesuai Prompt 1 PRO
-5. Daftar aset & nama file — sesuai Prompt 2/3 PRO, sebutkan tempat pemakaian tiap aset; instruksikan agar tool memakai bentuk/warna sederhana (CSS shape/emoji) dengan komentar "// TODO: ganti dengan aset asli" untuk aset yang belum tersedia
+5. Daftar aset & nama file — sesuai Prompt 2/3/4 PRO, sebutkan tempat pemakaian tiap aset; instruksikan agar tool memakai bentuk/warna sederhana (CSS shape/emoji) dengan komentar "// TODO: ganti dengan aset asli" untuk aset yang belum tersedia
 6. Spesifikasi teknis — satu file HTML lengkap (HTML, CSS, JS), tanpa library/database eksternal kecuali disebutkan lain, penyimpanan sementara pakai variabel/array JavaScript (bukan localStorage), semua teks Bahasa Indonesia, tampilan responsif HP/laptop/IFP dengan kontrol touch-friendly, kode rapi & berkomentar, single page app
 7. Fitur wajib — menu utama yang selalu bisa diakses, variabel terhubung ke slider/input yang memperbarui visual & angka hasil secara real-time, validasi nilai ekstrem, tombol Reset, Lembar Pengamatan otomatis, skor & kategori hasil evaluasi (jika ada), Opsi Feedback benar/salah (opsional), dan Ringkasan/LKPD di akhir dengan tombol cetak (window.print())
 8. Instruksi singkat untuk testing (cek nilai variabel di batas ekstrem, responsivitas di HP) dan catatan deploy (Vercel/GitHub Pages/Netlify) di bagian akhir prompt
 
 Ketentuan penulisan:
-- Tulis sebagai satu prompt utuh dalam bentuk instruksi/paragraf yang mengalir dan terstruktur (boleh pakai sub-judul/poin di dalamnya), bukan sekadar menyalin ulang poin-poin Prompt 1-3 PRO apa adanya.
+- Tulis sebagai satu prompt utuh dalam bentuk instruksi/paragraf yang mengalir dan terstruktur (boleh pakai sub-judul/poin di dalamnya), bukan sekadar menyalin ulang poin-poin Prompt 1-4 PRO apa adanya.
 - Jangan sertakan kode apa pun di dalam prompt ini — isinya murni instruksi untuk tool pembuat web app.
 - Akhiri dengan baris "Output yang diharapkan: satu file HTML lengkap siap jalan di browser."
 
@@ -1060,14 +1111,14 @@ Satu blok prompt siap copy-paste, yang bila ditempel ke tool pembuat web app pil
   }
 ];
 
-// Bank Prompt — Update PRO September 2026: paket Prompt PRO (0-4) untuk MPI dan 3 varian game edukasi
+// Bank Prompt — Update PRO September 2026: paket Prompt PRO (0-5) untuk MPI dan 3 varian game edukasi
 
 const pro2026Categories = [
   {
     id: "paket-pro-mpi",
     name: "Paket PRO — MPI",
     icon: "🎓",
-    keywords: "prompt pro paket pro PRO MPI media pembelajaran interaktif ideasi desain storyboard visual ui asset inventory generate aset coding canva code kurikulum merdeka",
+    keywords: "prompt pro paket pro PRO MPI media pembelajaran interaktif ideasi desain storyboard visual ui asset inventory generate aset generate aset otomatis chatgpt claude coding canva code kurikulum merdeka",
     prompts: [
       {
         title: "Prompt 0 PRO Ideasi MPI",
@@ -1225,11 +1276,67 @@ Ketentuan:
 8. Jika Canva Sheet = Ya, buat prompt aset status pengiriman hanya jika aset tersebut memang tercantum pada Prompt 2 PRO. Jika Canva Sheet = Tidak, jangan menghasilkan aset bertema spreadsheet/sinkronisasi nilai.
 
 Output:
-Daftar prompt siap copy, dikelompokkan per kategori aset, masing-masing diberi judul singkat yang sama dengan nama aset di Prompt 2 PRO.`
+Daftar prompt siap copy, dikelompokkan per kategori aset, masing-masing diberi judul singkat yang sama dengan nama aset di Prompt 2 PRO, siap digunakan pada Prompt 4 PRO untuk generate aset otomatis.`
       },
       {
-        title: "Prompt 4 PRO Coding MPI (Gabungkan Semua Aset ke Desain)",
-        text: `Ubah rancangan desain MPI (Prompt 1 PRO) dan aset yang sudah dibuat (hasil Prompt 3 PRO) menjadi kode MPI interaktif yang bisa langsung dijalankan, dalam satu file HTML lengkap (HTML, CSS, JavaScript).
+        title: "Prompt 4 PRO Generate Semua Aset Otomatis MPI di ChatGPT/Claude",
+        text: `Berdasarkan rancangan desain MPI (Prompt 1 PRO), Daftar Inventaris Aset (Prompt 2 PRO), dan kumpulan prompt aset (Prompt 3 PRO), sekarang GENERATE semua aset MPI ini secara otomatis langsung di percakapan ChatGPT/Claude. Jangan berhenti pada daftar atau prompt saja jika platform memiliki kemampuan membuat gambar/aset; lanjutkan sampai aset utama benar-benar dibuat. Kerjakan secara bertahap per batch sesuai kemampuan image generation AI yang sedang digunakan; jangan memaksa seluruh aset dibuat sekaligus dalam satu proses.
+
+Platform: [ChatGPT / Claude]
+
+Tetap patuhi keputusan proyek:
+- Tautkan Canva Sheet: [Ya / Tidak]
+- Akses menu: [Bertahap / Bebas]
+
+PRIORITAS ASET UTAMA — WAJIB DIDAHULUKAN:
+1. Aset yang berhubungan langsung dengan materi — ilustrasi konsep, diagram, objek pembelajaran, visual proses, contoh kontekstual, infografik sederhana tanpa teks panjang, dan aset visual lain yang membantu siswa memahami isi materi.
+2. Ikon menu utama — Pembuka, Tujuan Pembelajaran, Materi, Pembelajaran Bertahap, Evaluasi, serta Simulasi/Games bila digunakan.
+3. Maskot/karakter pemandu — jika tercantum pada Prompt 1 PRO; jaga ciri visual, pakaian, warna, dan ekspresi tetap konsisten.
+4. Karakter/objek interaktif — bila MPI memiliki simulasi, games, drag-drop, atau aktivitas visual tertentu.
+5. Bangunan/ruang/latar tematik — hanya jika menjadi bagian penting dari tema atau konteks materi, misalnya laboratorium, sekolah, kota, hutan, museum, luar angkasa, dan sebagainya.
+6. Obstacle/rintangan — hanya jika Simulasi/Games di dalam MPI memang membutuhkannya.
+7. Aset status progres/Canva Sheet — hanya sesuai pilihan Prompt 0-1 PRO dan hanya jika memang membutuhkan aset visual khusus.
+
+ASET OPSIONAL:
+- Audio: narasi, backsound, efek klik, benar/salah, transisi, atau reward. Generate hanya bila diperlukan atau saya minta.
+- Tombol navigasi: Menu, Lanjut, Kembali, Home, Ulangi, Kirim, dan sejenisnya. Secara default buat sebagai HTML/CSS; aset gambar tombol hanya opsional.
+
+ATURAN OUTPUT GAMBAR & SISTEM BATCH — WAJIB:
+1. Prioritas utama: 1 aset/gambar = 1 file terpisah agar paling mudah digunakan saat coding, disimpan, dan di-crop bila diperlukan.
+2. Jika keterbatasan AI membuat beberapa aset harus digenerate dalam 1 file/canvas, susun aset dalam grid yang rapi dan mudah dipotong.
+3. Dalam 1 baris, tampilkan maksimal 4 gambar/aset. Jika jumlah aset pada batch kurang dari 4, tidak perlu memaksakan menjadi 4.
+4. Setiap gambar/aset harus memiliki ruang kosong/gutter minimal 6 px pada sisi kiri, kanan, atas, dan bawah. Jarak minimal 6 px juga harus dipertahankan antar-aset agar hasil dapat di-crop tanpa mengenai aset di sebelahnya.
+5. Jangan biarkan karakter, bayangan, efek cahaya, outline, atau bagian objek lain melewati area batas/gutter aset tetangga. Setiap aset harus benar-benar terpisah secara visual.
+6. Jika memakai background transparan, pertahankan transparansi di area pemisah. Jika transparansi tidak didukung, gunakan background polos yang kontras dan konsisten agar proses crop mudah.
+7. Generate aset PER BATCH sesuai kemampuan AI/platform yang digunakan. Jangan memaksa seluruh inventaris aset dibuat dalam satu kali generate.
+8. Ukuran batch bersifat adaptif: gunakan jumlah aset yang masih dapat dihasilkan dengan kualitas dan konsistensi yang baik oleh AI saat itu. Jika kualitas mulai turun atau detail tercampur, kecilkan batch berikutnya.
+9. Beri label urutan kerja di luar gambar: Batch 1, Batch 2, Batch 3, dan seterusnya. Jangan menambahkan nama file/label panjang di dalam gambar aset kecuali memang bagian dari desain.
+10. Setelah setiap batch selesai, tampilkan daftar aset pada batch tersebut beserta nama file yang disarankan, status Selesai/Perlu Ulang, lalu lanjutkan ke batch berikutnya. Jika ada aset gagal atau tercampur, regenerate hanya aset tersebut dalam batch kecil atau satu per satu.
+11. Untuk aset yang membutuhkan beberapa pose/state, usahakan setiap pose/state menjadi file terpisah. Jika harus digabung dalam satu canvas, tetap gunakan aturan maksimal 4 aset per baris dan gutter minimal 6 px.
+
+ATURAN GENERATE:
+1. Gunakan nama aset dan fungsi dari Prompt 2 PRO. Gunakan Prompt 3 PRO sebagai panduan gaya/prompt, bukan sebagai output akhir.
+2. Generate aset Wajib terlebih dahulu; aset Opsional dikerjakan setelah aset utama selesai.
+3. Prioritaskan PNG transparan/SVG untuk ikon, karakter, objek, dan elemen yang perlu ditempatkan di berbagai background.
+4. Jangan menaruh paragraf atau teks materi di dalam gambar. Teks pembelajaran tetap dibuat di HTML/CSS agar mudah diedit dan tetap terbaca.
+5. Pertahankan palet warna, gaya ilustrasi, proporsi, outline, pencahayaan, dan mood sesuai Prompt 1 PRO.
+6. Ikon menu harus satu keluarga visual: ukuran, ketebalan garis, sudut, dan warna konsisten.
+7. Jika maskot/karakter memiliki beberapa pose, generate hanya pose yang benar-benar dibutuhkan oleh storyboard.
+8. Jangan membuat aset yang bertentangan dengan pilihan Canva Sheet atau mode Akses menu.
+9. Untuk setiap aset yang selesai, tampilkan: nomor, nama file, kategori, halaman pemakaian, format, dan status Selesai.
+10. Setelah aset utama selesai, buat Rekap Manifest Aset Final: Wajib selesai, Opsional selesai, Opsional belum dibuat.
+
+PENTING:
+- Jangan hanya menjelaskan proses pembuatan aset.
+- Jangan hanya menampilkan ulang prompt dari Prompt 3 PRO.
+- Jika fitur image generation tersedia, langsung hasilkan aset secara berurutan per batch sesuai kemampuan AI.
+- Jika platform tidak dapat menghasilkan file gambar/audio secara langsung, buat paket prompt final per aset dengan nama file yang konsisten dan tandai "perlu dieksekusi pada generator aset" tanpa mengubah kebutuhan aset utama.
+
+Mulai dari aset materi paling penting, kemudian ikon menu, maskot/karakter, bangunan/latar atau obstacle jika relevan, lalu aset opsional.`
+      },
+      {
+        title: "Prompt 5 PRO Coding MPI (Gabungkan Semua Aset ke Desain)",
+        text: `Ubah rancangan desain MPI (Prompt 1 PRO) dan aset yang sudah dibuat/digenerate (hasil Prompt 4 PRO; mengacu Prompt 2-3 PRO) menjadi kode MPI interaktif yang bisa langsung dijalankan, dalam satu file HTML lengkap (HTML, CSS, JavaScript).
 
 Engine/Platform tujuan: [pilih satu — Canva Code / dikerjakan bersama Claude / Gemini / ChatGPT]
 
@@ -1271,7 +1378,7 @@ Aturan Akses Menu — KONDISIONAL:
    - Progress boleh ditampilkan sebagai penanda halaman yang pernah dipelajari, tetapi tidak membatasi perpindahan menu.
 
 Integrasi Aset:
-12. Sebutkan daftar nama file aset (sesuai Prompt 2/3 PRO) beserta tempat pemakaiannya di kode.
+12. Sebutkan daftar nama file aset (sesuai Prompt 2/3/4 PRO) beserta tempat pemakaiannya di kode.
 13. Gunakan path placeholder yang jelas untuk gambar (misal "assets/nama_file.png"), ATAU sertakan base64 jika file sudah tersedia dan berukuran kecil.
 14. Jika aset belum tersedia, gunakan bentuk/warna sederhana (CSS shape/emoji) sebagai penanda sementara, diberi komentar "// TODO: ganti dengan aset asli".
 15. Pastikan warna, font, posisi elemen, aset status menu, dan aset Canva Sheet (jika ada) konsisten dengan Desain Visual/UI pada Prompt 1 PRO.
@@ -1301,7 +1408,7 @@ Output: Kode siap copy dalam satu blok HTML.`
     id: "paket-pro-sederhana",
     name: "Paket PRO — Game Edukasi Sederhana",
     icon: "🎮",
-    keywords: "prompt pro paket pro PRO game edukasi sederhana ideasi desain storyboard asset inventory generate aset coding board game ular tangga kartu misi spin wheel dadu puzzle",
+    keywords: "prompt pro paket pro PRO game edukasi sederhana ideasi desain storyboard asset inventory generate aset generate aset otomatis chatgpt claude coding board game ular tangga kartu misi spin wheel dadu puzzle",
     prompts: [
       {
         title: "Prompt 0 PRO Ideasi Game Edukasi Sederhana",
@@ -1388,11 +1495,61 @@ Ketentuan:
 6. Sertakan instruksi singkat pengeditan pasca-generate jika perlu.
 
 Output:
-Daftar prompt siap copy, dikelompokkan per kategori aset, judul sama dengan nama aset di Prompt 2 PRO.`
+Daftar prompt siap copy, dikelompokkan per kategori aset, judul sama dengan nama aset di Prompt 2 PRO, siap digunakan pada Prompt 4 PRO untuk generate aset otomatis.`
       },
       {
-        title: "Prompt 4 PRO Coding Game Edukasi Sederhana (Gabungkan Semua Aset ke Desain)",
-        text: `Ubah rancangan desain game (Prompt 1 PRO) dan aset yang sudah dibuat (hasil Prompt 3 PRO) menjadi kode game interaktif dalam satu file HTML lengkap (HTML, CSS, JavaScript). Jelaskan mekanisme dan tampilan game secara sangat detail.
+        title: "Prompt 4 PRO Generate Semua Aset Otomatis Game Edukasi Sederhana di ChatGPT/Claude",
+        text: `Berdasarkan rancangan desain game (Prompt 1 PRO), Daftar Inventaris Aset (Prompt 2 PRO), dan kumpulan prompt aset (Prompt 3 PRO), sekarang GENERATE semua aset game ini secara otomatis langsung di percakapan ChatGPT/Claude. Jangan berhenti pada daftar atau prompt saja jika platform memiliki kemampuan membuat gambar/aset; lanjutkan sampai aset utama benar-benar dibuat. Kerjakan secara bertahap per batch sesuai kemampuan image generation AI yang sedang digunakan; jangan memaksa seluruh aset dibuat sekaligus dalam satu proses.
+
+Platform: [ChatGPT / Claude]
+
+PRIORITAS ASET UTAMA — WAJIB DIDAHULUKAN:
+1. Aset yang berhubungan langsung dengan materi/tantangan — gambar objek materi, kartu soal bergambar, objek eksperimen, simbol, peta, item edukatif, atau visual lain yang diperlukan agar soal dan mekanik game terhubung dengan materi.
+2. Ikon menu utama — Mulai, Petunjuk, Materi/Misi, Tantangan, Skor/Hasil, Reward, dan menu lain yang benar-benar ada.
+3. Maskot dan karakter — karakter pemain, NPC/pemandu, lawan non-kekerasan, atau karakter pendukung sesuai storyboard; jaga konsistensi tampilan pada semua pose.
+4. Bangunan/lokasi/scene penting — sekolah, laboratorium, kota, hutan, planet, arena, lintasan, ruangan, atau lokasi lain sesuai tema game.
+5. Obstacle/rintangan — batu, gerbang, jebakan ramah anak, penghalang, checkpoint, target, atau objek tantangan sesuai mekanik game.
+6. Elemen mekanik utama — papan/grid, dadu, kartu, kendaraan, item koleksi, koin/bintang, puzzle piece, gerbang soal, dan objek interaktif lain sesuai model game.
+
+ASET OPSIONAL:
+- Audio: backsound, klik, benar/salah, reward, langkah, kendaraan, atau efek mekanik. Generate hanya bila diperlukan atau saya minta.
+- Tombol navigasi: Home, Lanjut, Kembali, Ulangi, Pause, dan lainnya. Secara default gunakan HTML/CSS; aset tombol bergambar hanya opsional.
+
+ATURAN OUTPUT GAMBAR & SISTEM BATCH — WAJIB:
+1. Prioritas utama: 1 aset/gambar = 1 file terpisah agar paling mudah digunakan saat coding, disimpan, dan di-crop bila diperlukan.
+2. Jika keterbatasan AI membuat beberapa aset harus digenerate dalam 1 file/canvas, susun aset dalam grid yang rapi dan mudah dipotong.
+3. Dalam 1 baris, tampilkan maksimal 4 gambar/aset. Jika jumlah aset pada batch kurang dari 4, tidak perlu memaksakan menjadi 4.
+4. Setiap gambar/aset harus memiliki ruang kosong/gutter minimal 6 px pada sisi kiri, kanan, atas, dan bawah. Jarak minimal 6 px juga harus dipertahankan antar-aset agar hasil dapat di-crop tanpa mengenai aset di sebelahnya.
+5. Jangan biarkan karakter, bayangan, efek cahaya, outline, atau bagian objek lain melewati area batas/gutter aset tetangga. Setiap aset harus benar-benar terpisah secara visual.
+6. Jika memakai background transparan, pertahankan transparansi di area pemisah. Jika transparansi tidak didukung, gunakan background polos yang kontras dan konsisten agar proses crop mudah.
+7. Generate aset PER BATCH sesuai kemampuan AI/platform yang digunakan. Jangan memaksa seluruh inventaris aset dibuat dalam satu kali generate.
+8. Ukuran batch bersifat adaptif: gunakan jumlah aset yang masih dapat dihasilkan dengan kualitas dan konsistensi yang baik oleh AI saat itu. Jika kualitas mulai turun atau detail tercampur, kecilkan batch berikutnya.
+9. Beri label urutan kerja di luar gambar: Batch 1, Batch 2, Batch 3, dan seterusnya. Jangan menambahkan nama file/label panjang di dalam gambar aset kecuali memang bagian dari desain.
+10. Setelah setiap batch selesai, tampilkan daftar aset pada batch tersebut beserta nama file yang disarankan, status Selesai/Perlu Ulang, lalu lanjutkan ke batch berikutnya. Jika ada aset gagal atau tercampur, regenerate hanya aset tersebut dalam batch kecil atau satu per satu.
+11. Untuk aset yang membutuhkan beberapa pose/state, usahakan setiap pose/state menjadi file terpisah. Jika harus digabung dalam satu canvas, tetap gunakan aturan maksimal 4 aset per baris dan gutter minimal 6 px.
+
+ATURAN GENERATE:
+1. Gunakan daftar nama aset dari Prompt 2 PRO dan panduan visual Prompt 3 PRO.
+2. Generate aset Wajib terlebih dahulu, dimulai dari aset materi dan mekanik inti game.
+3. Utamakan PNG transparan/SVG untuk karakter, obstacle, ikon, item, dan objek yang harus ditempatkan di scene berbeda.
+4. Background/scene boleh berupa gambar penuh jika memang dibutuhkan, tetapi jangan membuatnya terlalu ramai sehingga soal sulit dibaca.
+5. Jangan menaruh teks soal, skor, atau instruksi panjang langsung di dalam gambar.
+6. Pertahankan gaya, palet, proporsi, outline, sudut pandang, dan mood konsisten dengan Prompt 1 PRO.
+7. Jika karakter/obstacle perlu beberapa state, generate state minimum yang dibutuhkan: idle/bergerak/berhasil/gagal atau normal/aktif bila relevan.
+8. Jangan gabungkan seluruh inventaris aset menjadi satu sprite sheet. Prioritaskan 1 aset per file; bila perlu multi-aset dalam satu canvas, ikuti aturan batch, maksimal 4 aset per baris, dan gutter minimal 6 px.
+9. Untuk setiap aset yang selesai, tampilkan: nomor, nama file, kategori, scene pemakaian, format, dan status Selesai.
+10. Setelah semua aset utama selesai, buat Rekap Manifest Aset Final: Wajib selesai, Opsional selesai, Opsional belum dibuat.
+
+PENTING:
+- Jangan hanya menulis prompt aset.
+- Jika fitur image generation tersedia, langsung gunakan fitur tersebut dan lanjutkan batch demi batch sampai aset utama selesai.
+- Jika platform tidak dapat menghasilkan file gambar/audio secara langsung, buat paket prompt final per aset dengan nama file konsisten dan tandai "perlu dieksekusi pada generator aset".
+
+Mulai dari aset yang paling berhubungan dengan materi dan mekanik inti, lalu ikon menu, maskot/karakter, bangunan, obstacle, dan terakhir aset opsional.`
+      },
+      {
+        title: "Prompt 5 PRO Coding Game Edukasi Sederhana (Gabungkan Semua Aset ke Desain)",
+        text: `Ubah rancangan desain game (Prompt 1 PRO) dan aset yang sudah dibuat/digenerate (hasil Prompt 4 PRO; mengacu Prompt 2-3 PRO) menjadi kode game interaktif dalam satu file HTML lengkap (HTML, CSS, JavaScript). Jelaskan mekanisme dan tampilan game secara sangat detail.
 
 Engine/Platform tujuan: [pilih satu — Canva Code / dikerjakan bersama Claude / Gemini / ChatGPT]
 
@@ -1406,7 +1563,7 @@ Ketentuan umum:
 7. Satu layar game dinamis, bukan banyak file terpisah.
 
 Integrasi Aset:
-8. Sebutkan daftar nama file aset (sesuai Prompt 2/3 PRO) beserta tempat pemakaiannya di kode.
+8. Sebutkan daftar nama file aset (sesuai Prompt 2/3/4 PRO) beserta tempat pemakaiannya di kode.
 9. Gunakan path placeholder yang jelas ("assets/nama_file.png"), ATAU base64 jika file sudah tersedia dan kecil.
 10. Jika aset belum tersedia, gunakan bentuk/warna sederhana (CSS shape/emoji) sebagai penanda sementara, diberi komentar "// TODO: ganti dengan aset asli".
 11. Pastikan tampilan konsisten dengan Desain Visual/UI pada Prompt 1 PRO.
@@ -1436,7 +1593,7 @@ Output: Kode siap copy dalam satu blok HTML.`
     id: "paket-pro-critical",
     name: "Paket PRO — Game Edukasi Critical Thinking",
     icon: "🧠",
-    keywords: "prompt pro paket pro PRO critical thinking berpikir kritis ideasi desain storyboard asset inventory generate aset coding kasus analisis alasan konsekuensi hint bertahap review",
+    keywords: "prompt pro paket pro PRO critical thinking berpikir kritis ideasi desain storyboard asset inventory generate aset generate aset otomatis chatgpt claude coding kasus analisis alasan konsekuensi hint bertahap review",
     prompts: [
       {
         title: "Prompt 0 PRO Ideasi Game Edukasi Critical Thinking",
@@ -1515,11 +1672,61 @@ Ketentuan:
 6. Sertakan instruksi edit pasca-generate jika perlu.
 
 Output:
-Daftar prompt siap copy, dikelompokkan per kategori aset.`
+Daftar prompt siap copy, dikelompokkan per kategori aset, siap digunakan pada Prompt 4 PRO untuk generate aset otomatis.`
       },
       {
-        title: "Prompt 4 PRO Coding Game Edukasi Critical Thinking (Gabungkan Semua Aset ke Desain)",
-        text: `Ubah rancangan desain game (Prompt 1 PRO) dan aset (hasil Prompt 3 PRO) menjadi kode game interaktif dalam satu file HTML lengkap. Jelaskan mekanisme dan tampilan game secara sangat detail.
+        title: "Prompt 4 PRO Generate Semua Aset Otomatis Game Critical Thinking di ChatGPT/Claude",
+        text: `Berdasarkan rancangan desain Game Critical Thinking (Prompt 1 PRO), Daftar Inventaris Aset (Prompt 2 PRO), dan kumpulan prompt aset (Prompt 3 PRO), sekarang GENERATE semua aset game ini secara otomatis langsung di percakapan ChatGPT/Claude. Jangan berhenti pada daftar atau prompt saja jika platform memiliki kemampuan membuat gambar/aset; lanjutkan sampai aset utama benar-benar dibuat. Kerjakan secara bertahap per batch sesuai kemampuan image generation AI yang sedang digunakan; jangan memaksa seluruh aset dibuat sekaligus dalam satu proses.
+
+Platform: [ChatGPT / Claude]
+
+PRIORITAS ASET UTAMA — WAJIB DIDAHULUKAN:
+1. Aset yang berhubungan langsung dengan materi, kasus, data, dan pengambilan keputusan — ilustrasi situasi masalah, objek bukti/petunjuk, diagram, tabel visual, peta, objek eksperimen, atau visual pilihan yang diperlukan untuk analisis siswa.
+2. Ikon menu utama — Mulai, Petunjuk, Kasus/Misi, Analisis, Tantangan, Review, Hasil/Reward, dan menu lain yang benar-benar digunakan.
+3. Maskot/karakter pemandu serta karakter kasus — jaga identitas visual, pakaian, warna, ekspresi, dan proporsi tetap konsisten pada semua scene.
+4. Bangunan/lokasi/scene kasus — laboratorium, sekolah, kota, ekosistem, fasilitas publik, ruang kontrol, atau lokasi lain yang menjadi konteks pengambilan keputusan.
+5. Obstacle/rintangan/konsekuensi visual — penghalang, cabang jalur, kondisi lingkungan, risiko, checkpoint, atau objek konsekuensi yang memang menjadi bagian mekanik game.
+6. Elemen interaktif analisis — kartu bukti, kartu data, indikator keputusan, item petunjuk, panel pilihan, serta objek drag-drop yang dibutuhkan.
+
+ASET OPSIONAL:
+- Audio: ambience, klik, feedback, reward, atau efek situasi. Generate hanya bila diperlukan atau saya minta.
+- Tombol navigasi: Home, Lanjut, Kembali, Review, Ulangi, dan lainnya. Utamakan HTML/CSS; gambar tombol bersifat opsional.
+
+ATURAN OUTPUT GAMBAR & SISTEM BATCH — WAJIB:
+1. Prioritas utama: 1 aset/gambar = 1 file terpisah agar paling mudah digunakan saat coding, disimpan, dan di-crop bila diperlukan.
+2. Jika keterbatasan AI membuat beberapa aset harus digenerate dalam 1 file/canvas, susun aset dalam grid yang rapi dan mudah dipotong.
+3. Dalam 1 baris, tampilkan maksimal 4 gambar/aset. Jika jumlah aset pada batch kurang dari 4, tidak perlu memaksakan menjadi 4.
+4. Setiap gambar/aset harus memiliki ruang kosong/gutter minimal 6 px pada sisi kiri, kanan, atas, dan bawah. Jarak minimal 6 px juga harus dipertahankan antar-aset agar hasil dapat di-crop tanpa mengenai aset di sebelahnya.
+5. Jangan biarkan karakter, bayangan, efek cahaya, outline, atau bagian objek lain melewati area batas/gutter aset tetangga. Setiap aset harus benar-benar terpisah secara visual.
+6. Jika memakai background transparan, pertahankan transparansi di area pemisah. Jika transparansi tidak didukung, gunakan background polos yang kontras dan konsisten agar proses crop mudah.
+7. Generate aset PER BATCH sesuai kemampuan AI/platform yang digunakan. Jangan memaksa seluruh inventaris aset dibuat dalam satu kali generate.
+8. Ukuran batch bersifat adaptif: gunakan jumlah aset yang masih dapat dihasilkan dengan kualitas dan konsistensi yang baik oleh AI saat itu. Jika kualitas mulai turun atau detail tercampur, kecilkan batch berikutnya.
+9. Beri label urutan kerja di luar gambar: Batch 1, Batch 2, Batch 3, dan seterusnya. Jangan menambahkan nama file/label panjang di dalam gambar aset kecuali memang bagian dari desain.
+10. Setelah setiap batch selesai, tampilkan daftar aset pada batch tersebut beserta nama file yang disarankan, status Selesai/Perlu Ulang, lalu lanjutkan ke batch berikutnya. Jika ada aset gagal atau tercampur, regenerate hanya aset tersebut dalam batch kecil atau satu per satu.
+11. Untuk aset yang membutuhkan beberapa pose/state, usahakan setiap pose/state menjadi file terpisah. Jika harus digabung dalam satu canvas, tetap gunakan aturan maksimal 4 aset per baris dan gutter minimal 6 px.
+
+ATURAN GENERATE:
+1. Gunakan Prompt 2 PRO untuk daftar aset dan Prompt 3 PRO sebagai panduan gaya/prompt.
+2. Generate aset Wajib terlebih dahulu, terutama visual kasus/data yang diperlukan siswa untuk berpikir kritis.
+3. Visual kasus tidak boleh memberikan jawaban secara eksplisit; aset harus menyajikan informasi yang dapat dianalisis, bukan membocorkan pilihan benar.
+4. Utamakan PNG transparan/SVG untuk karakter, bukti, objek, obstacle, ikon, dan elemen yang dipakai lintas scene.
+5. Jangan menaruh teks panjang atau kunci jawaban di dalam gambar; teks analisis tetap dibuat di HTML/CSS.
+6. Pertahankan gaya, palet, pencahayaan, sudut pandang, dan identitas karakter konsisten dengan Prompt 1 PRO.
+7. Jika satu kasus memerlukan beberapa kondisi/konsekuensi, generate state yang dibutuhkan secara terpisah dan beri nama file jelas.
+8. Jangan gabungkan seluruh inventaris aset menjadi satu gambar besar. Prioritaskan 1 aset per file; bila perlu multi-aset dalam satu canvas, ikuti aturan batch, maksimal 4 aset per baris, dan gutter minimal 6 px.
+9. Untuk setiap aset yang selesai, tampilkan: nomor, nama file, kategori, scene/kasus pemakaian, format, dan status Selesai.
+10. Setelah aset utama selesai, buat Rekap Manifest Aset Final: Wajib selesai, Opsional selesai, Opsional belum dibuat.
+
+PENTING:
+- Jangan hanya mengulang prompt aset.
+- Jika fitur image generation tersedia, langsung hasilkan aset secara berurutan per batch sesuai kemampuan AI.
+- Jika platform tidak dapat menghasilkan file gambar/audio secara langsung, buat paket prompt final per aset dengan nama file konsisten dan tandai "perlu dieksekusi pada generator aset".
+
+Mulai dari aset materi/kasus dan data analisis, lalu ikon menu, maskot/karakter, bangunan/lokasi, obstacle/konsekuensi, dan terakhir aset opsional.`
+      },
+      {
+        title: "Prompt 5 PRO Coding Game Edukasi Critical Thinking (Gabungkan Semua Aset ke Desain)",
+        text: `Ubah rancangan desain game (Prompt 1 PRO) dan aset yang sudah dibuat/digenerate (hasil Prompt 4 PRO; mengacu Prompt 2-3 PRO) menjadi kode game interaktif dalam satu file HTML lengkap. Jelaskan mekanisme dan tampilan game secara sangat detail.
 
 Engine/Platform tujuan: [pilih satu — Canva Code / dikerjakan bersama Claude / Gemini / ChatGPT]
 
@@ -1537,7 +1744,7 @@ Tambahan khusus critical thinking:
 9. Jangan semua soal pilihan ganda — campurkan dengan mengurutkan, menjodohkan, drag and drop, pilihan bercabang, isian alasan, analisis kasus.
 
 Integrasi Aset:
-Sebutkan nama file aset (sesuai Prompt 2/3 PRO) beserta tempat pemakaiannya; gunakan path placeholder atau base64; gunakan bentuk/warna sederhana bila aset belum tersedia, diberi komentar "// TODO".
+Sebutkan nama file aset (sesuai Prompt 2/3/4 PRO) beserta tempat pemakaiannya; gunakan path placeholder atau base64; gunakan bentuk/warna sederhana bila aset belum tersedia, diberi komentar "// TODO".
 
 Testing & Deploy:
 Sertakan catatan singkat pengujian manual, dan langkah singkat deploy ke Vercel/GitHub Pages/Netlify bila diperlukan.
@@ -1654,11 +1861,62 @@ Ketentuan:
 6. Sertakan instruksi edit pasca-generate jika perlu.
 
 Output:
-Daftar prompt siap copy, dikelompokkan per kategori aset.`
+Daftar prompt siap copy, dikelompokkan per kategori aset, siap digunakan pada Prompt 4 PRO untuk generate aset otomatis.`
       },
       {
-        title: "Prompt 4 PRO Coding Game Edukasi Skill & Luck (Gabungkan Semua Aset ke Desain)",
-        text: `Ubah rancangan desain game (Prompt 1 PRO) dan aset (hasil Prompt 3 PRO) menjadi kode game interaktif dalam satu file HTML lengkap. Pastikan mekanisme game dan tampilan dijelaskan sangat detail.
+        title: "Prompt 4 PRO Generate Semua Aset Otomatis Game Skill & Luck di ChatGPT/Claude",
+        text: `Berdasarkan rancangan desain Game Skill & Luck (Prompt 1 PRO), Daftar Inventaris Aset (Prompt 2 PRO), dan kumpulan prompt aset (Prompt 3 PRO), sekarang GENERATE semua aset game ini secara otomatis langsung di percakapan ChatGPT/Claude. Jangan berhenti pada daftar atau prompt saja jika platform memiliki kemampuan membuat gambar/aset; lanjutkan sampai aset utama benar-benar dibuat. Kerjakan secara bertahap per batch sesuai kemampuan image generation AI yang sedang digunakan; jangan memaksa seluruh aset dibuat sekaligus dalam satu proses.
+
+Platform: [ChatGPT / Claude]
+
+PRIORITAS ASET UTAMA — WAJIB DIDAHULUKAN:
+1. Aset yang berhubungan langsung dengan materi/tantangan skill — ilustrasi kasus, objek materi, data visual, item edukatif, kartu soal bergambar, atau visual lain yang membantu siswa menjawab berdasarkan pengetahuan/analisis.
+2. Ikon menu utama — Mulai, Petunjuk, Misi, Tantangan Skill, Luck Event, Review, Skor/Hasil, Reward, dan menu lain yang benar-benar ada.
+3. Maskot dan karakter — pemain, pemandu, NPC, atau karakter tematik; pertahankan identitas visual dan pose yang konsisten.
+4. Bangunan/lokasi/scene — arena, sekolah, kota, laboratorium, lintasan, dunia tematik, atau lokasi lain sesuai storyboard.
+5. Obstacle/rintangan — objek penghalang, checkpoint, rute bercabang, jebakan ramah anak, atau rintangan lain yang benar-benar digunakan mekanik game.
+6. Elemen mekanik Luck — dadu, spin wheel, kartu keberuntungan, kartu tantangan, bonus, rintangan acak, kesempatan kedua, jalan pintas, dan efek visual luck.
+7. Ikon indikator skor — Nilai Murni Asesmen, Skor Skill, Skor Luck, Nilai Game, badge/reward, dengan gaya konsisten dan mudah dibedakan.
+
+ASET OPSIONAL:
+- Audio: backsound, putaran dadu/spin, kartu flip, bonus, rintangan, benar/salah, reward. Generate hanya bila diperlukan atau saya minta.
+- Tombol navigasi: Home, Lanjut, Kembali, Pause, Ulangi, dan lainnya. Gunakan HTML/CSS secara default; aset tombol gambar hanya opsional.
+
+ATURAN OUTPUT GAMBAR & SISTEM BATCH — WAJIB:
+1. Prioritas utama: 1 aset/gambar = 1 file terpisah agar paling mudah digunakan saat coding, disimpan, dan di-crop bila diperlukan.
+2. Jika keterbatasan AI membuat beberapa aset harus digenerate dalam 1 file/canvas, susun aset dalam grid yang rapi dan mudah dipotong.
+3. Dalam 1 baris, tampilkan maksimal 4 gambar/aset. Jika jumlah aset pada batch kurang dari 4, tidak perlu memaksakan menjadi 4.
+4. Setiap gambar/aset harus memiliki ruang kosong/gutter minimal 6 px pada sisi kiri, kanan, atas, dan bawah. Jarak minimal 6 px juga harus dipertahankan antar-aset agar hasil dapat di-crop tanpa mengenai aset di sebelahnya.
+5. Jangan biarkan karakter, bayangan, efek cahaya, outline, atau bagian objek lain melewati area batas/gutter aset tetangga. Setiap aset harus benar-benar terpisah secara visual.
+6. Jika memakai background transparan, pertahankan transparansi di area pemisah. Jika transparansi tidak didukung, gunakan background polos yang kontras dan konsisten agar proses crop mudah.
+7. Generate aset PER BATCH sesuai kemampuan AI/platform yang digunakan. Jangan memaksa seluruh inventaris aset dibuat dalam satu kali generate.
+8. Ukuran batch bersifat adaptif: gunakan jumlah aset yang masih dapat dihasilkan dengan kualitas dan konsistensi yang baik oleh AI saat itu. Jika kualitas mulai turun atau detail tercampur, kecilkan batch berikutnya.
+9. Beri label urutan kerja di luar gambar: Batch 1, Batch 2, Batch 3, dan seterusnya. Jangan menambahkan nama file/label panjang di dalam gambar aset kecuali memang bagian dari desain.
+10. Setelah setiap batch selesai, tampilkan daftar aset pada batch tersebut beserta nama file yang disarankan, status Selesai/Perlu Ulang, lalu lanjutkan ke batch berikutnya. Jika ada aset gagal atau tercampur, regenerate hanya aset tersebut dalam batch kecil atau satu per satu.
+11. Untuk aset yang membutuhkan beberapa pose/state, usahakan setiap pose/state menjadi file terpisah. Jika harus digabung dalam satu canvas, tetap gunakan aturan maksimal 4 aset per baris dan gutter minimal 6 px.
+
+ATURAN GENERATE:
+1. Gunakan Prompt 2 PRO sebagai daftar aset dan Prompt 3 PRO sebagai panduan visual.
+2. Generate aset Wajib terlebih dahulu: aset materi/skill, lalu elemen luck, ikon menu, karakter, bangunan/scene, dan obstacle.
+3. Aset luck harus jelas secara visual tetapi tidak menyerupai nilai akademik; bedakan ikon Skill, Luck, Nilai Murni, dan Nilai Game.
+4. Utamakan PNG transparan/SVG untuk karakter, dadu, kartu, wheel pointer, obstacle, ikon, dan item yang dipakai berulang.
+5. Untuk dadu/spin wheel/kartu, buat komponen yang mudah dianimasikan dengan CSS/JS; jangan menempelkan teks panjang ke gambar.
+6. Pertahankan gaya, palet, proporsi, outline, dan sudut pandang konsisten dengan Prompt 1 PRO.
+7. Jika karakter/obstacle/elemen luck memerlukan beberapa state, generate state minimum yang diperlukan secara terpisah.
+8. Jangan gabungkan seluruh inventaris aset ke satu sprite sheet. Prioritaskan 1 aset per file; bila perlu multi-aset dalam satu canvas, ikuti aturan batch, maksimal 4 aset per baris, dan gutter minimal 6 px.
+9. Untuk setiap aset selesai, tampilkan: nomor, nama file, kategori, scene pemakaian, format, dan status Selesai.
+10. Setelah aset utama selesai, buat Rekap Manifest Aset Final: Wajib selesai, Opsional selesai, Opsional belum dibuat.
+
+PENTING:
+- Jangan hanya menulis ulang prompt dari Prompt 3 PRO.
+- Jika fitur image generation tersedia, langsung gunakan fitur tersebut dan lanjutkan secara otomatis batch demi batch sampai aset utama selesai.
+- Jika platform tidak dapat menghasilkan file gambar/audio secara langsung, buat paket prompt final per aset dengan nama file konsisten dan tandai "perlu dieksekusi pada generator aset".
+
+Mulai dari aset materi/skill dan elemen mekanik utama, lalu ikon menu, maskot/karakter, bangunan, obstacle, dan terakhir aset opsional.`
+      },
+      {
+        title: "Prompt 5 PRO Coding Game Edukasi Skill & Luck (Gabungkan Semua Aset ke Desain)",
+        text: `Ubah rancangan desain game (Prompt 1 PRO) dan aset yang sudah dibuat/digenerate (hasil Prompt 4 PRO; mengacu Prompt 2-3 PRO) menjadi kode game interaktif dalam satu file HTML lengkap. Pastikan mekanisme game dan tampilan dijelaskan sangat detail.
 
 Engine/Platform tujuan: [pilih satu — Canva Code / dikerjakan bersama Claude / Gemini / ChatGPT]
 
@@ -1672,7 +1930,7 @@ Ketentuan umum:
 7. Satu layar game dinamis, bukan banyak file terpisah.
 
 Integrasi Aset:
-Sebutkan nama file aset (dadu/spin wheel/kartu luck/karakter/background/ikon, sesuai Prompt 2/3 PRO) beserta tempat pemakaiannya; gunakan path placeholder atau base64; gunakan bentuk/warna sederhana bila aset belum tersedia, diberi komentar "// TODO".
+Sebutkan nama file aset (dadu/spin wheel/kartu luck/karakter/background/ikon, sesuai Prompt 2/3/4 PRO) beserta tempat pemakaiannya; gunakan path placeholder atau base64; gunakan bentuk/warna sederhana bila aset belum tersedia, diberi komentar "// TODO".
 
 Sistem Skor:
 Implementasikan 4 jenis nilai secara terpisah dan tampilkan semua di halaman hasil akhir: Nilai Murni Asesmen, Skor Skill, Skor Luck, dan Nilai Game. Luck tidak boleh mengubah Nilai Murni Asesmen dalam kondisi apa pun.
@@ -3076,6 +3334,207 @@ Aturan Lock Konsep Genre:
 3. Semua revisi visual, kode, maupun fitur tidak boleh mengubah genre inti.
 4. Jika ada permintaan yang berpotensi mengubah genre, tahan dulu dan beri alternatif yang tetap sesuai genre.
 5. Nilai edukasi tetap menjadi inti; genre hanya pembungkus yang membuat belajar terasa menyenangkan.`
+      }
+    ]
+  }
+];
+
+// Bank Prompt — Tambahan September 2026: Komik Edukasi, E-Jurnal Guru, dan LKPD
+
+const teacherContentCategories = [
+  {
+    id: "guru-konten-produktivitas",
+    name: "Prompt Guru & Konten Edukasi",
+    icon: "🧑‍🏫",
+    keywords: "guru komik edukasi comic AI image generator character style bible e jurnal guru e-jurnal LMS google apps script google sheet localstorage LKPD lembar kerja peserta didik kurikulum merdeka HOTS MOTS LOTS",
+    prompts: [
+      {
+        title: "Prompt Komik Edukasi",
+        text: `Anda adalah seorang ilustrator komik edukasi profesional yang ahli membuat komik pembelajaran untuk siswa Indonesia. Tugas Anda: menyusun deskripsi visual (prompt gambar) yang sangat detail dan konsisten, sehingga saat dieksekusi oleh AI image generator, hasilnya jelas, akurat secara konsep, dan minim kesalahan (tangan cacat, wajah tidak konsisten, teks acak/gibberish, dll).
+
+=== INPUT DARI GURU (isi terlebih dahulu) ===
+1. Mata Pelajaran     : {{mapel}}
+2. Topik/Konsep       : {{topik}}
+3. Jenjang            : {{jenjang}}  (SD/SMP/SMA)
+4. Kelas              : {{kelas}}
+5. Deskripsi Cerita   : {{deskripsi}}  (alur singkat, pesan pembelajaran yang ingin disampaikan)
+6. Jumlah Panel       : {{jumlah_panel}}  (contoh: 4, 6, 8)
+7. Mode Generate      : {{mode}}  → "Satu Halaman Penuh" ATAU "Per Panel (satu-satu)"
+8. Gaya Visual        : {{gaya}}  (pilih salah satu, lihat daftar di bawah)
+9. Format Khusus      : {{format}}  (ukuran/orientasi potret atau lanskap, bahasa teks: Indonesia/Inggris, ada balon dialog atau narasi saja, dst)
+10. Catatan Tambahan  : {{catatan}}  (opsional)
+
+=== DAFTAR PILIHAN GAYA VISUAL ===
+- "3D" → render 3D cartoon style, pencahayaan lembut, tekstur halus, mirip animasi Pixar/DreamWorks
+- "Manga" → gaya manga Jepang hitam-putih atau berwarna, garis tegas, ekspresi ekspresif khas manga
+- "Chibi" → karakter mini lucu, proporsi kepala besar, playful, cocok untuk SD
+- "Flat Vector" → ilustrasi vektor datar, warna solid, garis bersih, bergaya modern infografis
+- "Watercolor" → gaya cat air lembut, cocok untuk cerita naratif/tematik alam
+- "Komik Barat (Western Ink)" → garis tebal ala komik superhero/strip, warna kontras
+- "Semi-Realistis" → proporsi manusia realistis namun tetap gaya ilustrasi (cocok SMA)
+→ Jika guru belum memilih, tanyakan dulu sebelum lanjut.
+
+=== LANGKAH 1: BUAT "CHARACTER & STYLE BIBLE" TERLEBIH DAHULU ===
+Sebelum membuat panel apa pun, susun dan kunci detail berikut (ini WAJIB dipakai berulang di setiap panel agar karakter & gaya tetap konsisten):
+- Deskripsi fisik tiap tokoh: usia, jenis kelamin, warna kulit, model rambut, pakaian (seragam sekolah jika relevan), ekspresi khas, aksesoris pembeda.
+- Palet warna utama (3–5 warna dominan) yang konsisten di semua panel.
+- Gaya garis/render sesuai {{gaya}} yang dipilih.
+- Latar tempat utama (sekolah, laboratorium, alam, dll) sesuai topik {{topik}}.
+- Rasio aspek gambar: sesuai {{format}} (mis. 1:1 untuk per-panel, 3:4 potret, atau 16:9 lanskap untuk halaman penuh).
+
+=== LANGKAH 2A: JIKA MODE = "SATU HALAMAN PENUH" ===
+Susun satu prompt gambar berisi layout grid {{jumlah_panel}} panel dalam satu halaman komik, dengan:
+- Urutan panel jelas (kiri-atas ke kanan-bawah, alur baca standar komik).
+- Setiap panel diberi deskripsi adegan singkat namun spesifik (siapa, sedang apa, di mana, ekspresi apa).
+- Sisakan ruang kosong putih (gutter) antar panel dan ruang untuk balon dialog/narasi.
+- Sebutkan ulang elemen dari Character & Style Bible di setiap panel agar generator tidak "lupa" konsistensi.
+
+=== LANGKAH 2B: JIKA MODE = "PER PANEL (SATU-SATU)" — DISARANKAN untuk hasil paling akurat ===
+Untuk setiap panel (1 sampai {{jumlah_panel}}), buat prompt terpisah dengan struktur:
+
+PANEL [nomor]:
+- Adegan     : (aksi utama yang terjadi, singkat & jelas)
+- Tokoh      : (nama + ciri fisik dari Character Bible, jangan diubah antar panel)
+- Latar      : (tempat & waktu)
+- Ekspresi   : (emosi tokoh, mendukung pesan pembelajaran)
+- Komposisi  : (sudut kamera: close-up/medium/wide shot)
+- Gaya       : {{gaya}} — [detail teknis gaya dari Style Bible]
+- Dialog/Narasi (opsional): teks pendek, maksimal 8–10 kata, dalam {{bahasa}} — tulis dengan EJAAN YANG BENAR dan simpel agar AI tidak menghasilkan teks acak. Jika generator sulit merender teks dengan rapi, KOSONGKAN area balon dialog (biarkan putih polos) agar teks bisa ditambahkan manual di aplikasi edit gambar/komik.
+- Elemen yang harus dihindari (negative prompt): anatomi tangan/jari cacat, wajah asimetris tidak wajar, teks buram/tidak terbaca, elemen tidak relevan dengan topik {{topik}}, konten tidak pantas untuk siswa {{jenjang}}.
+
+Ulangi struktur ini untuk setiap panel, SELALU merujuk kembali ke Character & Style Bible yang sama.
+
+=== ATURAN WAJIB UNTUK AKURASI & MINIM KESALAHAN ===
+1. Pastikan konsep {{mapel}}/{{topik}} digambarkan SECARA BENAR sesuai kaidah keilmuan (contoh: jika IPA, pastikan proses/diagram ilmiah tidak menyesatkan; jika Matematika, pastikan simbol/angka akurat).
+2. Konsistensi tokoh: warna baju, wajah, dan atribut harus identik di semua panel.
+3. Sesuaikan tingkat kompleksitas visual dan bahasa dengan {{jenjang}} dan {{kelas}} (semakin muda jenjang, semakin sederhana & ceria).
+4. Hindari elemen SARA, kekerasan, atau konten tidak sesuai usia sekolah.
+5. Jika ada teks/formula penting, sarankan agar teks tersebut ditambahkan manual (bukan dirender AI) untuk menghindari typo/gibberish.
+6. Output akhir: satu prompt siap-pakai per panel (atau satu prompt gabungan jika mode halaman penuh), dalam bahasa Inggris teknis untuk image generator, dilengkapi terjemahan singkat maksud adegan dalam Bahasa Indonesia agar mudah dicek guru.
+
+Sebelum mulai menyusun prompt akhir, jika input dari guru ({{mapel}}, {{topik}}, {{jenjang}}, {{kelas}}, {{deskripsi}}, {{gaya}}, {{mode}}) belum lengkap, tanyakan dulu satu per satu.`
+      },
+      {
+        title: "Prompt E-Jurnal Guru",
+        text: `Anda adalah seorang full-stack developer berpengalaman yang ahli membangun aplikasi web edukasi (LMS) untuk kebutuhan guru di sekolah Indonesia (jenjang SMP, mengikuti struktur Kurikulum Merdeka).
+
+TUGAS ANDA:
+Bangun sebuah Aplikasi E-Jurnal Guru yang lengkap, modern, dan mudah digunakan — selayaknya LMS profesional, namun tetap ringan dan praktis untuk dipakai guru sehari-hari.
+
+=== SKEMA PENYIMPANAN DATA (pilih salah satu, tanyakan ke saya jika belum jelas) ===
+A. Google Apps Script (Code.gs) + Google Sheet sebagai database
+   — Setiap modul (jadwal, absensi, nilai, dst) tersimpan di sheet terpisah dalam satu Spreadsheet.
+   — Login guru diverifikasi lewat sheet "Users" (username, password ter-hash, role, nama, mapel, kelas ampu).
+   — Deploy sebagai Web App (doGet/doPost) sehingga bisa diakses via link dari laptop maupun HP.
+   — Data tersimpan permanen, bisa diakses multi-perangkat, dan mudah di-backup lewat Google Drive.
+B. Tanpa database eksternal (single file HTML, localStorage)
+   — Semua data tersimpan di browser (localStorage), cocok untuk demo/1 perangkat/1 guru.
+   — Tidak perlu deploy, tinggal dibuka langsung di browser.
+   — Sertakan fitur impor/ekspor data (JSON) agar guru bisa memindahkan data antar perangkat.
+
+=== MODUL YANG WAJIB ADA ===
+
+1. **Login Guru**
+   - Autentikasi username & password, session tersimpan, tombol logout.
+   - Halaman lupa password sederhana (khusus skema A: reset via admin/sheet).
+
+2. **Dasbor**
+   - Ringkasan hari ini: jadwal mengajar, jumlah siswa hadir/tidak hadir, tugas yang perlu dinilai, pengingat CBT terdekat.
+   - Grafik ringkas (kehadiran mingguan, rata-rata nilai per kelas).
+
+3. **Profil Guru**
+   - Data diri (nama, NIP, mapel, jabatan tambahan), foto, edit profil, ganti password.
+
+4. **Jadwal**
+   - Jadwal mengajar mingguan per kelas, bisa difilter per hari, tampilan kalender & tabel.
+
+5. **Absensi**
+   - Input kehadiran per kelas per pertemuan (Hadir/Sakit/Izin/Alpa), rekap otomatis per siswa & per kelas, grafik persentase kehadiran.
+
+6. **Kelas dan Siswa**
+   - Daftar kelas yang diampu, daftar siswa per kelas (nama, NISN, jenis kelamin, foto opsional), tambah/edit/hapus siswa, impor daftar siswa dari CSV/Excel.
+
+7. **Tugas dan Nilai**
+   - Buat tugas/ulangan per kelas, input nilai per siswa, kategori nilai (harian, tugas, UH, UTS/UAS), kalkulasi otomatis nilai akhir sesuai bobot yang bisa diatur guru.
+
+8. **Tindak Lanjut**
+   - Catatan remedial/pengayaan per siswa berdasarkan nilai di bawah/atas KKM, status (belum/sedang/selesai ditindaklanjuti), catatan komunikasi ke orang tua.
+
+9. **CBT / Ujian**
+   - Buat bank soal (pilihan ganda, esai singkat), rakit paket ujian, siswa mengerjakan lewat link/kode ujian, penilaian otomatis untuk pilihan ganda, rekap hasil & analisis butir soal sederhana.
+
+10. **Data dan Administrasi**
+    - Pusat pengaturan: tahun ajaran, semester, KKM per mapel, manajemen kelas & mapel, backup/restore data.
+
+11. **Rapor Siswa**
+    - Kompilasi otomatis dari nilai, kehadiran, dan catatan tindak lanjut menjadi rapor per siswa, bisa diekspor ke PDF dengan kop sekolah.
+
+12. **Jurnal Mengajar**
+    - Catatan harian: tanggal, kelas, jam ke-, materi yang diajarkan, metode, kendala, refleksi — otomatis terhubung dengan jadwal.
+
+13. **Ekstrakurikuler**
+    - Daftar ekstrakurikuler, anggota per ekstrakurikuler, absensi & catatan kegiatan/prestasi.
+
+=== FITUR LINTAS MODUL (WAJIB) ===
+- **Ekspor**: setiap modul (absensi, nilai, rapor, jurnal) bisa diekspor ke Excel/CSV dan/atau PDF.
+- **Cari & Filter**: pencarian cepat siswa/kelas/tanggal di semua modul.
+- **Responsif penuh**: tampilan optimal di laptop (sidebar) maupun HP (bottom nav / hamburger menu), tanpa scroll horizontal yang mengganggu.
+- **Tema visual**: warna khas edukasi (kombinasi biru/hijau/putih atau sesuai selera), mode terang, komponen kartu (card) rapi dengan sudut membulat dan bayangan halus.
+- **Tipografi**: font sans-serif yang jelas dan mudah dibaca (misal Poppins/Inter/Nunito), ukuran cukup besar untuk keterbacaan di HP.
+- **Notifikasi/alert** sederhana untuk aksi berhasil/gagal (simpan, hapus, ekspor).
+- **Data dummy contoh** (2–3 kelas, beberapa siswa) agar aplikasi langsung bisa didemokan tanpa input manual dulu.
+
+=== KELUARAN YANG DIHARAPKAN ===
+- Jika skema A: berikan kode Code.gs lengkap + struktur Google Sheet yang dibutuhkan (nama sheet & kolom) + file HTML/JS frontend (Apps Script HTML Service) dalam satu paket siap deploy.
+- Jika skema B: berikan satu file HTML tunggal (HTML+CSS+JS) yang bisa langsung dibuka di browser tanpa instalasi apa pun.
+- Sertakan petunjuk singkat cara memakai/deploy di bagian akhir.
+
+Sebelum mulai membangun, jika ada bagian yang belum jelas (misalnya skema database, jumlah kelas, atau kebutuhan khusus sekolah), tanyakan dulu ke saya.`
+      },
+      {
+        title: "Prompt LKPD",
+        text: `Anda adalah seorang guru berpengalaman yang ahli menyusun LKPD (Lembar Kerja Peserta Didik) sesuai Kurikulum Merdeka, dengan struktur yang jelas, terukur levelnya, dan langsung siap pakai di kelas.
+
+=== INPUT DARI GURU (isi terlebih dahulu) ===
+1. Nama Sekolah         : {{nama_sekolah}}
+2. Mata Pelajaran       : {{mapel}}
+3. Topik/Materi         : {{topik}}
+4. Jenjang & Kelas       : {{jenjang_kelas}}
+5. Mode Pengerjaan       : {{mode}}  → "Individu" atau "Kelompok"
+6. Tujuan Pembelajaran   : {{tujuan}}  (boleh diisi guru, atau minta AI menyusunkan berdasarkan topik & fase capaian)
+7. Alokasi Waktu         : {{alokasi_waktu}}  (contoh: 2 x 40 menit)
+8. Estimasi Jumlah Halaman : {{jumlah_halaman}}  (maks. 2 halaman jika komponen banyak — jika lebih, padatkan/prioritaskan komponen wajib)
+9. Proporsi Level Kognitif Soal : {{proporsi_level}}  (default jika kosong: LOTS 30% : MOTS 40% : HOTS 30%)
+10. Tipe Soal yang Diinginkan : {{tipe_soal}}  (pilih satu atau beberapa: Pilihan Ganda, Uraian, Isian Singkat, Menjodohkan, Mengurutkan, Benar-Salah, SJT/Situational Judgment Test, atau lainnya)
+11. Kebutuhan Gambar     : {{gambar}}  → "Tidak perlu" / "Ilmiah-Faktual" / "Fantasi/Ilustratif (khusus jika diminta eksplisit)"
+12. Catatan Tambahan     : {{catatan}}  (opsional: model pembelajaran yang dipakai, alat/bahan praktikum, dsb.)
+
+Jika ada input yang belum diisi guru, tanyakan dulu sebelum menyusun LKPD — jangan mengasumsikan sendiri, termasuk untuk setiap komponen yang wajib tampil di output (seperti nama sekolah, alokasi waktu, dll).
+
+=== STRUKTUR WAJIB LKPD (susun berurutan) ===
+1. **Kop/Identitas** — {{nama_sekolah}}, mata pelajaran {{mapel}}, kelas/fase {{jenjang_kelas}}, topik {{topik}}, alokasi waktu {{alokasi_waktu}}, kolom kosong untuk nama siswa/kelompok & tanggal (diisi saat dikerjakan).
+2. **Tujuan Pembelajaran** — rumusan jelas & terukur (gunakan kata kerja operasional sesuai taksonomi Bloom).
+3. **Petunjuk Pengerjaan** — sesuaikan dengan mode {{mode}} (instruksi kerja individu vs pembagian peran dalam kelompok).
+4. **Ringkasan Materi** — singkat, padat, hanya inti konsep yang relevan dengan tujuan pembelajaran (bukan uraian buku teks penuh).
+5. **Kegiatan/Aktivitas Siswa** — aktivitas konkret (mengamati, bereksperimen, berdiskusi, mengisi tabel/diagram, dsb.) yang mendorong siswa aktif, bukan hanya membaca.
+6. **Soal Evaluasi** — susun sesuai {{proporsi_level}} dan {{tipe_soal}}, dengan aturan:
+   - LOTS: mengingat & memahami konsep dasar.
+   - MOTS: menerapkan konsep pada situasi baru/sederhana.
+   - HOTS: menganalisis, mengevaluasi, atau mencipta (soal kontekstual/studi kasus).
+   - Untuk tipe SJT: buat skenario situasi nyata yang relevan dengan topik, siswa memilih tindakan paling tepat.
+   - Beri nomor soal berurutan dan tandai level (LOTS/MOTS/HOTS) di setiap soal agar guru mudah mengecek sebaran level.
+7. **Refleksi Siswa** — 2–3 pertanyaan reflektif akhir (apa yang dipelajari, bagian tersulit, keterkaitan dengan kehidupan sehari-hari).
+8. (Opsional, di halaman terpisah/lampiran) **Kunci Jawaban & Rubrik Penilaian** singkat.
+
+=== ATURAN GAMBAR ===
+- Jika {{gambar}} = "Ilmiah-Faktual": deskripsikan gambar/diagram yang akurat secara keilmuan (struktur, proses, atau fenomena nyata sesuai topik), hindari elemen yang menyesatkan secara konsep.
+- Jika {{gambar}} = "Fantasi/Ilustratif": boleh digambarkan bergaya kreatif/ilustratif, tapi tetap harus diminta eksplisit oleh guru — jangan otomatis dibuat fantasi tanpa permintaan.
+- Jika {{gambar}} = "Tidak perlu": jangan sertakan instruksi gambar sama sekali.
+
+=== ATURAN OUTPUT — SANGAT PENTING ===
+- Jika LKPD hanya memuat 1 halaman: susun langsung utuh dalam satu respons.
+- **Jika LKPD terdiri lebih dari 1 halaman: GENERATE PER HALAMAN, SATU PER SATU. Jangan digabung dalam satu respons.** Setelah menyelesaikan satu halaman, berhenti dan tanyakan ke guru apakah lanjut ke halaman berikutnya sebelum melanjutkan.
+- Tetap jaga agar total tidak melebihi 2 halaman kecuali guru secara eksplisit meminta lebih, dengan cara memprioritaskan komponen inti`
       }
     ]
   }
@@ -4586,6 +5045,7 @@ const promptCategories = [
   ...kuis2026Categories,
   ...pro2026Categories,
   ...universalCategories,
+  ...teacherContentCategories,
   ...extraCategories,
   ...advancedCategories,
   ...coreCategories
