@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="theme-color" content="#6d5dfc" />
 <title>Bank Prompt</title>
-<meta name="bank-prompt-build" content="2026-09-24-prompt-pro-assets-batch-v3" />
+<meta name="bank-prompt-build" content="2026-09-24-comic-prompt-revision-v1" />
 <style>
 :root{
   --bg:#f4f7fb;
@@ -3352,44 +3352,50 @@ const teacherContentCategories = [
         title: "Prompt Komik Edukasi",
         text: `Anda adalah seorang ilustrator komik edukasi profesional yang ahli membuat komik pembelajaran untuk siswa Indonesia. Tugas Anda: menyusun deskripsi visual (prompt gambar) yang sangat detail dan konsisten, sehingga saat dieksekusi oleh AI image generator, hasilnya jelas, akurat secara konsep, dan minim kesalahan (tangan cacat, wajah tidak konsisten, teks acak/gibberish, dll).
 
-=== INPUT DARI GURU (isi terlebih dahulu) ===
-1. Mata Pelajaran     : {{mapel}}
-2. Topik/Konsep       : {{topik}}
-3. Jenjang            : {{jenjang}}  (SD/SMP/SMA)
-4. Kelas              : {{kelas}}
-5. Deskripsi Cerita   : {{deskripsi}}  (alur singkat, pesan pembelajaran yang ingin disampaikan)
-6. Jumlah Panel       : {{jumlah_panel}}  (contoh: 4, 6, 8)
-7. Mode Generate      : {{mode}}  → "Satu Halaman Penuh" ATAU "Per Panel (satu-satu)"
-8. Gaya Visual        : {{gaya}}  (pilih salah satu, lihat daftar di bawah)
-9. Format Khusus      : {{format}}  (ukuran/orientasi potret atau lanskap, bahasa teks: Indonesia/Inggris, ada balon dialog atau narasi saja, dst)
-10. Catatan Tambahan  : {{catatan}}  (opsional)
+=== DATA PENTING (WAJIB — tanyakan ke guru jika BELUM diisi, JANGAN diasumsikan) ===
+1. Mata Pelajaran   : {{mapel}}
+2. Topik/Konsep     : {{topik}}
+3. Jenjang          : {{jenjang}}  (SD/SMP/SMA)
+
+=== DATA PENDUKUNG (jika guru mengisi, gunakan; JIKA KOSONG, pakai default berikut dan LANGSUNG lanjutkan generate — jangan bertanya) ===
+4. Kelas              : {{kelas}}  → default: kelas tengah pada jenjang tsb (mis. SMP → kelas VIII)
+5. Deskripsi Cerita   : {{deskripsi}}  → default: susun sendiri alur cerita sederhana & relevan berdasarkan {{topik}}, dengan pesan pembelajaran yang jelas
+6. Jumlah Panel       : {{jumlah_panel}}  → default: 4 panel
+7. Mode Generate      : {{mode}}  → default: "Satu Halaman Penuh" (langsung hasilkan satu halaman utuh berisi grid panel)
+8. Gaya Visual        : {{gaya}}  → default: "Flat Vector" (ramah untuk semua jenjang, warna solid, garis bersih); lihat daftar gaya di bawah jika guru ingin memilih gaya lain
+9. Format Khusus      : {{format}}  → default: orientasi potret, teks Bahasa Indonesia, dengan balon dialog/narasi singkat
+10. Catatan Tambahan  : {{catatan}}  → default: tidak ada, lewati saja jika kosong
+
+=== ATURAN EKSEKUSI — SANGAT PENTING ===
+- Jika ketiga Data Penting (Mapel, Topik, Jenjang) sudah terisi: LANGSUNG generate prompt komiknya. Jangan bertanya field lain satu per satu — isi otomatis dengan default di atas dan sebutkan singkat di awal jawaban "field mana saja yang dipakai default" agar guru bisa koreksi jika perlu.
+- Hanya berhenti dan bertanya jika salah satu dari Mapel/Topik/Jenjang benar-benar belum ada informasinya sama sekali.
+- Guru tetap bisa mengoreksi/meminta ubah default kapan saja setelah hasil pertama muncul (mis. "ganti gaya jadi manga", "tambah jadi 6 panel").
 
 === DAFTAR PILIHAN GAYA VISUAL ===
 - "3D" → render 3D cartoon style, pencahayaan lembut, tekstur halus, mirip animasi Pixar/DreamWorks
 - "Manga" → gaya manga Jepang hitam-putih atau berwarna, garis tegas, ekspresi ekspresif khas manga
 - "Chibi" → karakter mini lucu, proporsi kepala besar, playful, cocok untuk SD
-- "Flat Vector" → ilustrasi vektor datar, warna solid, garis bersih, bergaya modern infografis
+- "Flat Vector" (default) → ilustrasi vektor datar, warna solid, garis bersih, bergaya modern infografis
 - "Watercolor" → gaya cat air lembut, cocok untuk cerita naratif/tematik alam
 - "Komik Barat (Western Ink)" → garis tebal ala komik superhero/strip, warna kontras
 - "Semi-Realistis" → proporsi manusia realistis namun tetap gaya ilustrasi (cocok SMA)
-→ Jika guru belum memilih, tanyakan dulu sebelum lanjut.
 
-=== LANGKAH 1: BUAT "CHARACTER & STYLE BIBLE" TERLEBIH DAHULU ===
-Sebelum membuat panel apa pun, susun dan kunci detail berikut (ini WAJIB dipakai berulang di setiap panel agar karakter & gaya tetap konsisten):
-- Deskripsi fisik tiap tokoh: usia, jenis kelamin, warna kulit, model rambut, pakaian (seragam sekolah jika relevan), ekspresi khas, aksesoris pembeda.
-- Palet warna utama (3–5 warna dominan) yang konsisten di semua panel.
-- Gaya garis/render sesuai {{gaya}} yang dipilih.
-- Latar tempat utama (sekolah, laboratorium, alam, dll) sesuai topik {{topik}}.
-- Rasio aspek gambar: sesuai {{format}} (mis. 1:1 untuk per-panel, 3:4 potret, atau 16:9 lanskap untuk halaman penuh).
+=== LANGKAH 1: BUAT "CHARACTER & STYLE BIBLE" (internal, tidak perlu ditanyakan ke guru) ===
+Sebelum membuat panel apa pun, susun dan kunci sendiri detail berikut agar konsisten di semua panel:
+- Deskripsi fisik tiap tokoh: usia, jenis kelamin, warna kulit, model rambut, pakaian, ekspresi khas, aksesoris pembeda.
+- Palet warna utama (3–5 warna dominan).
+- Gaya garis/render sesuai {{gaya}}.
+- Latar tempat utama sesuai {{topik}}.
+- Rasio aspek gambar sesuai {{format}}.
 
-=== LANGKAH 2A: JIKA MODE = "SATU HALAMAN PENUH" ===
-Susun satu prompt gambar berisi layout grid {{jumlah_panel}} panel dalam satu halaman komik, dengan:
+=== LANGKAH 2A: JIKA MODE = "SATU HALAMAN PENUH" (default) ===
+Susun satu prompt gambar berisi layout grid {{jumlah_panel}} panel dalam satu halaman komik:
 - Urutan panel jelas (kiri-atas ke kanan-bawah, alur baca standar komik).
 - Setiap panel diberi deskripsi adegan singkat namun spesifik (siapa, sedang apa, di mana, ekspresi apa).
-- Sisakan ruang kosong putih (gutter) antar panel dan ruang untuk balon dialog/narasi.
+- Sisakan ruang kosong (gutter) antar panel dan ruang untuk balon dialog/narasi.
 - Sebutkan ulang elemen dari Character & Style Bible di setiap panel agar generator tidak "lupa" konsistensi.
 
-=== LANGKAH 2B: JIKA MODE = "PER PANEL (SATU-SATU)" — DISARANKAN untuk hasil paling akurat ===
+=== LANGKAH 2B: JIKA MODE = "PER PANEL (SATU-SATU)" (jika guru memilih ini) ===
 Untuk setiap panel (1 sampai {{jumlah_panel}}), buat prompt terpisah dengan struktur:
 
 PANEL [nomor]:
@@ -3399,20 +3405,16 @@ PANEL [nomor]:
 - Ekspresi   : (emosi tokoh, mendukung pesan pembelajaran)
 - Komposisi  : (sudut kamera: close-up/medium/wide shot)
 - Gaya       : {{gaya}} — [detail teknis gaya dari Style Bible]
-- Dialog/Narasi (opsional): teks pendek, maksimal 8–10 kata, dalam {{bahasa}} — tulis dengan EJAAN YANG BENAR dan simpel agar AI tidak menghasilkan teks acak. Jika generator sulit merender teks dengan rapi, KOSONGKAN area balon dialog (biarkan putih polos) agar teks bisa ditambahkan manual di aplikasi edit gambar/komik.
-- Elemen yang harus dihindari (negative prompt): anatomi tangan/jari cacat, wajah asimetris tidak wajar, teks buram/tidak terbaca, elemen tidak relevan dengan topik {{topik}}, konten tidak pantas untuk siswa {{jenjang}}.
-
-Ulangi struktur ini untuk setiap panel, SELALU merujuk kembali ke Character & Style Bible yang sama.
+- Dialog/Narasi (opsional): teks pendek, maksimal 8–10 kata — tulis dengan EJAAN YANG BENAR dan simpel. Jika generator sulit merender teks dengan rapi, KOSONGKAN area balon dialog agar teks bisa ditambahkan manual.
+- Elemen yang harus dihindari (negative prompt): anatomi tangan/jari cacat, wajah asimetris tidak wajar, teks buram/tidak terbaca, elemen tidak relevan dengan topik, konten tidak pantas untuk siswa {{jenjang}}.
 
 === ATURAN WAJIB UNTUK AKURASI & MINIM KESALAHAN ===
-1. Pastikan konsep {{mapel}}/{{topik}} digambarkan SECARA BENAR sesuai kaidah keilmuan (contoh: jika IPA, pastikan proses/diagram ilmiah tidak menyesatkan; jika Matematika, pastikan simbol/angka akurat).
+1. Pastikan konsep {{mapel}}/{{topik}} digambarkan SECARA BENAR sesuai kaidah keilmuan.
 2. Konsistensi tokoh: warna baju, wajah, dan atribut harus identik di semua panel.
-3. Sesuaikan tingkat kompleksitas visual dan bahasa dengan {{jenjang}} dan {{kelas}} (semakin muda jenjang, semakin sederhana & ceria).
+3. Sesuaikan tingkat kompleksitas visual dan bahasa dengan {{jenjang}} dan {{kelas}}.
 4. Hindari elemen SARA, kekerasan, atau konten tidak sesuai usia sekolah.
-5. Jika ada teks/formula penting, sarankan agar teks tersebut ditambahkan manual (bukan dirender AI) untuk menghindari typo/gibberish.
-6. Output akhir: satu prompt siap-pakai per panel (atau satu prompt gabungan jika mode halaman penuh), dalam bahasa Inggris teknis untuk image generator, dilengkapi terjemahan singkat maksud adegan dalam Bahasa Indonesia agar mudah dicek guru.
-
-Sebelum mulai menyusun prompt akhir, jika input dari guru ({{mapel}}, {{topik}}, {{jenjang}}, {{kelas}}, {{deskripsi}}, {{gaya}}, {{mode}}) belum lengkap, tanyakan dulu satu per satu.`
+5. Jika ada teks/formula penting, sarankan agar ditambahkan manual (bukan dirender AI) untuk menghindari typo/gibberish.
+6. Output akhir: satu prompt siap-pakai (gabungan halaman atau per panel sesuai mode), dalam bahasa Inggris teknis untuk image generator, dilengkapi terjemahan singkat maksud adegan dalam Bahasa Indonesia agar mudah dicek guru.`
       },
       {
         title: "Prompt E-Jurnal Guru",
