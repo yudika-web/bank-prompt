@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="theme-color" content="#6d5dfc" />
 <title>Bank Prompt</title>
-<meta name="bank-prompt-build" content="2026-09-25-pro4-realistic-webp-comic-two-stage-v1" />
+<meta name="bank-prompt-build" content="2026-09-25-lkpd-output-modes-1" />
 <style>
 :root{
   --bg:#f4f7fb;
@@ -930,16 +930,23 @@ Output harus dalam bentuk tabel rapi, siap dijadikan checklist produksi maupun b
         text: `Berdasarkan Daftar Inventaris Aset (Prompt 2 PRO), buatkan kumpulan prompt siap pakai untuk menghasilkan setiap aset menggunakan AI image/audio generator (misalnya Gemini, ChatGPT/DALL-E, Midjourney, Ideogram, Canva AI, atau ElevenLabs/Suno untuk audio).
 
 Ketentuan:
-1. Buat satu prompt terpisah untuk setiap aset, atau gabungkan aset sejenis dalam satu prompt jika gayanya identik.
-2. Setiap prompt gambar harus memuat: subjek/objek, gaya visual (sesuai Prompt 1 PRO), palet warna (kode HEX), komposisi (background transparan/solid, sudut pandang), rasio/ukuran, mood yang mendukung fokus belajar, dan catatan teknis (format file, transparansi, tanpa teks di dalam gambar kecuali diminta).
-3. Khusus ikon alat & bahan lab: minta gaya flat/line-icon yang jelas dan konsisten, hindari gambar terlalu detail/realistis yang bisa mengalihkan fokus dari data yang harus dibaca siswa.
-4. Tulis prompt gambar dalam Bahasa Inggris agar kompatibel dengan sebagian besar tools AI image generator, kecuali diminta menggunakan Bahasa Indonesia.
-5. Beri nomor & nama tiap prompt sesuai nama aset pada Prompt 2 PRO.
-6. Jika ada aset audio (narasi/backsound/efek), buat prompt terpisah yang memuat mood, tempo, perkiraan durasi, dan jenis suasana suara.
-7. Sertakan instruksi singkat pengeditan pasca-generate jika perlu (hapus background, kompres ukuran file).
+1. Buat satu prompt terpisah untuk setiap aset, atau gabungkan aset sejenis dalam satu prompt jika gaya, fungsi, dan skalanya benar-benar sama.
+2. Setiap prompt gambar harus memuat: subjek/objek, fungsi edukatif, gaya visual sesuai Prompt 1 PRO, palet warna (kode HEX), komposisi, sudut pandang, rasio/ukuran, pencahayaan, tingkat detail, background transparan bila sesuai, serta catatan teknis.
+3. KHUSUS aset yang berhubungan langsung dengan materi/fenomena—alat & bahan laboratorium, objek eksperimen, elemen simulasi, diagram konsep, ilustrasi proses, objek yang berubah karena variabel, dan visual pendukung materi—WAJIB ilmiah dan faktual. Bentuk, proporsi, warna, material, bagian penting, kondisi/state, arah proses/gerak, serta hubungan antarobjek harus benar sesuai konsep yang diajarkan. Akurasi materi didahulukan daripada dekorasi.
+4. Visual materi harus JELAS, konkret, mudah dikenali siswa, realistis atau semi-realistis dengan detail yang cukup. Hindari hasil yang terlalu abstrak, samar, simbolik berlebihan, flat-vector generik, clipart, line-art sederhana, atau tampilan seperti SVG/ikon vektor yang kehilangan bentuk nyata objek.
+5. Maskot/karakter pemandu BOLEH bergaya fantasi jika desain Prompt 1 PRO memang menggunakannya, tetapi ciri wajah, pakaian, warna, proporsi, dan atribut harus konsisten pada semua pose/state. Fantasi pada maskot tidak boleh mengubah fakta atau visual utama materi.
+6. Ikon menu boleh disederhanakan untuk kebutuhan UI, tetapi tetap harus tajam, jelas, mudah dikenali, dan memiliki kedalaman/detail visual yang cukup; jangan berupa bentuk abstrak yang sulit dipahami.
+7. Format file gambar yang diminta WAJIB WebP (.webp), kualitas tinggi/lossless bila tersedia, dengan alpha/transparansi untuk aset yang membutuhkan background transparan. Jangan gunakan SVG/vektor sebagai format keluaran utama. Jika generator hanya mendukung PNG/JPG, tulis catatan "perlu konversi ke WebP" tanpa menurunkan kualitas visual.
+8. Jangan menaruh teks, label, angka, atau simbol di dalam gambar kecuali benar-benar diperlukan oleh konsep dan diminta. Hindari teks acak/gibberish; teks UI sebaiknya dibuat dengan HTML/CSS.
+9. Untuk aset yang memiliki beberapa state (mis. sebelum/sesudah reaksi, kosong/terisi, normal/aktif), tuliskan perbedaan ilmiah antar-state secara eksplisit dan pertahankan sudut pandang, skala, serta posisi objek agar konsisten.
+10. Tulis prompt gambar dalam Bahasa Inggris agar kompatibel dengan sebagian besar AI image generator, kecuali diminta menggunakan Bahasa Indonesia.
+11. Beri nomor dan nama tiap prompt sesuai nama aset pada Prompt 2 PRO.
+12. Jika ada aset audio (narasi/backsound/efek), buat prompt terpisah yang memuat mood, tempo, perkiraan durasi, dan karakter suara. Audio tetap opsional sesuai inventaris.
+13. Sertakan negative prompt/catatan larangan yang relevan, minimal: scientifically inaccurate details, wrong proportions, distorted object, unclear shape, overly abstract, flat generic vector, SVG-like appearance, random text, watermark, low detail, blurry.
+14. Sertakan instruksi pasca-generate bila perlu, misalnya hapus background, crop, kompres, atau konversi ke WebP tanpa menurunkan ketajaman.
 
 Output:
-Daftar prompt siap copy, dikelompokkan per kategori aset, masing-masing diberi judul singkat yang sama dengan nama aset di Prompt 2 PRO, siap digunakan pada Prompt 4 PRO untuk generate aset otomatis.`
+Daftar prompt siap copy, dikelompokkan per kategori aset, masing-masing diberi judul yang sama dengan nama aset di Prompt 2 PRO. Untuk setiap prompt gambar, tuliskan nama file target berekstensi .webp. Hasil ini akan menjadi acuan Prompt 4 PRO untuk generate aset otomatis.`
       },
       {
         title: "Prompt 4 PRO Generate Semua Aset Otomatis Simulasi & Lab Maya di ChatGPT/Claude",
@@ -1288,17 +1295,24 @@ Tetap patuhi keputusan proyek dari Prompt 0 PRO/Prompt 1 PRO:
 Hanya buat prompt aset yang memang tercantum dan dibutuhkan pada Prompt 2 PRO. Jangan menambahkan aset untuk fitur yang tidak dipilih.
 
 Ketentuan:
-1. Buat satu prompt terpisah untuk setiap aset, atau gabungkan aset sejenis dalam satu prompt jika gayanya identik.
-2. Setiap prompt gambar harus memuat: subjek/objek, gaya visual (sesuai Prompt 1 PRO), palet warna (kode HEX), komposisi (background transparan/solid, sudut pandang), rasio/ukuran, mood yang ramah dan mendukung fokus belajar (bukan mengalihkan perhatian dari materi), dan catatan teknis (format file, transparansi, tanpa teks di dalam gambar kecuali diminta).
-3. Tulis prompt gambar dalam Bahasa Inggris agar kompatibel dengan sebagian besar tools AI image generator, kecuali diminta menggunakan Bahasa Indonesia.
-4. Beri nomor & nama tiap prompt sesuai nama aset pada Prompt 2 PRO.
-5. Jika ada aset audio (narasi/backsound), buat prompt terpisah yang memuat mood, tempo, perkiraan durasi, dan jenis suasana suara.
-6. Sertakan instruksi singkat pengeditan pasca-generate jika perlu (hapus background, kompres ukuran file).
-7. Jika Akses menu = Bertahap, pastikan prompt aset status lock/unlock/progres konsisten satu sama lain. Jika Akses menu = Bebas, jangan menghasilkan aset lock yang tidak dipakai.
-8. Jika Canva Sheet = Ya, buat prompt aset status pengiriman hanya jika aset tersebut memang tercantum pada Prompt 2 PRO. Jika Canva Sheet = Tidak, jangan menghasilkan aset bertema spreadsheet/sinkronisasi nilai.
+1. Buat satu prompt terpisah untuk setiap aset, atau gabungkan aset sejenis hanya jika gaya, fungsi, dan skalanya benar-benar sama.
+2. Setiap prompt gambar harus memuat: subjek/objek, fungsi edukatif, gaya visual sesuai Prompt 1 PRO, palet warna (HEX), komposisi, sudut pandang, rasio/ukuran, pencahayaan, tingkat detail, background transparan bila sesuai, serta catatan teknis.
+3. KHUSUS gambar yang menjelaskan materi—ilustrasi konsep, objek nyata, proses, fenomena, diagram, contoh kontekstual, alat/bahan, atau visual pembelajaran—WAJIB ilmiah dan faktual sesuai mapel/topik. Bentuk, proporsi, warna, bagian penting, hubungan, urutan proses, dan keadaan objek harus benar. Jangan mengorbankan akurasi demi estetika.
+4. Gambar materi harus JELAS, konkret, mudah dikenali, realistis atau semi-realistis dengan detail yang cukup. Hindari visual terlalu abstrak, samar, flat-vector generik, clipart, line-art sederhana, atau tampilan seperti SVG/vektor yang membuat objek kehilangan bentuk faktualnya.
+5. Maskot/karakter pemandu BOLEH fantasi jika memang digunakan dalam Prompt 1 PRO. Pertahankan identitas visual, warna, pakaian, proporsi, dan atributnya pada semua pose. Maskot tidak boleh membuat representasi materi menjadi tidak faktual.
+6. Ikon menu/status boleh lebih sederhana untuk UI, tetapi harus tetap tajam, jelas, mudah dikenali, dan konsisten—bukan simbol abstrak yang membingungkan.
+7. Format output gambar WAJIB WebP (.webp), kualitas tinggi/lossless bila tersedia, dengan alpha/transparansi jika dibutuhkan. Jangan gunakan SVG/vektor sebagai keluaran utama. Jika generator hanya mendukung PNG/JPG, beri catatan "perlu konversi ke WebP".
+8. Hindari teks di dalam gambar kecuali benar-benar diperlukan. Jangan menghasilkan teks acak/gibberish; judul, label, nilai, dan teks UI sebaiknya dibuat dengan HTML/CSS.
+9. Tulis prompt gambar dalam Bahasa Inggris kecuali diminta menggunakan Bahasa Indonesia.
+10. Beri nomor dan nama tiap prompt sesuai nama aset pada Prompt 2 PRO serta nama file target .webp.
+11. Jika ada aset audio, buat prompt terpisah yang memuat mood, tempo, perkiraan durasi, dan jenis suara.
+12. Sertakan negative prompt/catatan larangan yang relevan, minimal: factual/scientific inaccuracy, wrong proportions, unclear object, overly abstract, generic flat vector, SVG-like appearance, random text, watermark, blurry, low detail.
+13. Sertakan instruksi pasca-generate bila perlu (hapus background, crop, kompres, atau konversi ke WebP).
+14. Jika Akses menu = Bertahap, pastikan aset status lock/unlock/progres konsisten. Jika Akses menu = Bebas, jangan menghasilkan aset lock yang tidak dipakai.
+15. Jika Canva Sheet = Ya, buat aset status pengiriman hanya jika tercantum pada Prompt 2 PRO. Jika Canva Sheet = Tidak, jangan menghasilkan aset bertema spreadsheet/sinkronisasi nilai.
 
 Output:
-Daftar prompt siap copy, dikelompokkan per kategori aset, masing-masing diberi judul singkat yang sama dengan nama aset di Prompt 2 PRO, siap digunakan pada Prompt 4 PRO untuk generate aset otomatis.`
+Daftar prompt siap copy, dikelompokkan per kategori aset, dengan judul dan nama file .webp yang konsisten dengan Prompt 2 PRO, siap digunakan pada Prompt 4 PRO untuk generate aset otomatis.`
       },
       {
         title: "Prompt 4 PRO Generate Semua Aset Otomatis MPI di ChatGPT/Claude",
@@ -1523,18 +1537,25 @@ Tambahkan Ringkasan Jumlah Aset di akhir. Output dalam bentuk tabel rapi, siap d
       },
       {
         title: "Prompt 3 PRO Generate Prompt Aset Game Edukasi Sederhana",
-        text: `Berdasarkan Daftar Inventaris Aset game di atas (Prompt 2 PRO), buatkan kumpulan prompt siap pakai untuk menghasilkan setiap aset menggunakan AI image/audio generator.
+        text: `Berdasarkan Daftar Inventaris Aset game (Prompt 2 PRO), buatkan kumpulan prompt siap pakai untuk menghasilkan setiap aset menggunakan AI image/audio generator.
 
 Ketentuan:
-1. Buat satu prompt terpisah untuk setiap aset, atau gabungkan aset sejenis (misal semua ikon) dalam satu prompt agar konsisten.
-2. Setiap prompt gambar memuat: subjek/objek, gaya visual (sesuai Prompt 1 PRO, ceria & ramah anak sesuai jenjang), palet warna (kode HEX), komposisi, rasio/ukuran, mood, dan catatan teknis (format file, transparansi, tanpa teks kecuali diminta).
-3. Tulis prompt gambar dalam Bahasa Inggris kecuali diminta menggunakan Bahasa Indonesia.
-4. Beri nomor & nama tiap prompt sesuai nama aset pada Prompt 2 PRO.
-5. Jika ada aset audio, buat prompt terpisah: mood, tempo, durasi, jenis instrumen/efek suara.
-6. Sertakan instruksi singkat pengeditan pasca-generate jika perlu.
+1. Buat satu prompt terpisah untuk setiap aset, atau gabungkan aset sejenis hanya jika gaya, fungsi, dan skalanya benar-benar sama.
+2. Setiap prompt gambar harus memuat: subjek/objek, fungsi dalam game, gaya visual sesuai Prompt 1 PRO, palet warna (HEX), komposisi, sudut pandang, rasio/ukuran, pencahayaan, tingkat detail, background transparan bila sesuai, dan catatan teknis.
+3. KHUSUS aset yang berhubungan dengan materi—objek konsep, ilustrasi proses/fenomena, alat/bahan, diagram, contoh kontekstual, karakter/objek yang merepresentasikan konsep, atau obstacle yang maknanya terkait materi—WAJIB ilmiah dan faktual sesuai topik. Bentuk, proporsi, warna, bagian penting, fungsi, dan hubungan antarobjek harus benar.
+4. Visual materi harus JELAS, konkret, mudah dikenali siswa, realistis atau semi-realistis dengan detail yang cukup. Jangan membuat aset materi terlalu abstrak, samar, flat-vector generik, clipart, line-art sederhana, atau terlihat seperti SVG/vektor yang kehilangan detail faktual.
+5. Maskot/karakter game BOLEH fantasi dan playful jika sesuai Prompt 1 PRO, tetapi wajah, kostum, warna, proporsi, dan atribut harus konsisten di semua pose/state. Fantasi tidak boleh mengubah fakta materi yang diwakili.
+6. Ikon menu, reward, badge, atau kontrol boleh disederhanakan untuk UI, tetapi tetap harus tajam, jelas, terbaca secara visual, dan konsisten—bukan bentuk abstrak yang membingungkan.
+7. Format output gambar WAJIB WebP (.webp), kualitas tinggi/lossless bila tersedia, dengan alpha/transparansi untuk aset yang membutuhkan background transparan. Jangan gunakan SVG/vektor sebagai format keluaran utama. Jika generator hanya mendukung PNG/JPG, tandai "perlu konversi ke WebP".
+8. Hindari teks di dalam gambar kecuali benar-benar diperlukan; teks antarmuka sebaiknya dibuat lewat HTML/CSS. Hindari teks acak/gibberish.
+9. Tulis prompt gambar dalam Bahasa Inggris kecuali diminta Bahasa Indonesia.
+10. Beri nomor, nama aset, dan nama file target .webp sesuai Prompt 2 PRO.
+11. Jika ada aset audio, buat prompt terpisah berisi mood, tempo, durasi, instrumen/efek suara; audio hanya dibuat bila tercantum pada inventaris.
+12. Sertakan negative prompt/catatan larangan yang relevan, minimal: factual/scientific inaccuracy, wrong proportions, distorted anatomy/object, overly abstract, generic flat vector, SVG-like appearance, random text, watermark, blurry, low detail.
+13. Sertakan instruksi pasca-generate bila perlu (hapus background, crop, kompres, konversi ke WebP).
 
 Output:
-Daftar prompt siap copy, dikelompokkan per kategori aset, judul sama dengan nama aset di Prompt 2 PRO, siap digunakan pada Prompt 4 PRO untuk generate aset otomatis.`
+Daftar prompt siap copy, dikelompokkan per kategori aset, dengan judul dan nama file .webp yang sama/konsisten dengan Prompt 2 PRO, siap digunakan pada Prompt 4 PRO untuk generate aset otomatis.`
       },
       {
         title: "Prompt 4 PRO Generate Semua Aset Otomatis Game Edukasi Sederhana di ChatGPT/Claude",
@@ -1726,15 +1747,22 @@ Tambahkan Ringkasan Jumlah Aset di akhir. Output tabel rapi, siap jadi checklist
         text: `Berdasarkan Daftar Inventaris Aset (Prompt 2 PRO), buatkan kumpulan prompt siap pakai untuk menghasilkan setiap aset menggunakan AI image/audio generator.
 
 Ketentuan:
-1. Buat satu prompt per aset, atau gabungkan aset sejenis dalam satu prompt.
-2. Prompt gambar memuat: subjek, gaya visual (sesuai Prompt 1 PRO), palet warna (HEX), komposisi, rasio, mood; untuk kartu data/tabel/grafik tekankan gaya bersih dan mudah dibaca.
-3. Tulis prompt gambar dalam Bahasa Inggris kecuali diminta lain.
-4. Beri nomor & nama sesuai Prompt 2 PRO.
-5. Jika ada aset audio, buat prompt terpisah (mood, tempo, durasi).
-6. Sertakan instruksi edit pasca-generate jika perlu.
+1. Buat satu prompt per aset, atau gabungkan aset sejenis hanya jika gaya, fungsi, dan skalanya benar-benar sama.
+2. Setiap prompt gambar memuat: subjek/objek, fungsi dalam aktivitas critical thinking, gaya visual sesuai Prompt 1 PRO, palet warna (HEX), komposisi, sudut pandang, rasio/ukuran, pencahayaan, tingkat detail, background transparan bila sesuai, serta catatan teknis.
+3. Semua aset yang menjadi sumber informasi untuk dianalisis siswa—gambar fenomena, bukti visual, objek materi, proses, diagram, data visual, situasi masalah, alat/bahan, atau ilustrasi kasus—WAJIB ilmiah dan faktual sesuai topik. Jangan membuat detail yang dapat mengarahkan siswa pada kesimpulan keliru.
+4. Gambar materi/bukti harus JELAS, konkret, tajam, realistis atau semi-realistis, dan mudah diamati. Hindari aset terlalu abstrak, samar, simbolik berlebihan, flat-vector generik, clipart, line-art sederhana, atau tampilan SVG/vektor yang menghilangkan detail penting untuk analisis.
+5. Maskot/karakter pemandu BOLEH fantasi jika memang digunakan, tetapi ciri visualnya harus konsisten dan tidak boleh mengubah fakta pada bukti/objek materi.
+6. Untuk kartu data/tabel/grafik, utamakan data dan teks dibuat dengan HTML/CSS/Canvas agar akurat. Jika memerlukan aset visual pendamping, jangan menanam angka/teks acak di gambar.
+7. Format output gambar WAJIB WebP (.webp), kualitas tinggi/lossless bila tersedia, dengan alpha/transparansi jika sesuai. Jangan gunakan SVG/vektor sebagai keluaran utama. Jika generator hanya mendukung PNG/JPG, beri catatan "perlu konversi ke WebP".
+8. Ikon UI boleh disederhanakan, tetapi harus tetap tajam, jelas, mudah dikenali, dan konsisten.
+9. Tulis prompt gambar dalam Bahasa Inggris kecuali diminta lain.
+10. Beri nomor, nama aset, dan nama file target .webp sesuai Prompt 2 PRO.
+11. Jika ada aset audio, buat prompt terpisah (mood, tempo, durasi, karakter suara).
+12. Sertakan negative prompt/catatan larangan minimal: factual/scientific inaccuracy, misleading evidence, wrong proportions, unclear object, overly abstract, generic flat vector, SVG-like appearance, random text, watermark, blurry, low detail.
+13. Sertakan instruksi edit pasca-generate bila perlu, termasuk konversi ke WebP tanpa menurunkan ketajaman.
 
 Output:
-Daftar prompt siap copy, dikelompokkan per kategori aset, siap digunakan pada Prompt 4 PRO untuk generate aset otomatis.`
+Daftar prompt siap copy, dikelompokkan per kategori aset, dengan judul dan nama file .webp yang konsisten dengan Prompt 2 PRO, siap digunakan pada Prompt 4 PRO untuk generate aset otomatis.`
       },
       {
         title: "Prompt 4 PRO Generate Semua Aset Otomatis Game Critical Thinking di ChatGPT/Claude",
@@ -1938,15 +1966,22 @@ Tambahkan Ringkasan Jumlah Aset di akhir. Output tabel rapi, siap jadi checklist
         text: `Berdasarkan Daftar Inventaris Aset (Prompt 2 PRO), buatkan kumpulan prompt siap pakai untuk menghasilkan setiap aset menggunakan AI image/audio generator.
 
 Ketentuan:
-1. Buat satu prompt per aset, atau gabungkan aset sejenis dalam satu prompt.
-2. Prompt gambar memuat: subjek, gaya visual (sesuai Prompt 1 PRO), palet warna (HEX), komposisi, rasio, mood playful namun tetap jelas terbaca — khususnya untuk dadu/spin wheel/kartu luck.
-3. Tulis prompt gambar dalam Bahasa Inggris kecuali diminta lain.
-4. Beri nomor & nama sesuai Prompt 2 PRO.
-5. Jika ada aset audio, buat prompt terpisah (mood, tempo, durasi, efek).
-6. Sertakan instruksi edit pasca-generate jika perlu.
+1. Buat satu prompt per aset, atau gabungkan aset sejenis hanya jika gaya, fungsi, dan skalanya benar-benar sama.
+2. Setiap prompt gambar memuat: subjek/objek, fungsi dalam mekanik skill & luck, gaya visual sesuai Prompt 1 PRO, palet warna (HEX), komposisi, sudut pandang, rasio/ukuran, pencahayaan, tingkat detail, background transparan bila sesuai, dan catatan teknis.
+3. Semua aset yang berhubungan langsung dengan materi—objek konsep, ilustrasi fenomena/proses, alat/bahan, gambar pendukung soal, obstacle bermakna materi, atau objek yang digunakan untuk mengambil keputusan—WAJIB ilmiah dan faktual sesuai topik. Bentuk, proporsi, warna, fungsi, serta hubungan antarobjek harus benar.
+4. Visual materi harus JELAS, konkret, mudah dikenali, realistis atau semi-realistis dengan detail cukup. Hindari aset materi yang terlalu abstrak, samar, flat-vector generik, clipart, line-art sederhana, atau tampilan seperti SVG/vektor yang kehilangan detail faktual.
+5. Maskot/karakter game BOLEH fantasi/playful jika sesuai desain, tetapi identitas visual, kostum, warna, proporsi, dan atribut harus konsisten pada semua pose/state. Fantasi tidak boleh mengubah fakta materi.
+6. Aset mekanik game seperti dadu, spin wheel, kartu luck, reward, badge, dan ikon kontrol boleh bergaya playful, tetapi harus tetap tajam, jelas, proporsional, dan mudah dibaca secara visual; hindari bentuk abstrak yang membingungkan.
+7. Format output gambar WAJIB WebP (.webp), kualitas tinggi/lossless bila tersedia, dengan alpha/transparansi jika dibutuhkan. Jangan gunakan SVG/vektor sebagai keluaran utama. Jika generator hanya mendukung PNG/JPG, beri catatan "perlu konversi ke WebP".
+8. Hindari teks di dalam gambar kecuali benar-benar diperlukan. Angka/label pada mekanik yang harus presisi sebaiknya dibuat dengan HTML/CSS/Canvas, bukan dirender AI. Hindari gibberish.
+9. Tulis prompt gambar dalam Bahasa Inggris kecuali diminta lain.
+10. Beri nomor, nama aset, dan nama file target .webp sesuai Prompt 2 PRO.
+11. Jika ada aset audio, buat prompt terpisah (mood, tempo, durasi, efek).
+12. Sertakan negative prompt/catatan larangan minimal: factual/scientific inaccuracy, wrong proportions, distorted object, overly abstract, generic flat vector, SVG-like appearance, random text, watermark, blurry, low detail.
+13. Sertakan instruksi edit pasca-generate bila perlu, termasuk konversi ke WebP tanpa menurunkan kualitas.
 
 Output:
-Daftar prompt siap copy, dikelompokkan per kategori aset, siap digunakan pada Prompt 4 PRO untuk generate aset otomatis.`
+Daftar prompt siap copy, dikelompokkan per kategori aset, dengan judul dan nama file .webp yang konsisten dengan Prompt 2 PRO, siap digunakan pada Prompt 4 PRO untuk generate aset otomatis.`
       },
       {
         title: "Prompt 4 PRO Generate Semua Aset Otomatis Game Skill & Luck di ChatGPT/Claude",
@@ -3457,7 +3492,7 @@ const teacherContentCategories = [
     prompts: [
       {
         title: "Prompt Komik Edukasi",
-        text: `Anda adalah seorang ilustrator komik edukasi profesional yang ahli membuat komik pembelajaran untuk siswa Indonesia. Tugas Anda: merancang dan menghasilkan komik edukasi dengan tokoh, lingkungan, dan gaya visual yang KONSISTEN di semua panel dan halaman, dengan konsep yang akurat dan minim kesalahan (tangan cacat, wajah tidak konsisten, teks acak/gibberish, dll).
+        text: `Anda adalah seorang ilustrator komik edukasi profesional yang ahli membuat komik pembelajaran untuk siswa Indonesia. Tugas Anda: merancang dan menghasilkan komik edukasi dengan tokoh, lingkungan, dan gaya visual yang KONSISTEN di semua panel dan halaman, dengan konsep yang akurat dan minim kesalahan (tangan cacat, wajah tidak konsisten, teks balon/caption acak-gibberish, dll).
 
 Platform: [ChatGPT / Claude]
 
@@ -3479,7 +3514,7 @@ Anda bekerja dalam DUA TAHAP. JANGAN generate gambar komik sebelum guru mengonfi
 11. Jumlah Halaman     : {{jumlah_halaman}} → default: 1 halaman
 12. Panel per Halaman  : {{jumlah_panel}} → default: 4 panel
 13. Mode Output File   : {{mode_file}} → default: M3 (1 file = 1 halaman utuh); lihat daftar mode di bawah
-14. Penanganan Teks    : {{teks}} → default: balon dialog/narasi berisi teks sangat pendek (maks 8–10 kata, ejaan benar); jika hasil teks tidak rapi, regenerate dengan balon kosong
+14. Mode Teks/Dialog   : {{mode_teks}} → default: T1 (balon dialog/narasi terisi teks langsung di gambar); lihat daftar mode teks di bawah
 15. Format File        : {{format_file}} → default: PNG (atau WebP kualitas tinggi jika platform mendukung)
 16. Catatan Tambahan   : {{catatan}} → default: tidak ada
 
@@ -3504,15 +3539,20 @@ Aturan format: (a) selalu tulis format kertas + orientasi + rasio di setiap prom
 === DAFTAR MODE OUTPUT FILE ===
 - M1: 1 file = 1 panel. Setiap panel menjadi gambar terpisah (tanpa bingkai halaman). Sebutkan rasio tiap panel.
 - M2: 1 file = beberapa panel (lembar panel). Jumlah panel per file ditentukan guru (disarankan 2–6 agar detail tetap jelas). Grid rapi, gutter antar-panel minimal 6 px dan seragam agar mudah di-crop, tidak ada elemen yang melewati batas panel.
-- M3: 1 file = 1 halaman komik utuh (multi-panel + gutter + ruang balon dialog) sesuai format kertas.
+- M3: 1 file = 1 halaman komik utuh (multi-panel + gutter + ruang balon dialog/caption) sesuai format kertas.
 - M4: Gabungan (mis. halaman utuh untuk semua halaman + panel terpisah untuk panel-panel kunci).
 Untuk komik beberapa halaman: 1 halaman = 1 file gambar, dengan urutan halaman jelas.
 
+=== DAFTAR MODE TEKS/DIALOG (WAJIB dipilih) ===
+- T1 (default) — Balon di dalam gambar, terisi teks: setiap panel digambar LENGKAP dengan balon dialog/narasi berbentuk komik (bubble/caption box) yang sudah berisi teks final sesuai naskah. Aturan ketat: teks sangat pendek (maks 8–10 kata per balon), kalimat sederhana, ejaan sudah benar dan dikunci sebelum generate, font sederhana/tegas (bukan dekoratif/kursif), balon tidak menutupi wajah/aksi penting, posisi balon konsisten (mis. selalu di area atas panel). Jika hasil teks pada balon buram, terpotong, atau gibberish, TANDAI "Perlu Ulang" dan regenerate file tersebut saja (maks 2 kali percobaan); jika masih gagal, turunkan otomatis ke T2 untuk file itu dan beri tahu guru.
+- T2 — Tanpa balon di dalam gambar, teks di bawah panel: panel digambar BERSIH tanpa bentuk balon dialog/pikiran sama sekali (tidak ada bubble/ekor balon apa pun). Ruang kosong polos secukupnya disiapkan tepat di bawah tiap panel (di dalam file yang sama, di luar area ilustrasi adegan) untuk memuat caption berupa teks sederhana (nama tokoh + dialog/narasi singkat), ditulis lurus dan rapi, bukan di dalam bubble. Jika generator tetap sulit merender teks caption dengan rapi, KOSONGKAN area caption tersebut (biarkan polos/putih) dan sertakan teksnya sebagai daftar terpisah di luar gambar (di Naskah Dialog, lihat di bawah) agar guru menambahkan sendiri lewat HTML/CSS atau editor gambar.
+Catatan berlaku untuk T1 maupun T2: seluruh naskah dialog/narasi WAJIB disusun dan dikunci lebih dulu di "Naskah Dialog" (lihat Tahap 1-C) sebagai sumber kebenaran, lalu dipakai sama persis di gambar (T1) atau di caption/daftar terpisah (T2) — tidak boleh berbeda kalimat antara naskah dan hasil gambar.
+
 === ATURAN BATCH GENERATE ===
 1. Satu kali generate (1 batch) maksimal 10 file gambar/halaman. Jika total file lebih dari 10, bagi menjadi Batch 1 (file 1–10), Batch 2 (file 11–20), dan seterusnya.
-2. Ukuran batch bersifat adaptif: jika kualitas turun, tokoh mulai tidak konsisten, atau teks mulai rusak, kecilkan batch berikutnya.
+2. Ukuran batch bersifat adaptif: jika kualitas turun, tokoh mulai tidak konsisten, atau teks/balon mulai rusak, kecilkan batch berikutnya.
 3. Semua prompt di semua batch WAJIB memakai Character & Style Bible dan Environment Bible yang IDENTIK (tulis ulang lengkap di setiap prompt, jangan diringkas atau diubah). Jika platform mendukung, gunakan gambar hasil sebelumnya sebagai referensi tokoh dan latar.
-4. Setelah Batch 1 selesai, tampilkan hasilnya dan TUNGGU konfirmasi guru (cek konsistensi tokoh/latar). Batch berikutnya lanjut otomatis kecuali guru meminta berhenti atau merevisi.
+4. Setelah Batch 1 selesai, tampilkan hasilnya dan TUNGGU konfirmasi guru (cek konsistensi tokoh/latar DAN keterbacaan teks/balon). Batch berikutnya lanjut otomatis kecuali guru meminta berhenti atau merevisi.
 
 ========================================
 TAHAP 1 — PERENCANAAN & KONFIRMASI (dijalankan segera setelah prompt ini diterima)
@@ -3529,8 +3569,8 @@ B. CHARACTER & STYLE BIBLE + ENVIRONMENT BIBLE (usulan)
 - Lingkungan utama: tata ruang tetap, objek/perabot tetap beserta posisinya, arah cahaya, waktu, elemen pengenal tempat, agar latar identik di semua panel dan halaman.
 - Rasio/format halaman sesuai pilihan.
 
-C. TAWARAN ISI KONTEN KOMIK
-Tawarkan 2–3 opsi alur cerita, masing-masing berisi: judul, premis singkat, tokoh yang terlibat, pesan/tujuan pembelajaran, dan garis besar per halaman/panel (1 kalimat per panel). Konsep {{mapel}}/{{topik}} harus benar secara keilmuan. Guru boleh memilih satu, menggabungkan, atau meminta opsi baru.
+C. TAWARAN ISI KONTEN KOMIK + NASKAH DIALOG
+Tawarkan 2–3 opsi alur cerita, masing-masing berisi: judul, premis singkat, tokoh yang terlibat, pesan/tujuan pembelajaran, dan garis besar per halaman/panel (1 kalimat per panel). Untuk opsi yang paling direkomendasikan, sertakan draf Naskah Dialog per panel dalam tabel: nomor halaman, nomor panel, nama tokoh yang bicara, isi dialog/narasi (maks 8–10 kata), agar guru bisa langsung mengoreksi kalimat sebelum digambar. Konsep {{mapel}}/{{topik}} harus benar secara keilmuan. Guru boleh memilih satu, menggabungkan, mengedit naskah dialog, atau meminta opsi baru.
 
 D. KONFIRMASI DATA TAMBAHAN
 Tampilkan checklist bernomor yang singkat, tiap butir dengan rekomendasi Anda, agar guru cukup menjawab ringkas (mis. "1A, 2B, sisanya sesuai rekomendasi"):
@@ -3541,30 +3581,34 @@ Tampilkan checklist bernomor yang singkat, tiap butir dengan rekomendasi Anda, a
 5. Format halaman: kertas + orientasi (A4 Potret / A4 Lanskap / lainnya).
 6. Jumlah halaman dan jumlah panel per halaman.
 7. Mode output file (M1 / M2 / M3 / M4), dan jika M2, jumlah panel per file.
-8. Penanganan teks (teks pendek dirender AI atau balon kosong untuk diisi manual).
-9. Tujuan pembelajaran dan tingkat bahasa (setuju atau ubah).
-10. Catatan khusus (mis. logo sekolah, warna tema, istilah wajib, hal yang harus dihindari).
+8. Mode teks/dialog: T1 (balon terisi di dalam gambar) atau T2 (tanpa balon, caption di bawah panel).
+9. Naskah Dialog per panel (setuju dengan draf atau ada revisi kalimat).
+10. Tujuan pembelajaran dan tingkat bahasa (setuju atau ubah).
+11. Catatan khusus (mis. logo sekolah, warna tema, istilah wajib, hal yang harus dihindari).
 
 E. KONFIRMASI MULAI GENERATE
-Tampilkan ringkasan konfigurasi final (format halaman, jumlah halaman/panel, mode file, jumlah file, jumlah batch, gaya, alur terpilih), lalu tanyakan:
+Tampilkan ringkasan konfigurasi final (format halaman, jumlah halaman/panel, mode file, mode teks, jumlah file, jumlah batch, gaya, alur terpilih, status naskah dialog), lalu tanyakan:
 "Apakah halaman/panel komik sudah bisa mulai digenerate dengan konfigurasi ini?"
-Pilihan: (1) Ya, generate sekarang; (2) Ya, tetapi ubah bagian tertentu (sebutkan); (3) Revisi konten/tokoh/latar dulu.
+Pilihan: (1) Ya, generate sekarang; (2) Ya, tetapi ubah bagian tertentu (sebutkan); (3) Revisi konten/tokoh/latar/naskah dulu.
 Guru juga boleh membalas "LANJUT" untuk memakai semua rekomendasi.
 Setelah itu BERHENTI dan tunggu jawaban guru.
 
 ========================================
 TAHAP 2 — GENERATE (hanya setelah guru mengonfirmasi)
 ========================================
-1. PETA GENERATE (wajib sebelum generate). Tampilkan tabel pemetaan per batch: nomor file (mis. B1-F01), nama file (mis. komik_[topik]_h01.png), halaman/panel yang dimuat, format kertas + orientasi + rasio, ringkasan adegan tiap panel, tokoh dan latar yang muncul, dan catatan akurasi konsep. Sebutkan total file di batch (maks 10) dan total batch. Pastikan setiap halaman/panel dari alur terpilih muncul tepat satu kali (tidak terlewat, tidak ganda). Setelah peta tampil, langsung generate tanpa menunggu persetujuan tambahan.
+1. PETA GENERATE (wajib sebelum generate). Tampilkan tabel pemetaan per batch: nomor file (mis. B1-F01), nama file (mis. komik_[topik]_h01.png), halaman/panel yang dimuat, format kertas + orientasi + rasio, mode teks yang dipakai (T1/T2), ringkasan adegan tiap panel, tokoh dan latar yang muncul, dan catatan akurasi konsep. Sebutkan total file di batch (maks 10) dan total batch. Pastikan setiap halaman/panel dari alur terpilih muncul tepat satu kali (tidak terlewat, tidak ganda), dan setiap baris dialog dari Naskah Dialog terpakai tepat satu kali. Setelah peta tampil, langsung generate tanpa menunggu persetujuan tambahan.
 2. STRUKTUR PROMPT GAMBAR (per file):
    - Format: kertas + orientasi + rasio, margin aman, layout grid panel (untuk M2/M3) atau rasio panel (untuk M1).
    - Character & Style Bible dan Environment Bible lengkap (identik di semua file).
    - Urutan baca panel: kiri-atas ke kanan-bawah (atau sesuai arah baca yang dipilih).
-   - Untuk setiap panel: Adegan, Tokoh (ciri fisik dari Bible, tidak boleh berubah), Latar, Ekspresi, Komposisi (close-up/medium/wide), Gaya, Dialog/Narasi (maks 8–10 kata, ejaan benar; atau balon kosong sesuai pilihan guru).
-   - Negative prompt: anatomi tangan/jari cacat, wajah asimetris tidak wajar, wajah/pakaian berubah antar-panel, teks buram/tidak terbaca/gibberish, elemen tidak relevan dengan topik, latar berbeda dari Environment Bible, konten tidak pantas untuk siswa {{jenjang}}.
-3. PEMERIKSAAN tiap file setelah generate: (a) jumlah panel sesuai peta, (b) urutan baca benar, (c) tokoh, kostum, dan latar konsisten dengan Bible, (d) konsep {{mapel}}/{{topik}} akurat, (e) teks terbaca dan tidak gibberish (atau balon kosong sesuai pilihan), (f) tangan/wajah/anatomi wajar, (g) format kertas/rasio sesuai, margin aman dan gutter terjaga, tidak ada elemen yang melewati batas panel.
-4. HASIL BATCH: tampilkan tabel nomor file, nama file, halaman/panel, format kertas, status Selesai/Perlu Ulang. Yang gagal diregenerate saja (satu per satu atau batch kecil), lalu diperiksa ulang. Ikuti aturan Batch poin 4 untuk kelanjutan antar-batch.
-5. REKAP AKHIR setelah semua file selesai: manifest berisi daftar file final, halaman/panel, format, status, dan bagian yang perlu teks manual (jika ada).
+   - Untuk setiap panel: Adegan, Tokoh (ciri fisik dari Bible, tidak boleh berubah), Latar, Ekspresi, Komposisi (close-up/medium/wide).
+   - Teks/Dialog sesuai Mode Teks:
+     • Jika T1: sebutkan bentuk & posisi balon per tokoh, dan tulis PERSIS kalimat dari Naskah Dialog yang harus dirender di dalam balon (maks 8–10 kata, ejaan sudah final, jangan diparafrasekan oleh generator).
+     • Jika T2: instruksikan generator TIDAK menggambar bentuk balon apa pun, sediakan area caption polos di bawah panel, lalu tulis PERSIS kalimat dari Naskah Dialog yang harus muncul di area caption tersebut (format "Nama Tokoh: kalimat").
+   - Negative prompt: anatomi tangan/jari cacat, wajah asimetris tidak wajar, wajah/pakaian berubah antar-panel, teks buram/tidak terbaca/gibberish, kalimat berbeda dari Naskah Dialog, balon dialog muncul padahal mode T2 dipilih (atau sebaliknya tidak ada balon padahal mode T1), elemen tidak relevan dengan topik, latar berbeda dari Environment Bible, konten tidak pantas untuk siswa {{jenjang}}.
+3. PEMERIKSAAN tiap file setelah generate: (a) jumlah panel sesuai peta, (b) urutan baca benar, (c) tokoh, kostum, dan latar konsisten dengan Bible, (d) konsep {{mapel}}/{{topik}} akurat, (e) untuk T1: balon ada di posisi yang benar dan teksnya persis sesuai Naskah Dialog, terbaca, tidak gibberish; untuk T2: tidak ada bentuk balon sama sekali dan caption di bawah panel persis sesuai Naskah Dialog, terbaca, tidak gibberish, atau area caption dibiarkan polos jika memang dikosongkan, (f) tangan/wajah/anatomi wajar, (g) format kertas/rasio sesuai, margin aman dan gutter terjaga, tidak ada elemen yang melewati batas panel.
+4. HASIL BATCH: tampilkan tabel nomor file, nama file, halaman/panel, format kertas, mode teks, status Selesai/Perlu Ulang. Yang gagal diregenerate saja (satu per satu atau batch kecil; ikuti aturan turun ke T2 pada Daftar Mode Teks bila T1 gagal berulang), lalu diperiksa ulang. Ikuti aturan Batch poin 4 untuk kelanjutan antar-batch.
+5. REKAP AKHIR setelah semua file selesai: manifest berisi daftar file final, halaman/panel, format, mode teks, status, Naskah Dialog lengkap (sebagai cadangan teks bila ada caption yang sengaja dikosongkan atau perlu diterjemahkan/diedit ulang).
 6. Jika platform tidak dapat menghasilkan file gambar secara langsung: susun paket prompt final per FILE (bukan per panel, kecuali mode M1) sesuai Peta Generate, dalam bahasa Inggris teknis untuk image generator, dilengkapi terjemahan singkat maksud adegan dalam Bahasa Indonesia, lalu tandai jelas "perlu dieksekusi pada generator gambar".
 
 === ATURAN WAJIB UNTUK AKURASI & KONSISTENSI ===
@@ -3572,8 +3616,8 @@ TAHAP 2 — GENERATE (hanya setelah guru mengonfirmasi)
 2. Konsistensi tokoh (wajah, warna baju, atribut, proporsi) dan lingkungan (tata ruang, objek, arah cahaya) identik di semua panel, halaman, dan batch.
 3. Sesuaikan kompleksitas visual dan bahasa dengan {{jenjang}} dan {{kelas}}.
 4. Hindari elemen SARA, kekerasan, atau konten tidak sesuai usia sekolah.
-5. Teks/formula penting sebaiknya ditambahkan manual (bukan dirender AI) untuk menghindari typo/gibberish.
-6. Guru dapat meminta perubahan kapan saja (mis. "ganti gaya jadi manga", "tambah jadi 6 panel", "ubah ke A4 lanskap"); perubahan pada Bible harus diterapkan ke semua file berikutnya dan file yang terdampak diregenerate.`
+5. Dialog/narasi pendek mengikuti Mode Teks yang dipilih (T1 dirender langsung di balon, T2 sebagai caption di bawah panel) dan harus persis sama dengan Naskah Dialog yang sudah dikunci. Teks/formula/istilah teknis yang panjang atau rumit tetap disarankan ditambahkan manual (bukan dirender AI) untuk menghindari typo/gibberish.
+6. Guru dapat meminta perubahan kapan saja (mis. "ganti gaya jadi manga", "tambah jadi 6 panel", "ubah ke A4 lanskap", "ganti ke mode teks T2"); perubahan pada Bible atau Naskah Dialog harus diterapkan ke semua file berikutnya dan file yang terdampak diregenerate.`
       },
       {
         title: "Prompt E-Jurnal Guru",
@@ -3657,20 +3701,26 @@ Sebelum mulai membangun, jika ada bagian yang belum jelas (misalnya skema databa
         text: `Anda adalah seorang guru berpengalaman yang ahli menyusun LKPD (Lembar Kerja Peserta Didik) sesuai Kurikulum Merdeka, dengan struktur yang jelas, terukur levelnya, dan langsung siap pakai di kelas.
 
 === INPUT DARI GURU (isi terlebih dahulu) ===
-1. Nama Sekolah         : {{nama_sekolah}}
-2. Mata Pelajaran       : {{mapel}}
-3. Topik/Materi         : {{topik}}
-4. Jenjang & Kelas       : {{jenjang_kelas}}
-5. Mode Pengerjaan       : {{mode}}  → "Individu" atau "Kelompok"
-6. Tujuan Pembelajaran   : {{tujuan}}  (boleh diisi guru, atau minta AI menyusunkan berdasarkan topik & fase capaian)
-7. Alokasi Waktu         : {{alokasi_waktu}}  (contoh: 2 x 40 menit)
-8. Estimasi Jumlah Halaman : {{jumlah_halaman}}  (maks. 2 halaman jika komponen banyak — jika lebih, padatkan/prioritaskan komponen wajib)
+1. Nama Sekolah              : {{nama_sekolah}}
+2. Mata Pelajaran            : {{mapel}}
+3. Topik/Materi              : {{topik}}
+4. Jenjang & Kelas           : {{jenjang_kelas}}
+5. Mode Pengerjaan           : {{mode}}  → "Individu" atau "Kelompok"
+6. Tujuan Pembelajaran       : {{tujuan}}  (boleh diisi guru, atau minta AI menyusunkan berdasarkan topik & fase capaian)
+7. Alokasi Waktu             : {{alokasi_waktu}}  (contoh: 2 x 40 menit)
+8. Estimasi Jumlah Halaman   : {{jumlah_halaman}}  (maks. 2 halaman jika komponen banyak — jika lebih, padatkan/prioritaskan komponen wajib, kecuali guru eksplisit minta lebih)
 9. Proporsi Level Kognitif Soal : {{proporsi_level}}  (default jika kosong: LOTS 30% : MOTS 40% : HOTS 30%)
 10. Tipe Soal yang Diinginkan : {{tipe_soal}}  (pilih satu atau beberapa: Pilihan Ganda, Uraian, Isian Singkat, Menjodohkan, Mengurutkan, Benar-Salah, SJT/Situational Judgment Test, atau lainnya)
-11. Kebutuhan Gambar     : {{gambar}}  → "Tidak perlu" / "Ilmiah-Faktual" / "Fantasi/Ilustratif (khusus jika diminta eksplisit)"
-12. Catatan Tambahan     : {{catatan}}  (opsional: model pembelajaran yang dipakai, alat/bahan praktikum, dsb.)
+11. Kebutuhan Gambar          : {{gambar}}  → "Tidak perlu" / "Ilmiah-Faktual" / "Fantasi/Ilustratif (khusus jika diminta eksplisit)"
+12. Catatan Tambahan          : {{catatan}}  (opsional: model pembelajaran yang dipakai, alat/bahan praktikum, dsb.)
+13. Format Output Akhir       : {{format_output}}  → WAJIB pilih salah satu: "Dokumen (DOCX)" / "Dokumen (PDF)" / "Gambar per Halaman". Jika kosong, jelaskan singkat perbedaannya lalu tanyakan ke guru:
+    - Dokumen (DOCX/PDF): lebih akurat untuk teks panjang, mudah diedit dan dicetak ulang, direkomendasikan sebagai default LKPD.
+    - Gambar per Halaman: cocok jika ingin dibagikan sebagai file visual siap tayang/tempel (mis. poster, slide, media sosial), tapi berisiko pada rendering teks panjang (bisa buram/gibberish) karena LKPD padat teks.
+14. (Isi HANYA jika Format Output = "Gambar per Halaman")
+    - Format Kertas & Orientasi : {{kertas_gambar}} → default A4 Potret
+    - Format File Gambar        : {{format_file_gambar}} → default PNG (atau WebP jika platform mendukung)
 
-Jika ada input yang belum diisi guru, tanyakan dulu sebelum menyusun LKPD — jangan mengasumsikan sendiri, termasuk untuk setiap komponen yang wajib tampil di output (seperti nama sekolah, alokasi waktu, dll).
+Jika ada input yang belum diisi guru, termasuk Format Output Akhir, tanyakan dulu sebelum menyusun LKPD — jangan mengasumsikan sendiri, termasuk untuk setiap komponen yang wajib tampil di output (seperti nama sekolah, alokasi waktu, dll).
 
 === STRUKTUR WAJIB LKPD (susun berurutan) ===
 1. **Kop/Identitas** — {{nama_sekolah}}, mata pelajaran {{mapel}}, kelas/fase {{jenjang_kelas}}, topik {{topik}}, alokasi waktu {{alokasi_waktu}}, kolom kosong untuk nama siswa/kelompok & tanggal (diisi saat dikerjakan).
@@ -3685,17 +3735,32 @@ Jika ada input yang belum diisi guru, tanyakan dulu sebelum menyusun LKPD — ja
    - Untuk tipe SJT: buat skenario situasi nyata yang relevan dengan topik, siswa memilih tindakan paling tepat.
    - Beri nomor soal berurutan dan tandai level (LOTS/MOTS/HOTS) di setiap soal agar guru mudah mengecek sebaran level.
 7. **Refleksi Siswa** — 2–3 pertanyaan reflektif akhir (apa yang dipelajari, bagian tersulit, keterkaitan dengan kehidupan sehari-hari).
-8. (Opsional, di halaman terpisah/lampiran) **Kunci Jawaban & Rubrik Penilaian** singkat.
+8. (Opsional, di halaman/lampiran terpisah) **Kunci Jawaban & Rubrik Penilaian** singkat.
 
-=== ATURAN GAMBAR ===
+=== ATURAN GAMBAR (konten ilustrasi) ===
 - Jika {{gambar}} = "Ilmiah-Faktual": deskripsikan gambar/diagram yang akurat secara keilmuan (struktur, proses, atau fenomena nyata sesuai topik), hindari elemen yang menyesatkan secara konsep.
 - Jika {{gambar}} = "Fantasi/Ilustratif": boleh digambarkan bergaya kreatif/ilustratif, tapi tetap harus diminta eksplisit oleh guru — jangan otomatis dibuat fantasi tanpa permintaan.
 - Jika {{gambar}} = "Tidak perlu": jangan sertakan instruksi gambar sama sekali.
 
-=== ATURAN OUTPUT — SANGAT PENTING ===
-- Jika LKPD hanya memuat 1 halaman: susun langsung utuh dalam satu respons.
-- **Jika LKPD terdiri lebih dari 1 halaman: GENERATE PER HALAMAN, SATU PER SATU. Jangan digabung dalam satu respons.** Setelah menyelesaikan satu halaman, berhenti dan tanyakan ke guru apakah lanjut ke halaman berikutnya sebelum melanjutkan.
-- Tetap jaga agar total tidak melebihi 2 halaman kecuali guru secara eksplisit meminta lebih, dengan cara memprioritaskan komponen inti`
+=== ATURAN OUTPUT — SANGAT PENTING (bercabang sesuai {{format_output}}) ===
+
+A. JIKA FORMAT OUTPUT = "Dokumen (DOCX)" atau "Dokumen (PDF)"
+1. Susun LKPD sebagai satu dokumen terstruktur: heading/subheading jelas per bagian (1–8), tabel bila diperlukan (mis. tabel pengamatan), dan kolom/kotak isian kosong untuk jawaban siswa (garis titik-titik atau kotak, bukan teks contoh jawaban).
+2. Panjang halaman mengikuti isi konten secara alami. Tetap upayakan komponen inti (poin 1–7) padat, maksimal 2 halaman, kecuali guru eksplisit meminta lebih. Kunci Jawaban & Rubrik (poin 8, opsional) diletakkan di halaman/lampiran terpisah dengan page break, tetap dalam SATU file dokumen yang sama (bukan file terpisah); boleh diberi label "Halaman Guru" agar mudah dipisah sebelum dibagikan ke siswa.
+3. Jika platform yang digunakan memiliki kemampuan membuat file .docx atau .pdf secara langsung, gunakan kemampuan tersebut dan hasilkan file sesuai sub-format yang dipilih guru.
+4. Jika platform tidak dapat menghasilkan file dokumen secara langsung, susun output sebagai teks terformat rapi (heading, tabel dalam format markdown, dsb.) yang siap disalin ke Word/Google Docs oleh guru, dan sebutkan jelas: "salin ke Word/Google Docs, lalu simpan sebagai .docx atau ekspor sebagai .pdf".
+5. Jika ada instruksi gambar sesuai Aturan Gambar, sisipkan sebagai deskripsi/placeholder di posisi yang sesuai dalam dokumen (mis. "[Gambar: deskripsi]"), kecuali platform dapat langsung menyisipkan gambar nyata ke dalam dokumen.
+6. LKPD tetap disusun utuh dalam satu proses (tidak perlu dipecah per halaman untuk mode dokumen ini, karena dokumen mendukung multi-halaman secara native dalam satu file).
+
+B. JIKA FORMAT OUTPUT = "Gambar per Halaman"
+1. Sebelum generate, sampaikan peringatan singkat ke guru: LKPD berisi banyak teks (identitas, tujuan, soal, dsb.), sedangkan AI image generator berisiko menghasilkan teks buram/acak (gibberish) untuk paragraf panjang. Tawarkan pilihan: (a) tetap lanjutkan apa adanya dengan risiko teks perlu diperiksa ulang per halaman, (b) persingkat konten per halaman jadi poin-poin pendek agar teks lebih mungkin terbaca jelas, atau (c) jika platform mendukung rendering HTML/CSS ke gambar, gunakan cara itu agar teks presisi. Tunggu jawaban guru sebelum lanjut generate.
+2. Satu halaman LKPD = satu file gambar terpisah. Nama file berurutan, mis. LKPD_[topik]_h1, LKPD_[topik]_h2, dst., sesuai {{format_file_gambar}}.
+3. Format kertas & orientasi WAJIB disebutkan jelas di setiap file, sesuai {{kertas_gambar}} (default A4 Potret; opsi lain: A4 Lanskap, A5, A3, F4/Folio, Letter, potret/lanskap), lengkap dengan rasio dan margin aman minimal 10 mm dari tepi untuk keperluan cetak.
+4. Layout worksheet per halaman: kop/identitas di bagian atas, lalu bagian-bagian (tujuan, petunjuk, ringkasan materi, aktivitas, soal, refleksi) tersusun rapi dalam blok/section dengan jarak antar-section jelas dan konsisten antar-halaman. Kolom/kotak kosong untuk jawaban siswa digambarkan sebagai garis atau kotak kosong. Gunakan font sederhana dan tegas (sans-serif, bukan dekoratif/kursif), ukuran teks cukup besar agar mudah terbaca saat dicetak.
+5. Background WAJIB putih polos (bukan transparan) dan konsisten di semua halaman, karena ini dokumen cetak/isian, bukan aset UI lepas.
+6. Jika ada gambar ilustrasi sesuai Aturan Gambar, gambar tersebut ditata rapi di dalam layout halaman (tidak menimpa teks) dan digambar ilmiah-akurat bila jenisnya "Ilmiah-Faktual", tanpa mengubah proporsi atau keterbacaan komponen lain di halaman tersebut.
+7. GENERATE PER HALAMAN, SATU PER SATU — jangan digabung dalam satu respons dan jangan generate banyak halaman sekaligus tanpa konfirmasi, karena worksheet butuh ketelitian tinggi per halaman. Setelah satu file selesai: tampilkan hasilnya, beri status Selesai/Perlu Ulang (cek: semua teks terbaca jelas dan sesuai naskah, layout rapi, tidak ada elemen gibberish, format kertas & margin sesuai), lalu tanyakan ke guru apakah lanjut ke halaman berikutnya sebelum melanjutkan.
+8. Jika platform tidak dapat menghasilkan file gambar secara langsung: tetap susun paket prompt final per halaman sesuai urutan, lengkap dengan nama file, format kertas/orientasi/rasio, layout, seluruh teks final yang harus tampil, instruksi ilustrasi, dan catatan keterbacaan; tandai jelas "perlu dieksekusi pada generator gambar".`
       }
     ]
   }
