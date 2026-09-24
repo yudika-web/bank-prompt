@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="theme-color" content="#6d5dfc" />
 <title>Bank Prompt</title>
-<meta name="bank-prompt-build" content="2026-09-24-comic-prompt-revision-v1" />
+<meta name="bank-prompt-build" content="2026-09-25-pro4-realistic-webp-comic-two-stage-v1" />
 <style>
 :root{
   --bg:#f4f7fb;
@@ -943,7 +943,7 @@ Daftar prompt siap copy, dikelompokkan per kategori aset, masing-masing diberi j
       },
       {
         title: "Prompt 4 PRO Generate Semua Aset Otomatis Simulasi & Lab Maya di ChatGPT/Claude",
-        text: `Berdasarkan rancangan desain (Prompt 1 PRO), Daftar Inventaris Aset (Prompt 2 PRO), dan kumpulan prompt aset (Prompt 3 PRO), sekarang GENERATE semua aset proyek ini secara otomatis langsung di percakapan ChatGPT/Claude ini. Jangan berhenti pada daftar atau prompt saja jika platform yang digunakan memiliki kemampuan membuat gambar/aset; lanjutkan sampai aset utama benar-benar dibuat. Kerjakan secara bertahap per batch sesuai kemampuan image generation AI yang sedang digunakan; jangan memaksa seluruh aset dibuat sekaligus dalam satu proses.
+        text: `Berdasarkan rancangan desain (Prompt 1 PRO), Daftar Inventaris Aset (Prompt 2 PRO), dan kumpulan prompt aset (Prompt 3 PRO), sekarang GENERATE semua aset proyek ini secara otomatis langsung di percakapan ChatGPT/Claude ini. Jangan berhenti pada daftar atau prompt saja jika platform yang digunakan memiliki kemampuan membuat gambar/aset; lanjutkan sampai aset utama benar-benar dibuat. Kerjakan secara bertahap per batch sesuai aturan di bawah; jangan memaksa seluruh aset dibuat sekaligus.
 
 Platform: [ChatGPT / Claude]
 
@@ -957,40 +957,62 @@ PRIORITAS ASET UTAMA — WAJIB DIDAHULUKAN:
 
 ASET OPSIONAL:
 - Audio: backsound, narasi, efek klik, alarm, efek reaksi, atau efek keberhasilan. Generate hanya jika benar-benar diperlukan atau saya minta.
-- Tombol navigasi: Mulai, Lanjut, Kembali, Reset, Jeda, Home, dan sejenisnya. Tidak wajib dibuat sebagai gambar; utamakan tombol CSS/HTML. Buat aset gambar tombol hanya jika desain memang membutuhkan bentuk khusus.
+- Tombol navigasi (Mulai, Lanjut, Kembali, Reset, Jeda, Home, dan sejenisnya): tidak wajib dibuat sebagai gambar; utamakan tombol CSS/HTML. Buat aset gambar tombol hanya jika desain memang membutuhkan bentuk khusus.
 
-ATURAN OUTPUT GAMBAR & SISTEM BATCH — WAJIB:
-1. Prioritas utama: 1 aset/gambar = 1 file terpisah agar paling mudah digunakan saat coding, disimpan, dan di-crop bila diperlukan.
-2. Jika keterbatasan AI membuat beberapa aset harus digenerate dalam 1 file/canvas, susun aset dalam grid yang rapi dan mudah dipotong.
-3. Dalam 1 baris, tampilkan maksimal 4 gambar/aset. Jika jumlah aset pada batch kurang dari 4, tidak perlu memaksakan menjadi 4.
-4. Setiap gambar/aset harus memiliki ruang kosong/gutter minimal 6 px pada sisi kiri, kanan, atas, dan bawah. Jarak minimal 6 px juga harus dipertahankan antar-aset agar hasil dapat di-crop tanpa mengenai aset di sebelahnya.
-5. Jangan biarkan karakter, bayangan, efek cahaya, outline, atau bagian objek lain melewati area batas/gutter aset tetangga. Setiap aset harus benar-benar terpisah secara visual.
-6. Jika memakai background transparan, pertahankan transparansi di area pemisah. Jika transparansi tidak didukung, gunakan background polos yang kontras dan konsisten agar proses crop mudah.
-7. Generate aset PER BATCH sesuai kemampuan AI/platform yang digunakan. Jangan memaksa seluruh inventaris aset dibuat dalam satu kali generate.
-8. Ukuran batch bersifat adaptif: gunakan jumlah aset yang masih dapat dihasilkan dengan kualitas dan konsistensi yang baik oleh AI saat itu. Jika kualitas mulai turun atau detail tercampur, kecilkan batch berikutnya.
-9. Beri label urutan kerja di luar gambar: Batch 1, Batch 2, Batch 3, dan seterusnya. Jangan menambahkan nama file/label panjang di dalam gambar aset kecuali memang bagian dari desain.
-10. Setelah setiap batch selesai, tampilkan daftar aset pada batch tersebut beserta nama file yang disarankan, status Selesai/Perlu Ulang, lalu lanjutkan ke batch berikutnya. Jika ada aset gagal atau tercampur, regenerate hanya aset tersebut dalam batch kecil atau satu per satu.
-11. Untuk aset yang membutuhkan beberapa pose/state, usahakan setiap pose/state menjadi file terpisah. Jika harus digabung dalam satu canvas, tetap gunakan aturan maksimal 4 aset per baris dan gutter minimal 6 px.
+ATURAN KUALITAS VISUAL — ILMIAH & REALISTIS — WAJIB:
+1. Semua gambar harus ilmiah dan realistis: bentuk, proporsi, warna, tekstur, material, dan cara kerja objek harus sesuai dengan kondisi nyata dan konsep sains/materi yang diajarkan.
+2. Gunakan gaya render realistis atau semi-realistis dengan detail jelas: pencahayaan, bayangan lembut, refleksi, transparansi kaca/cairan, dan tekstur permukaan yang tampak nyata. DILARANG membuat gambar berupa ikon vektor datar, clipart, doodle, kartun sederhana, atau ilustrasi berbentuk samar/tidak jelas.
+3. Akurasi ilmiah didahulukan daripada estetika. Jangan menambahkan detail yang salah secara sains (misalnya warna indikator yang tidak sesuai, jumlah bagian yang salah, arah aliran/gerak yang salah, skala yang tidak logis, alat laboratorium yang bentuknya keliru).
+4. Setiap alat, bahan, dan objek harus dapat dikenali dengan jelas oleh siswa: bagian-bagian penting terlihat, tidak tertutup efek, dan tidak terdistorsi.
+5. Untuk aset yang berubah karena variabel/reaksi (sebelum/sesudah, kosong/terisi, normal/aktif), setiap state harus menampilkan perubahan yang benar secara ilmiah dan berbeda jelas antar-state, dengan sudut pandang, skala, dan posisi objek yang konsisten.
+6. Jaga konsistensi sudut pandang, arah pencahayaan, skala relatif, dan palet warna di seluruh aset, baik dalam satu file maupun antar-file, sesuai Prompt 1 PRO.
+7. Ikon menu, maskot, dan karakter tetap harus konsisten dengan Prompt 1 PRO, tetapi dirender dengan kualitas detail yang sama (bukan vektor datar yang samar) dan proporsinya wajar.
+8. Jangan menaruh teks, label, angka, atau simbol yang tidak diperlukan di dalam gambar. Hindari teks acak/tidak terbaca yang dihasilkan AI. Label dan teks antarmuka dibuat dengan HTML/CSS.
+9. Resolusi harus cukup tajam agar tetap jelas saat ditampilkan di layar (disarankan minimal 512 px pada sisi terpanjang setiap aset setelah di-crop).
+
+ATURAN FORMAT FILE — WAJIB:
+1. Format output WAJIB WebP dengan kanal alpha (transparan). Gunakan kompresi kualitas tinggi atau lossless agar detail realistis tidak rusak. Nama file berekstensi .webp.
+2. DILARANG mengeluarkan hasil dalam format SVG/vektor sebagai pengganti WebP.
+3. Jika platform hanya dapat mengeluarkan format lain (misalnya PNG), tetap hasilkan gambar dengan kualitas yang sama, tandai file tersebut "perlu konversi ke WebP", dan jangan menurunkan kualitas visual.
+
+ATURAN FILE GAMBAR — WAJIB & KETAT:
+1. Satu file gambar berisi MAKSIMAL 8 aset. Jika aset pada satu kelompok lebih dari 8, pecah menjadi beberapa file gambar. Jangan pernah melebihi 8 aset per file.
+2. Susun aset dalam grid rapi dan lurus (baris dan kolom sejajar), maksimal 4 aset per baris (jadi maksimal 2 baris untuk 8 aset). Jika jumlah aset kurang dari 8, tidak perlu memaksakan grid penuh.
+3. Ruang kosong (gutter) minimal 6 px di sisi kiri, kanan, atas, dan bawah setiap aset. Jarak bersih minimal 6 px juga wajib dijaga antar-aset yang bersebelahan dan antara aset dengan tepi kanvas, agar mudah di-crop tanpa mengenai aset lain.
+4. Jarak 6 px dihitung dari bagian terluar aset, termasuk bayangan, glow/efek cahaya, refleksi, outline, dan partikel. Tidak ada elemen apa pun yang boleh melewati batas atau masuk ke area aset tetangga. Setiap aset harus benar-benar terpisah secara visual.
+5. Background WAJIB transparan di seluruh kanvas, termasuk area gutter. Jangan menaruh kotak, warna latar, papan, atau grid yang terlihat di belakang aset. Bayangan dan refleksi harus tetap semi-transparan dan tidak meninggalkan latar solid. Jika platform tidak dapat menghasilkan transparansi, gunakan satu warna latar polos kontras yang seragam (misalnya hijau atau magenta murni yang tidak dipakai pada aset), tandai file tersebut "BG belum transparan", dan sebutkan warna yang dipakai agar mudah dihapus.
+6. Kelompokkan aset dalam satu file berdasarkan kategori, gaya, atau skala yang sama agar konsisten dan mudah dipotong. Semua pose/state dari satu karakter atau objek sebaiknya berada dalam file yang sama (maksimal 8; jika lebih, lanjutkan di file berikutnya dengan gaya yang identik).
+7. Jangan menggabungkan seluruh inventaris ke satu gambar besar atau sprite sheet.
+
+ATURAN BATCH — WAJIB:
+1. Generate PER BATCH. Satu batch maksimal 10 file gambar (jadi maksimal 80 aset). Jika aset dalam satu batch banyak, generate beberapa file gambar sekaligus dalam batch yang sama, tetapi jangan melebihi 10 file.
+2. Ukuran batch bersifat adaptif: gunakan jumlah file/aset yang masih dapat dihasilkan dengan kualitas dan konsistensi baik. Jika kualitas mulai turun, detail tercampur, gaya tidak lagi realistis, atau gutter tidak terjaga, kecilkan batch berikutnya.
+3. Beri label urutan kerja di luar gambar: Batch 1, Batch 2, Batch 3, dan seterusnya.
+4. WAJIB PETAKAN DULU sebelum generate. Pada awal setiap batch, tampilkan Peta Batch berikut, lalu langsung lanjutkan generate sesuai peta tanpa menunggu persetujuan (kecuali saya minta konfirmasi):
+   a. Tabel file: nomor file (mis. B1-F01), nama file yang disarankan (.webp), kategori, jumlah aset (maks 8), layout grid (mis. 4x2), halaman pemakaian.
+   b. Isi tiap file: posisi setiap aset (Baris-Kolom, mis. R1K1) beserta nama aset, nama file crop yang disarankan (.webp), dan catatan akurasi ilmiah singkat (ciri penting yang harus tampak benar).
+   c. Total file dalam batch (maks 10) dan total aset.
+   Pastikan setiap aset dari inventaris Prompt 2 PRO muncul tepat satu kali dalam peta (tidak ada yang terlewat atau ganda) dan urutan mengikuti prioritas aset.
+5. Generate semua file gambar dalam batch sesuai peta. Jangan mengubah isi peta di tengah jalan; jika harus diubah (mis. karena hasil gagal), catat perubahannya.
+6. Setelah semua file dalam batch selesai, lakukan pemeriksaan tiap file: (a) jumlah aset sesuai peta dan tidak lebih dari 8, (b) gutter minimal 6 px di semua sisi, (c) tidak ada bagian aset yang bersentuhan atau tumpang tindih, (d) background transparan, (e) gaya, warna, dan proporsi konsisten dengan Prompt 1 PRO, (f) gambar realistis dan jelas (bukan vektor datar atau samar), (g) akurasi ilmiah benar untuk setiap aset dan state, (h) format WebP dengan alpha, (i) tidak ada teks acak di dalam gambar.
+7. Tampilkan hasil batch: daftar file beserta aset di dalamnya, dengan kolom nomor, nama file crop (.webp), posisi grid, kategori, halaman pemakaian, format, dan status Selesai/Perlu Ulang. Aset atau file yang gagal diregenerate saja dalam batch kecil atau satu per satu, lalu ulangi pemeriksaan.
+8. Setelah batch selesai dan lolos pemeriksaan, lanjutkan otomatis ke batch berikutnya dan mulai lagi dari langkah Peta Batch.
 
 ATURAN GENERATE:
-1. Gunakan nama aset dan fungsi aset dari Prompt 2 PRO sebagai sumber utama. Prompt 3 PRO menjadi panduan visual/gaya, tetapi boleh diperbaiki agar hasil lebih konsisten.
+1. Gunakan nama aset dan fungsi aset dari Prompt 2 PRO sebagai sumber utama. Prompt 3 PRO menjadi panduan visual/gaya, tetapi boleh diperbaiki agar hasil lebih konsisten, lebih realistis, dan lebih akurat secara ilmiah.
 2. Generate aset Wajib terlebih dahulu, baru aset Opsional.
-3. Untuk aset yang dapat digunakan ulang, utamakan PNG transparan atau SVG/vektor bila platform mendukung.
-4. Jangan menaruh teks panjang di dalam gambar. Label/teks antarmuka sebaiknya dibuat dengan HTML/CSS agar mudah diedit.
-5. Pertahankan gaya visual, palet warna, proporsi, sudut pandang, dan tingkat detail yang konsisten dengan Prompt 1 PRO.
-6. Untuk alat/bahan/objek materi, prioritaskan kejelasan bentuk dan fungsi edukatif daripada dekorasi berlebihan.
-7. Jangan menggabungkan seluruh inventaris aset ke satu gambar besar/sprite sheet. Gunakan 1 aset per file sebagai prioritas; penggabungan beberapa aset hanya sebagai fallback per batch dengan aturan maksimal 4 aset per baris dan gutter minimal 6 px.
-8. Untuk setiap aset yang selesai dibuat, tampilkan: nomor, nama file, kategori, halaman pemakaian, format yang disarankan, dan status Selesai.
-9. Jika satu aset memerlukan beberapa pose/state, generate setiap state yang benar-benar dibutuhkan (misalnya normal/aktif/berubah, kosong/terisi, sebelum/sesudah reaksi).
-10. Setelah semua aset utama selesai, buat Rekap Manifest Aset Final yang memisahkan: Wajib selesai, Opsional selesai, dan Opsional belum dibuat.
+3. Pertahankan gaya visual, palet warna, proporsi, sudut pandang, dan tingkat detail yang konsisten dengan Prompt 1 PRO, baik di dalam satu file maupun antar-file.
+4. Untuk alat/bahan/objek materi, prioritaskan kejelasan bentuk, kebenaran ilmiah, dan fungsi edukatif daripada dekorasi berlebihan.
+5. Untuk aset yang memerlukan beberapa pose/state, generate setiap state yang benar-benar dibutuhkan (misalnya normal/aktif/berubah, kosong/terisi, sebelum/sesudah reaksi), masing-masing sebagai satu aset di dalam grid.
+6. Setelah semua aset utama selesai, buat Rekap Manifest Aset Final yang memisahkan: Wajib selesai, Opsional selesai, dan Opsional belum dibuat.
 
 PENTING:
 - Jangan hanya menjelaskan cara membuat aset.
 - Jangan hanya mengulang prompt dari Prompt 3 PRO.
-- Jika fitur image generation tersedia, langsung gunakan fitur tersebut untuk menghasilkan aset secara berurutan.
-- Jika platform yang dipakai tidak dapat menghasilkan file gambar/audio secara langsung, tetap susun paket prompt final per aset dengan nama file yang konsisten dan tandai secara jelas sebagai "perlu dieksekusi pada generator aset"; jangan mengubah daftar aset utama.
+- Jika fitur image generation tersedia, langsung gunakan fitur tersebut untuk menghasilkan aset sesuai Peta Batch.
+- Jika platform tidak dapat menghasilkan file gambar/audio secara langsung, tetap susun paket prompt final per FILE GAMBAR (bukan per aset) sesuai Peta Batch, lengkap dengan nama file (.webp), isi grid, gutter 6 px, BG transparan, gaya realistis-ilmiah, dan catatan akurasi ilmiah, lalu tandai jelas sebagai "perlu dieksekusi pada generator aset"; jangan mengubah daftar aset utama. Jangan beralih ke SVG/vektor sebagai solusi cadangan.
 
-Mulai dari aset prioritas tertinggi yang paling berhubungan dengan materi, lalu lanjutkan otomatis sampai semua aset utama selesai.`
+Mulai dengan Peta Batch 1 dari aset prioritas tertinggi yang paling berhubungan dengan materi, lalu lanjutkan otomatis sampai semua aset utama selesai.`
       },
       {
         title: "Prompt 5 PRO Susun Prompt Web App Simulasi & Lab Maya",
@@ -1280,59 +1302,76 @@ Daftar prompt siap copy, dikelompokkan per kategori aset, masing-masing diberi j
       },
       {
         title: "Prompt 4 PRO Generate Semua Aset Otomatis MPI di ChatGPT/Claude",
-        text: `Berdasarkan rancangan desain MPI (Prompt 1 PRO), Daftar Inventaris Aset (Prompt 2 PRO), dan kumpulan prompt aset (Prompt 3 PRO), sekarang GENERATE semua aset MPI ini secara otomatis langsung di percakapan ChatGPT/Claude. Jangan berhenti pada daftar atau prompt saja jika platform memiliki kemampuan membuat gambar/aset; lanjutkan sampai aset utama benar-benar dibuat. Kerjakan secara bertahap per batch sesuai kemampuan image generation AI yang sedang digunakan; jangan memaksa seluruh aset dibuat sekaligus dalam satu proses.
+        text: `Berdasarkan rancangan desain (Prompt 1 PRO), Daftar Inventaris Aset (Prompt 2 PRO), dan kumpulan prompt aset (Prompt 3 PRO), sekarang GENERATE semua aset proyek ini secara otomatis langsung di percakapan ChatGPT/Claude ini. Jangan berhenti pada daftar atau prompt saja jika platform yang digunakan memiliki kemampuan membuat gambar/aset; lanjutkan sampai aset utama benar-benar dibuat. Kerjakan secara bertahap per batch sesuai aturan di bawah; jangan memaksa seluruh aset dibuat sekaligus.
 
 Platform: [ChatGPT / Claude]
 
-Tetap patuhi keputusan proyek:
-- Tautkan Canva Sheet: [Ya / Tidak]
-- Akses menu: [Bertahap / Bebas]
-
 PRIORITAS ASET UTAMA — WAJIB DIDAHULUKAN:
-1. Aset yang berhubungan langsung dengan materi — ilustrasi konsep, diagram, objek pembelajaran, visual proses, contoh kontekstual, infografik sederhana tanpa teks panjang, dan aset visual lain yang membantu siswa memahami isi materi.
-2. Ikon menu utama — Pembuka, Tujuan Pembelajaran, Materi, Pembelajaran Bertahap, Evaluasi, serta Simulasi/Games bila digunakan.
-3. Maskot/karakter pemandu — jika tercantum pada Prompt 1 PRO; jaga ciri visual, pakaian, warna, dan ekspresi tetap konsisten.
-4. Karakter/objek interaktif — bila MPI memiliki simulasi, games, drag-drop, atau aktivitas visual tertentu.
-5. Bangunan/ruang/latar tematik — hanya jika menjadi bagian penting dari tema atau konteks materi, misalnya laboratorium, sekolah, kota, hutan, museum, luar angkasa, dan sebagainya.
-6. Obstacle/rintangan — hanya jika Simulasi/Games di dalam MPI memang membutuhkannya.
-7. Aset status progres/Canva Sheet — hanya sesuai pilihan Prompt 0-1 PRO dan hanya jika memang membutuhkan aset visual khusus.
+1. Aset yang berhubungan langsung dengan materi/fenomena — misalnya alat & bahan virtual, objek eksperimen, elemen simulasi, diagram konsep, ilustrasi proses, objek yang berubah karena variabel, atau visual data yang memang diperlukan untuk memahami materi.
+2. Ikon menu utama — buat konsisten untuk Pembuka, Tujuan Pembelajaran, Konsep Dasar, Ruang Simulasi/Praktikum, Lembar Pengamatan, Refleksi, dan Evaluasi bila menu tersebut digunakan.
+3. Maskot/karakter pemandu — jika tercantum dalam desain; pertahankan ciri visual yang sama pada semua pose/ekspresi.
+4. Karakter/objek interaktif utama — jika simulasi/lab membutuhkan karakter, avatar, petugas lab, objek bergerak, atau objek yang dapat diseret/diklik.
+5. Bangunan/ruang/latar penting — misalnya laboratorium, ruang eksperimen, lingkungan alam, pabrik, kelas, atau lokasi tematik yang memang menjadi bagian dari materi/aktivitas.
+6. Obstacle/rintangan/objek tantangan — hanya jika rancangan simulasi/game mini memang menggunakannya.
 
 ASET OPSIONAL:
-- Audio: narasi, backsound, efek klik, benar/salah, transisi, atau reward. Generate hanya bila diperlukan atau saya minta.
-- Tombol navigasi: Menu, Lanjut, Kembali, Home, Ulangi, Kirim, dan sejenisnya. Secara default buat sebagai HTML/CSS; aset gambar tombol hanya opsional.
+- Audio: backsound, narasi, efek klik, alarm, efek reaksi, atau efek keberhasilan. Generate hanya jika benar-benar diperlukan atau saya minta.
+- Tombol navigasi (Mulai, Lanjut, Kembali, Reset, Jeda, Home, dan sejenisnya): tidak wajib dibuat sebagai gambar; utamakan tombol CSS/HTML. Buat aset gambar tombol hanya jika desain memang membutuhkan bentuk khusus.
 
-ATURAN OUTPUT GAMBAR & SISTEM BATCH — WAJIB:
-1. Prioritas utama: 1 aset/gambar = 1 file terpisah agar paling mudah digunakan saat coding, disimpan, dan di-crop bila diperlukan.
-2. Jika keterbatasan AI membuat beberapa aset harus digenerate dalam 1 file/canvas, susun aset dalam grid yang rapi dan mudah dipotong.
-3. Dalam 1 baris, tampilkan maksimal 4 gambar/aset. Jika jumlah aset pada batch kurang dari 4, tidak perlu memaksakan menjadi 4.
-4. Setiap gambar/aset harus memiliki ruang kosong/gutter minimal 6 px pada sisi kiri, kanan, atas, dan bawah. Jarak minimal 6 px juga harus dipertahankan antar-aset agar hasil dapat di-crop tanpa mengenai aset di sebelahnya.
-5. Jangan biarkan karakter, bayangan, efek cahaya, outline, atau bagian objek lain melewati area batas/gutter aset tetangga. Setiap aset harus benar-benar terpisah secara visual.
-6. Jika memakai background transparan, pertahankan transparansi di area pemisah. Jika transparansi tidak didukung, gunakan background polos yang kontras dan konsisten agar proses crop mudah.
-7. Generate aset PER BATCH sesuai kemampuan AI/platform yang digunakan. Jangan memaksa seluruh inventaris aset dibuat dalam satu kali generate.
-8. Ukuran batch bersifat adaptif: gunakan jumlah aset yang masih dapat dihasilkan dengan kualitas dan konsistensi yang baik oleh AI saat itu. Jika kualitas mulai turun atau detail tercampur, kecilkan batch berikutnya.
-9. Beri label urutan kerja di luar gambar: Batch 1, Batch 2, Batch 3, dan seterusnya. Jangan menambahkan nama file/label panjang di dalam gambar aset kecuali memang bagian dari desain.
-10. Setelah setiap batch selesai, tampilkan daftar aset pada batch tersebut beserta nama file yang disarankan, status Selesai/Perlu Ulang, lalu lanjutkan ke batch berikutnya. Jika ada aset gagal atau tercampur, regenerate hanya aset tersebut dalam batch kecil atau satu per satu.
-11. Untuk aset yang membutuhkan beberapa pose/state, usahakan setiap pose/state menjadi file terpisah. Jika harus digabung dalam satu canvas, tetap gunakan aturan maksimal 4 aset per baris dan gutter minimal 6 px.
+ATURAN KUALITAS VISUAL — ILMIAH & REALISTIS — WAJIB:
+1. Semua gambar harus ilmiah dan realistis: bentuk, proporsi, warna, tekstur, material, dan cara kerja objek harus sesuai dengan kondisi nyata dan konsep sains/materi yang diajarkan.
+2. Gunakan gaya render realistis atau semi-realistis dengan detail jelas: pencahayaan, bayangan lembut, refleksi, transparansi kaca/cairan, dan tekstur permukaan yang tampak nyata. DILARANG membuat gambar berupa ikon vektor datar, clipart, doodle, kartun sederhana, atau ilustrasi berbentuk samar/tidak jelas.
+3. Akurasi ilmiah didahulukan daripada estetika. Jangan menambahkan detail yang salah secara sains (misalnya warna indikator yang tidak sesuai, jumlah bagian yang salah, arah aliran/gerak yang salah, skala yang tidak logis, alat laboratorium yang bentuknya keliru).
+4. Setiap alat, bahan, dan objek harus dapat dikenali dengan jelas oleh siswa: bagian-bagian penting terlihat, tidak tertutup efek, dan tidak terdistorsi.
+5. Untuk aset yang berubah karena variabel/reaksi (sebelum/sesudah, kosong/terisi, normal/aktif), setiap state harus menampilkan perubahan yang benar secara ilmiah dan berbeda jelas antar-state, dengan sudut pandang, skala, dan posisi objek yang konsisten.
+6. Jaga konsistensi sudut pandang, arah pencahayaan, skala relatif, dan palet warna di seluruh aset, baik dalam satu file maupun antar-file, sesuai Prompt 1 PRO.
+7. Ikon menu, maskot, dan karakter tetap harus konsisten dengan Prompt 1 PRO, tetapi dirender dengan kualitas detail yang sama (bukan vektor datar yang samar) dan proporsinya wajar.
+8. Jangan menaruh teks, label, angka, atau simbol yang tidak diperlukan di dalam gambar. Hindari teks acak/tidak terbaca yang dihasilkan AI. Label dan teks antarmuka dibuat dengan HTML/CSS.
+9. Resolusi harus cukup tajam agar tetap jelas saat ditampilkan di layar (disarankan minimal 512 px pada sisi terpanjang setiap aset setelah di-crop).
+
+ATURAN FORMAT FILE — WAJIB:
+1. Format output WAJIB WebP dengan kanal alpha (transparan). Gunakan kompresi kualitas tinggi atau lossless agar detail realistis tidak rusak. Nama file berekstensi .webp.
+2. DILARANG mengeluarkan hasil dalam format SVG/vektor sebagai pengganti WebP.
+3. Jika platform hanya dapat mengeluarkan format lain (misalnya PNG), tetap hasilkan gambar dengan kualitas yang sama, tandai file tersebut "perlu konversi ke WebP", dan jangan menurunkan kualitas visual.
+
+ATURAN FILE GAMBAR — WAJIB & KETAT:
+1. Satu file gambar berisi MAKSIMAL 8 aset. Jika aset pada satu kelompok lebih dari 8, pecah menjadi beberapa file gambar. Jangan pernah melebihi 8 aset per file.
+2. Susun aset dalam grid rapi dan lurus (baris dan kolom sejajar), maksimal 4 aset per baris (jadi maksimal 2 baris untuk 8 aset). Jika jumlah aset kurang dari 8, tidak perlu memaksakan grid penuh.
+3. Ruang kosong (gutter) minimal 6 px di sisi kiri, kanan, atas, dan bawah setiap aset. Jarak bersih minimal 6 px juga wajib dijaga antar-aset yang bersebelahan dan antara aset dengan tepi kanvas, agar mudah di-crop tanpa mengenai aset lain.
+4. Jarak 6 px dihitung dari bagian terluar aset, termasuk bayangan, glow/efek cahaya, refleksi, outline, dan partikel. Tidak ada elemen apa pun yang boleh melewati batas atau masuk ke area aset tetangga. Setiap aset harus benar-benar terpisah secara visual.
+5. Background WAJIB transparan di seluruh kanvas, termasuk area gutter. Jangan menaruh kotak, warna latar, papan, atau grid yang terlihat di belakang aset. Bayangan dan refleksi harus tetap semi-transparan dan tidak meninggalkan latar solid. Jika platform tidak dapat menghasilkan transparansi, gunakan satu warna latar polos kontras yang seragam (misalnya hijau atau magenta murni yang tidak dipakai pada aset), tandai file tersebut "BG belum transparan", dan sebutkan warna yang dipakai agar mudah dihapus.
+6. Kelompokkan aset dalam satu file berdasarkan kategori, gaya, atau skala yang sama agar konsisten dan mudah dipotong. Semua pose/state dari satu karakter atau objek sebaiknya berada dalam file yang sama (maksimal 8; jika lebih, lanjutkan di file berikutnya dengan gaya yang identik).
+7. Jangan menggabungkan seluruh inventaris ke satu gambar besar atau sprite sheet.
+
+ATURAN BATCH — WAJIB:
+1. Generate PER BATCH. Satu batch maksimal 10 file gambar (jadi maksimal 80 aset). Jika aset dalam satu batch banyak, generate beberapa file gambar sekaligus dalam batch yang sama, tetapi jangan melebihi 10 file.
+2. Ukuran batch bersifat adaptif: gunakan jumlah file/aset yang masih dapat dihasilkan dengan kualitas dan konsistensi baik. Jika kualitas mulai turun, detail tercampur, gaya tidak lagi realistis, atau gutter tidak terjaga, kecilkan batch berikutnya.
+3. Beri label urutan kerja di luar gambar: Batch 1, Batch 2, Batch 3, dan seterusnya.
+4. WAJIB PETAKAN DULU sebelum generate. Pada awal setiap batch, tampilkan Peta Batch berikut, lalu langsung lanjutkan generate sesuai peta tanpa menunggu persetujuan (kecuali saya minta konfirmasi):
+   a. Tabel file: nomor file (mis. B1-F01), nama file yang disarankan (.webp), kategori, jumlah aset (maks 8), layout grid (mis. 4x2), halaman pemakaian.
+   b. Isi tiap file: posisi setiap aset (Baris-Kolom, mis. R1K1) beserta nama aset, nama file crop yang disarankan (.webp), dan catatan akurasi ilmiah singkat (ciri penting yang harus tampak benar).
+   c. Total file dalam batch (maks 10) dan total aset.
+   Pastikan setiap aset dari inventaris Prompt 2 PRO muncul tepat satu kali dalam peta (tidak ada yang terlewat atau ganda) dan urutan mengikuti prioritas aset.
+5. Generate semua file gambar dalam batch sesuai peta. Jangan mengubah isi peta di tengah jalan; jika harus diubah (mis. karena hasil gagal), catat perubahannya.
+6. Setelah semua file dalam batch selesai, lakukan pemeriksaan tiap file: (a) jumlah aset sesuai peta dan tidak lebih dari 8, (b) gutter minimal 6 px di semua sisi, (c) tidak ada bagian aset yang bersentuhan atau tumpang tindih, (d) background transparan, (e) gaya, warna, dan proporsi konsisten dengan Prompt 1 PRO, (f) gambar realistis dan jelas (bukan vektor datar atau samar), (g) akurasi ilmiah benar untuk setiap aset dan state, (h) format WebP dengan alpha, (i) tidak ada teks acak di dalam gambar.
+7. Tampilkan hasil batch: daftar file beserta aset di dalamnya, dengan kolom nomor, nama file crop (.webp), posisi grid, kategori, halaman pemakaian, format, dan status Selesai/Perlu Ulang. Aset atau file yang gagal diregenerate saja dalam batch kecil atau satu per satu, lalu ulangi pemeriksaan.
+8. Setelah batch selesai dan lolos pemeriksaan, lanjutkan otomatis ke batch berikutnya dan mulai lagi dari langkah Peta Batch.
 
 ATURAN GENERATE:
-1. Gunakan nama aset dan fungsi dari Prompt 2 PRO. Gunakan Prompt 3 PRO sebagai panduan gaya/prompt, bukan sebagai output akhir.
-2. Generate aset Wajib terlebih dahulu; aset Opsional dikerjakan setelah aset utama selesai.
-3. Prioritaskan PNG transparan/SVG untuk ikon, karakter, objek, dan elemen yang perlu ditempatkan di berbagai background.
-4. Jangan menaruh paragraf atau teks materi di dalam gambar. Teks pembelajaran tetap dibuat di HTML/CSS agar mudah diedit dan tetap terbaca.
-5. Pertahankan palet warna, gaya ilustrasi, proporsi, outline, pencahayaan, dan mood sesuai Prompt 1 PRO.
-6. Ikon menu harus satu keluarga visual: ukuran, ketebalan garis, sudut, dan warna konsisten.
-7. Jika maskot/karakter memiliki beberapa pose, generate hanya pose yang benar-benar dibutuhkan oleh storyboard.
-8. Jangan membuat aset yang bertentangan dengan pilihan Canva Sheet atau mode Akses menu.
-9. Untuk setiap aset yang selesai, tampilkan: nomor, nama file, kategori, halaman pemakaian, format, dan status Selesai.
-10. Setelah aset utama selesai, buat Rekap Manifest Aset Final: Wajib selesai, Opsional selesai, Opsional belum dibuat.
+1. Gunakan nama aset dan fungsi aset dari Prompt 2 PRO sebagai sumber utama. Prompt 3 PRO menjadi panduan visual/gaya, tetapi boleh diperbaiki agar hasil lebih konsisten, lebih realistis, dan lebih akurat secara ilmiah.
+2. Generate aset Wajib terlebih dahulu, baru aset Opsional.
+3. Pertahankan gaya visual, palet warna, proporsi, sudut pandang, dan tingkat detail yang konsisten dengan Prompt 1 PRO, baik di dalam satu file maupun antar-file.
+4. Untuk alat/bahan/objek materi, prioritaskan kejelasan bentuk, kebenaran ilmiah, dan fungsi edukatif daripada dekorasi berlebihan.
+5. Untuk aset yang memerlukan beberapa pose/state, generate setiap state yang benar-benar dibutuhkan (misalnya normal/aktif/berubah, kosong/terisi, sebelum/sesudah reaksi), masing-masing sebagai satu aset di dalam grid.
+6. Setelah semua aset utama selesai, buat Rekap Manifest Aset Final yang memisahkan: Wajib selesai, Opsional selesai, dan Opsional belum dibuat.
 
 PENTING:
-- Jangan hanya menjelaskan proses pembuatan aset.
-- Jangan hanya menampilkan ulang prompt dari Prompt 3 PRO.
-- Jika fitur image generation tersedia, langsung hasilkan aset secara berurutan per batch sesuai kemampuan AI.
-- Jika platform tidak dapat menghasilkan file gambar/audio secara langsung, buat paket prompt final per aset dengan nama file yang konsisten dan tandai "perlu dieksekusi pada generator aset" tanpa mengubah kebutuhan aset utama.
+- Jangan hanya menjelaskan cara membuat aset.
+- Jangan hanya mengulang prompt dari Prompt 3 PRO.
+- Jika fitur image generation tersedia, langsung gunakan fitur tersebut untuk menghasilkan aset sesuai Peta Batch.
+- Jika platform tidak dapat menghasilkan file gambar/audio secara langsung, tetap susun paket prompt final per FILE GAMBAR (bukan per aset) sesuai Peta Batch, lengkap dengan nama file (.webp), isi grid, gutter 6 px, BG transparan, gaya realistis-ilmiah, dan catatan akurasi ilmiah, lalu tandai jelas sebagai "perlu dieksekusi pada generator aset"; jangan mengubah daftar aset utama. Jangan beralih ke SVG/vektor sebagai solusi cadangan.
 
-Mulai dari aset materi paling penting, kemudian ikon menu, maskot/karakter, bangunan/latar atau obstacle jika relevan, lalu aset opsional.`
+Mulai dengan Peta Batch 1 dari aset prioritas tertinggi yang paling berhubungan dengan materi, lalu lanjutkan otomatis sampai semua aset utama selesai.`
       },
       {
         title: "Prompt 5 PRO Coding MPI (Gabungkan Semua Aset ke Desain)",
@@ -1499,53 +1538,76 @@ Daftar prompt siap copy, dikelompokkan per kategori aset, judul sama dengan nama
       },
       {
         title: "Prompt 4 PRO Generate Semua Aset Otomatis Game Edukasi Sederhana di ChatGPT/Claude",
-        text: `Berdasarkan rancangan desain game (Prompt 1 PRO), Daftar Inventaris Aset (Prompt 2 PRO), dan kumpulan prompt aset (Prompt 3 PRO), sekarang GENERATE semua aset game ini secara otomatis langsung di percakapan ChatGPT/Claude. Jangan berhenti pada daftar atau prompt saja jika platform memiliki kemampuan membuat gambar/aset; lanjutkan sampai aset utama benar-benar dibuat. Kerjakan secara bertahap per batch sesuai kemampuan image generation AI yang sedang digunakan; jangan memaksa seluruh aset dibuat sekaligus dalam satu proses.
+        text: `Berdasarkan rancangan desain (Prompt 1 PRO), Daftar Inventaris Aset (Prompt 2 PRO), dan kumpulan prompt aset (Prompt 3 PRO), sekarang GENERATE semua aset proyek ini secara otomatis langsung di percakapan ChatGPT/Claude ini. Jangan berhenti pada daftar atau prompt saja jika platform yang digunakan memiliki kemampuan membuat gambar/aset; lanjutkan sampai aset utama benar-benar dibuat. Kerjakan secara bertahap per batch sesuai aturan di bawah; jangan memaksa seluruh aset dibuat sekaligus.
 
 Platform: [ChatGPT / Claude]
 
 PRIORITAS ASET UTAMA — WAJIB DIDAHULUKAN:
-1. Aset yang berhubungan langsung dengan materi/tantangan — gambar objek materi, kartu soal bergambar, objek eksperimen, simbol, peta, item edukatif, atau visual lain yang diperlukan agar soal dan mekanik game terhubung dengan materi.
-2. Ikon menu utama — Mulai, Petunjuk, Materi/Misi, Tantangan, Skor/Hasil, Reward, dan menu lain yang benar-benar ada.
-3. Maskot dan karakter — karakter pemain, NPC/pemandu, lawan non-kekerasan, atau karakter pendukung sesuai storyboard; jaga konsistensi tampilan pada semua pose.
-4. Bangunan/lokasi/scene penting — sekolah, laboratorium, kota, hutan, planet, arena, lintasan, ruangan, atau lokasi lain sesuai tema game.
-5. Obstacle/rintangan — batu, gerbang, jebakan ramah anak, penghalang, checkpoint, target, atau objek tantangan sesuai mekanik game.
-6. Elemen mekanik utama — papan/grid, dadu, kartu, kendaraan, item koleksi, koin/bintang, puzzle piece, gerbang soal, dan objek interaktif lain sesuai model game.
+1. Aset yang berhubungan langsung dengan materi/fenomena — misalnya alat & bahan virtual, objek eksperimen, elemen simulasi, diagram konsep, ilustrasi proses, objek yang berubah karena variabel, atau visual data yang memang diperlukan untuk memahami materi.
+2. Ikon menu utama — buat konsisten untuk Pembuka, Tujuan Pembelajaran, Konsep Dasar, Ruang Simulasi/Praktikum, Lembar Pengamatan, Refleksi, dan Evaluasi bila menu tersebut digunakan.
+3. Maskot/karakter pemandu — jika tercantum dalam desain; pertahankan ciri visual yang sama pada semua pose/ekspresi.
+4. Karakter/objek interaktif utama — jika simulasi/lab membutuhkan karakter, avatar, petugas lab, objek bergerak, atau objek yang dapat diseret/diklik.
+5. Bangunan/ruang/latar penting — misalnya laboratorium, ruang eksperimen, lingkungan alam, pabrik, kelas, atau lokasi tematik yang memang menjadi bagian dari materi/aktivitas.
+6. Obstacle/rintangan/objek tantangan — hanya jika rancangan simulasi/game mini memang menggunakannya.
 
 ASET OPSIONAL:
-- Audio: backsound, klik, benar/salah, reward, langkah, kendaraan, atau efek mekanik. Generate hanya bila diperlukan atau saya minta.
-- Tombol navigasi: Home, Lanjut, Kembali, Ulangi, Pause, dan lainnya. Secara default gunakan HTML/CSS; aset tombol bergambar hanya opsional.
+- Audio: backsound, narasi, efek klik, alarm, efek reaksi, atau efek keberhasilan. Generate hanya jika benar-benar diperlukan atau saya minta.
+- Tombol navigasi (Mulai, Lanjut, Kembali, Reset, Jeda, Home, dan sejenisnya): tidak wajib dibuat sebagai gambar; utamakan tombol CSS/HTML. Buat aset gambar tombol hanya jika desain memang membutuhkan bentuk khusus.
 
-ATURAN OUTPUT GAMBAR & SISTEM BATCH — WAJIB:
-1. Prioritas utama: 1 aset/gambar = 1 file terpisah agar paling mudah digunakan saat coding, disimpan, dan di-crop bila diperlukan.
-2. Jika keterbatasan AI membuat beberapa aset harus digenerate dalam 1 file/canvas, susun aset dalam grid yang rapi dan mudah dipotong.
-3. Dalam 1 baris, tampilkan maksimal 4 gambar/aset. Jika jumlah aset pada batch kurang dari 4, tidak perlu memaksakan menjadi 4.
-4. Setiap gambar/aset harus memiliki ruang kosong/gutter minimal 6 px pada sisi kiri, kanan, atas, dan bawah. Jarak minimal 6 px juga harus dipertahankan antar-aset agar hasil dapat di-crop tanpa mengenai aset di sebelahnya.
-5. Jangan biarkan karakter, bayangan, efek cahaya, outline, atau bagian objek lain melewati area batas/gutter aset tetangga. Setiap aset harus benar-benar terpisah secara visual.
-6. Jika memakai background transparan, pertahankan transparansi di area pemisah. Jika transparansi tidak didukung, gunakan background polos yang kontras dan konsisten agar proses crop mudah.
-7. Generate aset PER BATCH sesuai kemampuan AI/platform yang digunakan. Jangan memaksa seluruh inventaris aset dibuat dalam satu kali generate.
-8. Ukuran batch bersifat adaptif: gunakan jumlah aset yang masih dapat dihasilkan dengan kualitas dan konsistensi yang baik oleh AI saat itu. Jika kualitas mulai turun atau detail tercampur, kecilkan batch berikutnya.
-9. Beri label urutan kerja di luar gambar: Batch 1, Batch 2, Batch 3, dan seterusnya. Jangan menambahkan nama file/label panjang di dalam gambar aset kecuali memang bagian dari desain.
-10. Setelah setiap batch selesai, tampilkan daftar aset pada batch tersebut beserta nama file yang disarankan, status Selesai/Perlu Ulang, lalu lanjutkan ke batch berikutnya. Jika ada aset gagal atau tercampur, regenerate hanya aset tersebut dalam batch kecil atau satu per satu.
-11. Untuk aset yang membutuhkan beberapa pose/state, usahakan setiap pose/state menjadi file terpisah. Jika harus digabung dalam satu canvas, tetap gunakan aturan maksimal 4 aset per baris dan gutter minimal 6 px.
+ATURAN KUALITAS VISUAL — ILMIAH & REALISTIS — WAJIB:
+1. Semua gambar harus ilmiah dan realistis: bentuk, proporsi, warna, tekstur, material, dan cara kerja objek harus sesuai dengan kondisi nyata dan konsep sains/materi yang diajarkan.
+2. Gunakan gaya render realistis atau semi-realistis dengan detail jelas: pencahayaan, bayangan lembut, refleksi, transparansi kaca/cairan, dan tekstur permukaan yang tampak nyata. DILARANG membuat gambar berupa ikon vektor datar, clipart, doodle, kartun sederhana, atau ilustrasi berbentuk samar/tidak jelas.
+3. Akurasi ilmiah didahulukan daripada estetika. Jangan menambahkan detail yang salah secara sains (misalnya warna indikator yang tidak sesuai, jumlah bagian yang salah, arah aliran/gerak yang salah, skala yang tidak logis, alat laboratorium yang bentuknya keliru).
+4. Setiap alat, bahan, dan objek harus dapat dikenali dengan jelas oleh siswa: bagian-bagian penting terlihat, tidak tertutup efek, dan tidak terdistorsi.
+5. Untuk aset yang berubah karena variabel/reaksi (sebelum/sesudah, kosong/terisi, normal/aktif), setiap state harus menampilkan perubahan yang benar secara ilmiah dan berbeda jelas antar-state, dengan sudut pandang, skala, dan posisi objek yang konsisten.
+6. Jaga konsistensi sudut pandang, arah pencahayaan, skala relatif, dan palet warna di seluruh aset, baik dalam satu file maupun antar-file, sesuai Prompt 1 PRO.
+7. Ikon menu, maskot, dan karakter tetap harus konsisten dengan Prompt 1 PRO, tetapi dirender dengan kualitas detail yang sama (bukan vektor datar yang samar) dan proporsinya wajar.
+8. Jangan menaruh teks, label, angka, atau simbol yang tidak diperlukan di dalam gambar. Hindari teks acak/tidak terbaca yang dihasilkan AI. Label dan teks antarmuka dibuat dengan HTML/CSS.
+9. Resolusi harus cukup tajam agar tetap jelas saat ditampilkan di layar (disarankan minimal 512 px pada sisi terpanjang setiap aset setelah di-crop).
+
+ATURAN FORMAT FILE — WAJIB:
+1. Format output WAJIB WebP dengan kanal alpha (transparan). Gunakan kompresi kualitas tinggi atau lossless agar detail realistis tidak rusak. Nama file berekstensi .webp.
+2. DILARANG mengeluarkan hasil dalam format SVG/vektor sebagai pengganti WebP.
+3. Jika platform hanya dapat mengeluarkan format lain (misalnya PNG), tetap hasilkan gambar dengan kualitas yang sama, tandai file tersebut "perlu konversi ke WebP", dan jangan menurunkan kualitas visual.
+
+ATURAN FILE GAMBAR — WAJIB & KETAT:
+1. Satu file gambar berisi MAKSIMAL 8 aset. Jika aset pada satu kelompok lebih dari 8, pecah menjadi beberapa file gambar. Jangan pernah melebihi 8 aset per file.
+2. Susun aset dalam grid rapi dan lurus (baris dan kolom sejajar), maksimal 4 aset per baris (jadi maksimal 2 baris untuk 8 aset). Jika jumlah aset kurang dari 8, tidak perlu memaksakan grid penuh.
+3. Ruang kosong (gutter) minimal 6 px di sisi kiri, kanan, atas, dan bawah setiap aset. Jarak bersih minimal 6 px juga wajib dijaga antar-aset yang bersebelahan dan antara aset dengan tepi kanvas, agar mudah di-crop tanpa mengenai aset lain.
+4. Jarak 6 px dihitung dari bagian terluar aset, termasuk bayangan, glow/efek cahaya, refleksi, outline, dan partikel. Tidak ada elemen apa pun yang boleh melewati batas atau masuk ke area aset tetangga. Setiap aset harus benar-benar terpisah secara visual.
+5. Background WAJIB transparan di seluruh kanvas, termasuk area gutter. Jangan menaruh kotak, warna latar, papan, atau grid yang terlihat di belakang aset. Bayangan dan refleksi harus tetap semi-transparan dan tidak meninggalkan latar solid. Jika platform tidak dapat menghasilkan transparansi, gunakan satu warna latar polos kontras yang seragam (misalnya hijau atau magenta murni yang tidak dipakai pada aset), tandai file tersebut "BG belum transparan", dan sebutkan warna yang dipakai agar mudah dihapus.
+6. Kelompokkan aset dalam satu file berdasarkan kategori, gaya, atau skala yang sama agar konsisten dan mudah dipotong. Semua pose/state dari satu karakter atau objek sebaiknya berada dalam file yang sama (maksimal 8; jika lebih, lanjutkan di file berikutnya dengan gaya yang identik).
+7. Jangan menggabungkan seluruh inventaris ke satu gambar besar atau sprite sheet.
+
+ATURAN BATCH — WAJIB:
+1. Generate PER BATCH. Satu batch maksimal 10 file gambar (jadi maksimal 80 aset). Jika aset dalam satu batch banyak, generate beberapa file gambar sekaligus dalam batch yang sama, tetapi jangan melebihi 10 file.
+2. Ukuran batch bersifat adaptif: gunakan jumlah file/aset yang masih dapat dihasilkan dengan kualitas dan konsistensi baik. Jika kualitas mulai turun, detail tercampur, gaya tidak lagi realistis, atau gutter tidak terjaga, kecilkan batch berikutnya.
+3. Beri label urutan kerja di luar gambar: Batch 1, Batch 2, Batch 3, dan seterusnya.
+4. WAJIB PETAKAN DULU sebelum generate. Pada awal setiap batch, tampilkan Peta Batch berikut, lalu langsung lanjutkan generate sesuai peta tanpa menunggu persetujuan (kecuali saya minta konfirmasi):
+   a. Tabel file: nomor file (mis. B1-F01), nama file yang disarankan (.webp), kategori, jumlah aset (maks 8), layout grid (mis. 4x2), halaman pemakaian.
+   b. Isi tiap file: posisi setiap aset (Baris-Kolom, mis. R1K1) beserta nama aset, nama file crop yang disarankan (.webp), dan catatan akurasi ilmiah singkat (ciri penting yang harus tampak benar).
+   c. Total file dalam batch (maks 10) dan total aset.
+   Pastikan setiap aset dari inventaris Prompt 2 PRO muncul tepat satu kali dalam peta (tidak ada yang terlewat atau ganda) dan urutan mengikuti prioritas aset.
+5. Generate semua file gambar dalam batch sesuai peta. Jangan mengubah isi peta di tengah jalan; jika harus diubah (mis. karena hasil gagal), catat perubahannya.
+6. Setelah semua file dalam batch selesai, lakukan pemeriksaan tiap file: (a) jumlah aset sesuai peta dan tidak lebih dari 8, (b) gutter minimal 6 px di semua sisi, (c) tidak ada bagian aset yang bersentuhan atau tumpang tindih, (d) background transparan, (e) gaya, warna, dan proporsi konsisten dengan Prompt 1 PRO, (f) gambar realistis dan jelas (bukan vektor datar atau samar), (g) akurasi ilmiah benar untuk setiap aset dan state, (h) format WebP dengan alpha, (i) tidak ada teks acak di dalam gambar.
+7. Tampilkan hasil batch: daftar file beserta aset di dalamnya, dengan kolom nomor, nama file crop (.webp), posisi grid, kategori, halaman pemakaian, format, dan status Selesai/Perlu Ulang. Aset atau file yang gagal diregenerate saja dalam batch kecil atau satu per satu, lalu ulangi pemeriksaan.
+8. Setelah batch selesai dan lolos pemeriksaan, lanjutkan otomatis ke batch berikutnya dan mulai lagi dari langkah Peta Batch.
 
 ATURAN GENERATE:
-1. Gunakan daftar nama aset dari Prompt 2 PRO dan panduan visual Prompt 3 PRO.
-2. Generate aset Wajib terlebih dahulu, dimulai dari aset materi dan mekanik inti game.
-3. Utamakan PNG transparan/SVG untuk karakter, obstacle, ikon, item, dan objek yang harus ditempatkan di scene berbeda.
-4. Background/scene boleh berupa gambar penuh jika memang dibutuhkan, tetapi jangan membuatnya terlalu ramai sehingga soal sulit dibaca.
-5. Jangan menaruh teks soal, skor, atau instruksi panjang langsung di dalam gambar.
-6. Pertahankan gaya, palet, proporsi, outline, sudut pandang, dan mood konsisten dengan Prompt 1 PRO.
-7. Jika karakter/obstacle perlu beberapa state, generate state minimum yang dibutuhkan: idle/bergerak/berhasil/gagal atau normal/aktif bila relevan.
-8. Jangan gabungkan seluruh inventaris aset menjadi satu sprite sheet. Prioritaskan 1 aset per file; bila perlu multi-aset dalam satu canvas, ikuti aturan batch, maksimal 4 aset per baris, dan gutter minimal 6 px.
-9. Untuk setiap aset yang selesai, tampilkan: nomor, nama file, kategori, scene pemakaian, format, dan status Selesai.
-10. Setelah semua aset utama selesai, buat Rekap Manifest Aset Final: Wajib selesai, Opsional selesai, Opsional belum dibuat.
+1. Gunakan nama aset dan fungsi aset dari Prompt 2 PRO sebagai sumber utama. Prompt 3 PRO menjadi panduan visual/gaya, tetapi boleh diperbaiki agar hasil lebih konsisten, lebih realistis, dan lebih akurat secara ilmiah.
+2. Generate aset Wajib terlebih dahulu, baru aset Opsional.
+3. Pertahankan gaya visual, palet warna, proporsi, sudut pandang, dan tingkat detail yang konsisten dengan Prompt 1 PRO, baik di dalam satu file maupun antar-file.
+4. Untuk alat/bahan/objek materi, prioritaskan kejelasan bentuk, kebenaran ilmiah, dan fungsi edukatif daripada dekorasi berlebihan.
+5. Untuk aset yang memerlukan beberapa pose/state, generate setiap state yang benar-benar dibutuhkan (misalnya normal/aktif/berubah, kosong/terisi, sebelum/sesudah reaksi), masing-masing sebagai satu aset di dalam grid.
+6. Setelah semua aset utama selesai, buat Rekap Manifest Aset Final yang memisahkan: Wajib selesai, Opsional selesai, dan Opsional belum dibuat.
 
 PENTING:
-- Jangan hanya menulis prompt aset.
-- Jika fitur image generation tersedia, langsung gunakan fitur tersebut dan lanjutkan batch demi batch sampai aset utama selesai.
-- Jika platform tidak dapat menghasilkan file gambar/audio secara langsung, buat paket prompt final per aset dengan nama file konsisten dan tandai "perlu dieksekusi pada generator aset".
+- Jangan hanya menjelaskan cara membuat aset.
+- Jangan hanya mengulang prompt dari Prompt 3 PRO.
+- Jika fitur image generation tersedia, langsung gunakan fitur tersebut untuk menghasilkan aset sesuai Peta Batch.
+- Jika platform tidak dapat menghasilkan file gambar/audio secara langsung, tetap susun paket prompt final per FILE GAMBAR (bukan per aset) sesuai Peta Batch, lengkap dengan nama file (.webp), isi grid, gutter 6 px, BG transparan, gaya realistis-ilmiah, dan catatan akurasi ilmiah, lalu tandai jelas sebagai "perlu dieksekusi pada generator aset"; jangan mengubah daftar aset utama. Jangan beralih ke SVG/vektor sebagai solusi cadangan.
 
-Mulai dari aset yang paling berhubungan dengan materi dan mekanik inti, lalu ikon menu, maskot/karakter, bangunan, obstacle, dan terakhir aset opsional.`
+Mulai dengan Peta Batch 1 dari aset prioritas tertinggi yang paling berhubungan dengan materi, lalu lanjutkan otomatis sampai semua aset utama selesai.`
       },
       {
         title: "Prompt 5 PRO Coding Game Edukasi Sederhana (Gabungkan Semua Aset ke Desain)",
@@ -1676,53 +1738,76 @@ Daftar prompt siap copy, dikelompokkan per kategori aset, siap digunakan pada Pr
       },
       {
         title: "Prompt 4 PRO Generate Semua Aset Otomatis Game Critical Thinking di ChatGPT/Claude",
-        text: `Berdasarkan rancangan desain Game Critical Thinking (Prompt 1 PRO), Daftar Inventaris Aset (Prompt 2 PRO), dan kumpulan prompt aset (Prompt 3 PRO), sekarang GENERATE semua aset game ini secara otomatis langsung di percakapan ChatGPT/Claude. Jangan berhenti pada daftar atau prompt saja jika platform memiliki kemampuan membuat gambar/aset; lanjutkan sampai aset utama benar-benar dibuat. Kerjakan secara bertahap per batch sesuai kemampuan image generation AI yang sedang digunakan; jangan memaksa seluruh aset dibuat sekaligus dalam satu proses.
+        text: `Berdasarkan rancangan desain (Prompt 1 PRO), Daftar Inventaris Aset (Prompt 2 PRO), dan kumpulan prompt aset (Prompt 3 PRO), sekarang GENERATE semua aset proyek ini secara otomatis langsung di percakapan ChatGPT/Claude ini. Jangan berhenti pada daftar atau prompt saja jika platform yang digunakan memiliki kemampuan membuat gambar/aset; lanjutkan sampai aset utama benar-benar dibuat. Kerjakan secara bertahap per batch sesuai aturan di bawah; jangan memaksa seluruh aset dibuat sekaligus.
 
 Platform: [ChatGPT / Claude]
 
 PRIORITAS ASET UTAMA — WAJIB DIDAHULUKAN:
-1. Aset yang berhubungan langsung dengan materi, kasus, data, dan pengambilan keputusan — ilustrasi situasi masalah, objek bukti/petunjuk, diagram, tabel visual, peta, objek eksperimen, atau visual pilihan yang diperlukan untuk analisis siswa.
-2. Ikon menu utama — Mulai, Petunjuk, Kasus/Misi, Analisis, Tantangan, Review, Hasil/Reward, dan menu lain yang benar-benar digunakan.
-3. Maskot/karakter pemandu serta karakter kasus — jaga identitas visual, pakaian, warna, ekspresi, dan proporsi tetap konsisten pada semua scene.
-4. Bangunan/lokasi/scene kasus — laboratorium, sekolah, kota, ekosistem, fasilitas publik, ruang kontrol, atau lokasi lain yang menjadi konteks pengambilan keputusan.
-5. Obstacle/rintangan/konsekuensi visual — penghalang, cabang jalur, kondisi lingkungan, risiko, checkpoint, atau objek konsekuensi yang memang menjadi bagian mekanik game.
-6. Elemen interaktif analisis — kartu bukti, kartu data, indikator keputusan, item petunjuk, panel pilihan, serta objek drag-drop yang dibutuhkan.
+1. Aset yang berhubungan langsung dengan materi/fenomena — misalnya alat & bahan virtual, objek eksperimen, elemen simulasi, diagram konsep, ilustrasi proses, objek yang berubah karena variabel, atau visual data yang memang diperlukan untuk memahami materi.
+2. Ikon menu utama — buat konsisten untuk Pembuka, Tujuan Pembelajaran, Konsep Dasar, Ruang Simulasi/Praktikum, Lembar Pengamatan, Refleksi, dan Evaluasi bila menu tersebut digunakan.
+3. Maskot/karakter pemandu — jika tercantum dalam desain; pertahankan ciri visual yang sama pada semua pose/ekspresi.
+4. Karakter/objek interaktif utama — jika simulasi/lab membutuhkan karakter, avatar, petugas lab, objek bergerak, atau objek yang dapat diseret/diklik.
+5. Bangunan/ruang/latar penting — misalnya laboratorium, ruang eksperimen, lingkungan alam, pabrik, kelas, atau lokasi tematik yang memang menjadi bagian dari materi/aktivitas.
+6. Obstacle/rintangan/objek tantangan — hanya jika rancangan simulasi/game mini memang menggunakannya.
 
 ASET OPSIONAL:
-- Audio: ambience, klik, feedback, reward, atau efek situasi. Generate hanya bila diperlukan atau saya minta.
-- Tombol navigasi: Home, Lanjut, Kembali, Review, Ulangi, dan lainnya. Utamakan HTML/CSS; gambar tombol bersifat opsional.
+- Audio: backsound, narasi, efek klik, alarm, efek reaksi, atau efek keberhasilan. Generate hanya jika benar-benar diperlukan atau saya minta.
+- Tombol navigasi (Mulai, Lanjut, Kembali, Reset, Jeda, Home, dan sejenisnya): tidak wajib dibuat sebagai gambar; utamakan tombol CSS/HTML. Buat aset gambar tombol hanya jika desain memang membutuhkan bentuk khusus.
 
-ATURAN OUTPUT GAMBAR & SISTEM BATCH — WAJIB:
-1. Prioritas utama: 1 aset/gambar = 1 file terpisah agar paling mudah digunakan saat coding, disimpan, dan di-crop bila diperlukan.
-2. Jika keterbatasan AI membuat beberapa aset harus digenerate dalam 1 file/canvas, susun aset dalam grid yang rapi dan mudah dipotong.
-3. Dalam 1 baris, tampilkan maksimal 4 gambar/aset. Jika jumlah aset pada batch kurang dari 4, tidak perlu memaksakan menjadi 4.
-4. Setiap gambar/aset harus memiliki ruang kosong/gutter minimal 6 px pada sisi kiri, kanan, atas, dan bawah. Jarak minimal 6 px juga harus dipertahankan antar-aset agar hasil dapat di-crop tanpa mengenai aset di sebelahnya.
-5. Jangan biarkan karakter, bayangan, efek cahaya, outline, atau bagian objek lain melewati area batas/gutter aset tetangga. Setiap aset harus benar-benar terpisah secara visual.
-6. Jika memakai background transparan, pertahankan transparansi di area pemisah. Jika transparansi tidak didukung, gunakan background polos yang kontras dan konsisten agar proses crop mudah.
-7. Generate aset PER BATCH sesuai kemampuan AI/platform yang digunakan. Jangan memaksa seluruh inventaris aset dibuat dalam satu kali generate.
-8. Ukuran batch bersifat adaptif: gunakan jumlah aset yang masih dapat dihasilkan dengan kualitas dan konsistensi yang baik oleh AI saat itu. Jika kualitas mulai turun atau detail tercampur, kecilkan batch berikutnya.
-9. Beri label urutan kerja di luar gambar: Batch 1, Batch 2, Batch 3, dan seterusnya. Jangan menambahkan nama file/label panjang di dalam gambar aset kecuali memang bagian dari desain.
-10. Setelah setiap batch selesai, tampilkan daftar aset pada batch tersebut beserta nama file yang disarankan, status Selesai/Perlu Ulang, lalu lanjutkan ke batch berikutnya. Jika ada aset gagal atau tercampur, regenerate hanya aset tersebut dalam batch kecil atau satu per satu.
-11. Untuk aset yang membutuhkan beberapa pose/state, usahakan setiap pose/state menjadi file terpisah. Jika harus digabung dalam satu canvas, tetap gunakan aturan maksimal 4 aset per baris dan gutter minimal 6 px.
+ATURAN KUALITAS VISUAL — ILMIAH & REALISTIS — WAJIB:
+1. Semua gambar harus ilmiah dan realistis: bentuk, proporsi, warna, tekstur, material, dan cara kerja objek harus sesuai dengan kondisi nyata dan konsep sains/materi yang diajarkan.
+2. Gunakan gaya render realistis atau semi-realistis dengan detail jelas: pencahayaan, bayangan lembut, refleksi, transparansi kaca/cairan, dan tekstur permukaan yang tampak nyata. DILARANG membuat gambar berupa ikon vektor datar, clipart, doodle, kartun sederhana, atau ilustrasi berbentuk samar/tidak jelas.
+3. Akurasi ilmiah didahulukan daripada estetika. Jangan menambahkan detail yang salah secara sains (misalnya warna indikator yang tidak sesuai, jumlah bagian yang salah, arah aliran/gerak yang salah, skala yang tidak logis, alat laboratorium yang bentuknya keliru).
+4. Setiap alat, bahan, dan objek harus dapat dikenali dengan jelas oleh siswa: bagian-bagian penting terlihat, tidak tertutup efek, dan tidak terdistorsi.
+5. Untuk aset yang berubah karena variabel/reaksi (sebelum/sesudah, kosong/terisi, normal/aktif), setiap state harus menampilkan perubahan yang benar secara ilmiah dan berbeda jelas antar-state, dengan sudut pandang, skala, dan posisi objek yang konsisten.
+6. Jaga konsistensi sudut pandang, arah pencahayaan, skala relatif, dan palet warna di seluruh aset, baik dalam satu file maupun antar-file, sesuai Prompt 1 PRO.
+7. Ikon menu, maskot, dan karakter tetap harus konsisten dengan Prompt 1 PRO, tetapi dirender dengan kualitas detail yang sama (bukan vektor datar yang samar) dan proporsinya wajar.
+8. Jangan menaruh teks, label, angka, atau simbol yang tidak diperlukan di dalam gambar. Hindari teks acak/tidak terbaca yang dihasilkan AI. Label dan teks antarmuka dibuat dengan HTML/CSS.
+9. Resolusi harus cukup tajam agar tetap jelas saat ditampilkan di layar (disarankan minimal 512 px pada sisi terpanjang setiap aset setelah di-crop).
+
+ATURAN FORMAT FILE — WAJIB:
+1. Format output WAJIB WebP dengan kanal alpha (transparan). Gunakan kompresi kualitas tinggi atau lossless agar detail realistis tidak rusak. Nama file berekstensi .webp.
+2. DILARANG mengeluarkan hasil dalam format SVG/vektor sebagai pengganti WebP.
+3. Jika platform hanya dapat mengeluarkan format lain (misalnya PNG), tetap hasilkan gambar dengan kualitas yang sama, tandai file tersebut "perlu konversi ke WebP", dan jangan menurunkan kualitas visual.
+
+ATURAN FILE GAMBAR — WAJIB & KETAT:
+1. Satu file gambar berisi MAKSIMAL 8 aset. Jika aset pada satu kelompok lebih dari 8, pecah menjadi beberapa file gambar. Jangan pernah melebihi 8 aset per file.
+2. Susun aset dalam grid rapi dan lurus (baris dan kolom sejajar), maksimal 4 aset per baris (jadi maksimal 2 baris untuk 8 aset). Jika jumlah aset kurang dari 8, tidak perlu memaksakan grid penuh.
+3. Ruang kosong (gutter) minimal 6 px di sisi kiri, kanan, atas, dan bawah setiap aset. Jarak bersih minimal 6 px juga wajib dijaga antar-aset yang bersebelahan dan antara aset dengan tepi kanvas, agar mudah di-crop tanpa mengenai aset lain.
+4. Jarak 6 px dihitung dari bagian terluar aset, termasuk bayangan, glow/efek cahaya, refleksi, outline, dan partikel. Tidak ada elemen apa pun yang boleh melewati batas atau masuk ke area aset tetangga. Setiap aset harus benar-benar terpisah secara visual.
+5. Background WAJIB transparan di seluruh kanvas, termasuk area gutter. Jangan menaruh kotak, warna latar, papan, atau grid yang terlihat di belakang aset. Bayangan dan refleksi harus tetap semi-transparan dan tidak meninggalkan latar solid. Jika platform tidak dapat menghasilkan transparansi, gunakan satu warna latar polos kontras yang seragam (misalnya hijau atau magenta murni yang tidak dipakai pada aset), tandai file tersebut "BG belum transparan", dan sebutkan warna yang dipakai agar mudah dihapus.
+6. Kelompokkan aset dalam satu file berdasarkan kategori, gaya, atau skala yang sama agar konsisten dan mudah dipotong. Semua pose/state dari satu karakter atau objek sebaiknya berada dalam file yang sama (maksimal 8; jika lebih, lanjutkan di file berikutnya dengan gaya yang identik).
+7. Jangan menggabungkan seluruh inventaris ke satu gambar besar atau sprite sheet.
+
+ATURAN BATCH — WAJIB:
+1. Generate PER BATCH. Satu batch maksimal 10 file gambar (jadi maksimal 80 aset). Jika aset dalam satu batch banyak, generate beberapa file gambar sekaligus dalam batch yang sama, tetapi jangan melebihi 10 file.
+2. Ukuran batch bersifat adaptif: gunakan jumlah file/aset yang masih dapat dihasilkan dengan kualitas dan konsistensi baik. Jika kualitas mulai turun, detail tercampur, gaya tidak lagi realistis, atau gutter tidak terjaga, kecilkan batch berikutnya.
+3. Beri label urutan kerja di luar gambar: Batch 1, Batch 2, Batch 3, dan seterusnya.
+4. WAJIB PETAKAN DULU sebelum generate. Pada awal setiap batch, tampilkan Peta Batch berikut, lalu langsung lanjutkan generate sesuai peta tanpa menunggu persetujuan (kecuali saya minta konfirmasi):
+   a. Tabel file: nomor file (mis. B1-F01), nama file yang disarankan (.webp), kategori, jumlah aset (maks 8), layout grid (mis. 4x2), halaman pemakaian.
+   b. Isi tiap file: posisi setiap aset (Baris-Kolom, mis. R1K1) beserta nama aset, nama file crop yang disarankan (.webp), dan catatan akurasi ilmiah singkat (ciri penting yang harus tampak benar).
+   c. Total file dalam batch (maks 10) dan total aset.
+   Pastikan setiap aset dari inventaris Prompt 2 PRO muncul tepat satu kali dalam peta (tidak ada yang terlewat atau ganda) dan urutan mengikuti prioritas aset.
+5. Generate semua file gambar dalam batch sesuai peta. Jangan mengubah isi peta di tengah jalan; jika harus diubah (mis. karena hasil gagal), catat perubahannya.
+6. Setelah semua file dalam batch selesai, lakukan pemeriksaan tiap file: (a) jumlah aset sesuai peta dan tidak lebih dari 8, (b) gutter minimal 6 px di semua sisi, (c) tidak ada bagian aset yang bersentuhan atau tumpang tindih, (d) background transparan, (e) gaya, warna, dan proporsi konsisten dengan Prompt 1 PRO, (f) gambar realistis dan jelas (bukan vektor datar atau samar), (g) akurasi ilmiah benar untuk setiap aset dan state, (h) format WebP dengan alpha, (i) tidak ada teks acak di dalam gambar.
+7. Tampilkan hasil batch: daftar file beserta aset di dalamnya, dengan kolom nomor, nama file crop (.webp), posisi grid, kategori, halaman pemakaian, format, dan status Selesai/Perlu Ulang. Aset atau file yang gagal diregenerate saja dalam batch kecil atau satu per satu, lalu ulangi pemeriksaan.
+8. Setelah batch selesai dan lolos pemeriksaan, lanjutkan otomatis ke batch berikutnya dan mulai lagi dari langkah Peta Batch.
 
 ATURAN GENERATE:
-1. Gunakan Prompt 2 PRO untuk daftar aset dan Prompt 3 PRO sebagai panduan gaya/prompt.
-2. Generate aset Wajib terlebih dahulu, terutama visual kasus/data yang diperlukan siswa untuk berpikir kritis.
-3. Visual kasus tidak boleh memberikan jawaban secara eksplisit; aset harus menyajikan informasi yang dapat dianalisis, bukan membocorkan pilihan benar.
-4. Utamakan PNG transparan/SVG untuk karakter, bukti, objek, obstacle, ikon, dan elemen yang dipakai lintas scene.
-5. Jangan menaruh teks panjang atau kunci jawaban di dalam gambar; teks analisis tetap dibuat di HTML/CSS.
-6. Pertahankan gaya, palet, pencahayaan, sudut pandang, dan identitas karakter konsisten dengan Prompt 1 PRO.
-7. Jika satu kasus memerlukan beberapa kondisi/konsekuensi, generate state yang dibutuhkan secara terpisah dan beri nama file jelas.
-8. Jangan gabungkan seluruh inventaris aset menjadi satu gambar besar. Prioritaskan 1 aset per file; bila perlu multi-aset dalam satu canvas, ikuti aturan batch, maksimal 4 aset per baris, dan gutter minimal 6 px.
-9. Untuk setiap aset yang selesai, tampilkan: nomor, nama file, kategori, scene/kasus pemakaian, format, dan status Selesai.
-10. Setelah aset utama selesai, buat Rekap Manifest Aset Final: Wajib selesai, Opsional selesai, Opsional belum dibuat.
+1. Gunakan nama aset dan fungsi aset dari Prompt 2 PRO sebagai sumber utama. Prompt 3 PRO menjadi panduan visual/gaya, tetapi boleh diperbaiki agar hasil lebih konsisten, lebih realistis, dan lebih akurat secara ilmiah.
+2. Generate aset Wajib terlebih dahulu, baru aset Opsional.
+3. Pertahankan gaya visual, palet warna, proporsi, sudut pandang, dan tingkat detail yang konsisten dengan Prompt 1 PRO, baik di dalam satu file maupun antar-file.
+4. Untuk alat/bahan/objek materi, prioritaskan kejelasan bentuk, kebenaran ilmiah, dan fungsi edukatif daripada dekorasi berlebihan.
+5. Untuk aset yang memerlukan beberapa pose/state, generate setiap state yang benar-benar dibutuhkan (misalnya normal/aktif/berubah, kosong/terisi, sebelum/sesudah reaksi), masing-masing sebagai satu aset di dalam grid.
+6. Setelah semua aset utama selesai, buat Rekap Manifest Aset Final yang memisahkan: Wajib selesai, Opsional selesai, dan Opsional belum dibuat.
 
 PENTING:
-- Jangan hanya mengulang prompt aset.
-- Jika fitur image generation tersedia, langsung hasilkan aset secara berurutan per batch sesuai kemampuan AI.
-- Jika platform tidak dapat menghasilkan file gambar/audio secara langsung, buat paket prompt final per aset dengan nama file konsisten dan tandai "perlu dieksekusi pada generator aset".
+- Jangan hanya menjelaskan cara membuat aset.
+- Jangan hanya mengulang prompt dari Prompt 3 PRO.
+- Jika fitur image generation tersedia, langsung gunakan fitur tersebut untuk menghasilkan aset sesuai Peta Batch.
+- Jika platform tidak dapat menghasilkan file gambar/audio secara langsung, tetap susun paket prompt final per FILE GAMBAR (bukan per aset) sesuai Peta Batch, lengkap dengan nama file (.webp), isi grid, gutter 6 px, BG transparan, gaya realistis-ilmiah, dan catatan akurasi ilmiah, lalu tandai jelas sebagai "perlu dieksekusi pada generator aset"; jangan mengubah daftar aset utama. Jangan beralih ke SVG/vektor sebagai solusi cadangan.
 
-Mulai dari aset materi/kasus dan data analisis, lalu ikon menu, maskot/karakter, bangunan/lokasi, obstacle/konsekuensi, dan terakhir aset opsional.`
+Mulai dengan Peta Batch 1 dari aset prioritas tertinggi yang paling berhubungan dengan materi, lalu lanjutkan otomatis sampai semua aset utama selesai.`
       },
       {
         title: "Prompt 5 PRO Coding Game Edukasi Critical Thinking (Gabungkan Semua Aset ke Desain)",
@@ -1865,54 +1950,76 @@ Daftar prompt siap copy, dikelompokkan per kategori aset, siap digunakan pada Pr
       },
       {
         title: "Prompt 4 PRO Generate Semua Aset Otomatis Game Skill & Luck di ChatGPT/Claude",
-        text: `Berdasarkan rancangan desain Game Skill & Luck (Prompt 1 PRO), Daftar Inventaris Aset (Prompt 2 PRO), dan kumpulan prompt aset (Prompt 3 PRO), sekarang GENERATE semua aset game ini secara otomatis langsung di percakapan ChatGPT/Claude. Jangan berhenti pada daftar atau prompt saja jika platform memiliki kemampuan membuat gambar/aset; lanjutkan sampai aset utama benar-benar dibuat. Kerjakan secara bertahap per batch sesuai kemampuan image generation AI yang sedang digunakan; jangan memaksa seluruh aset dibuat sekaligus dalam satu proses.
+        text: `Berdasarkan rancangan desain (Prompt 1 PRO), Daftar Inventaris Aset (Prompt 2 PRO), dan kumpulan prompt aset (Prompt 3 PRO), sekarang GENERATE semua aset proyek ini secara otomatis langsung di percakapan ChatGPT/Claude ini. Jangan berhenti pada daftar atau prompt saja jika platform yang digunakan memiliki kemampuan membuat gambar/aset; lanjutkan sampai aset utama benar-benar dibuat. Kerjakan secara bertahap per batch sesuai aturan di bawah; jangan memaksa seluruh aset dibuat sekaligus.
 
 Platform: [ChatGPT / Claude]
 
 PRIORITAS ASET UTAMA — WAJIB DIDAHULUKAN:
-1. Aset yang berhubungan langsung dengan materi/tantangan skill — ilustrasi kasus, objek materi, data visual, item edukatif, kartu soal bergambar, atau visual lain yang membantu siswa menjawab berdasarkan pengetahuan/analisis.
-2. Ikon menu utama — Mulai, Petunjuk, Misi, Tantangan Skill, Luck Event, Review, Skor/Hasil, Reward, dan menu lain yang benar-benar ada.
-3. Maskot dan karakter — pemain, pemandu, NPC, atau karakter tematik; pertahankan identitas visual dan pose yang konsisten.
-4. Bangunan/lokasi/scene — arena, sekolah, kota, laboratorium, lintasan, dunia tematik, atau lokasi lain sesuai storyboard.
-5. Obstacle/rintangan — objek penghalang, checkpoint, rute bercabang, jebakan ramah anak, atau rintangan lain yang benar-benar digunakan mekanik game.
-6. Elemen mekanik Luck — dadu, spin wheel, kartu keberuntungan, kartu tantangan, bonus, rintangan acak, kesempatan kedua, jalan pintas, dan efek visual luck.
-7. Ikon indikator skor — Nilai Murni Asesmen, Skor Skill, Skor Luck, Nilai Game, badge/reward, dengan gaya konsisten dan mudah dibedakan.
+1. Aset yang berhubungan langsung dengan materi/fenomena — misalnya alat & bahan virtual, objek eksperimen, elemen simulasi, diagram konsep, ilustrasi proses, objek yang berubah karena variabel, atau visual data yang memang diperlukan untuk memahami materi.
+2. Ikon menu utama — buat konsisten untuk Pembuka, Tujuan Pembelajaran, Konsep Dasar, Ruang Simulasi/Praktikum, Lembar Pengamatan, Refleksi, dan Evaluasi bila menu tersebut digunakan.
+3. Maskot/karakter pemandu — jika tercantum dalam desain; pertahankan ciri visual yang sama pada semua pose/ekspresi.
+4. Karakter/objek interaktif utama — jika simulasi/lab membutuhkan karakter, avatar, petugas lab, objek bergerak, atau objek yang dapat diseret/diklik.
+5. Bangunan/ruang/latar penting — misalnya laboratorium, ruang eksperimen, lingkungan alam, pabrik, kelas, atau lokasi tematik yang memang menjadi bagian dari materi/aktivitas.
+6. Obstacle/rintangan/objek tantangan — hanya jika rancangan simulasi/game mini memang menggunakannya.
 
 ASET OPSIONAL:
-- Audio: backsound, putaran dadu/spin, kartu flip, bonus, rintangan, benar/salah, reward. Generate hanya bila diperlukan atau saya minta.
-- Tombol navigasi: Home, Lanjut, Kembali, Pause, Ulangi, dan lainnya. Gunakan HTML/CSS secara default; aset tombol gambar hanya opsional.
+- Audio: backsound, narasi, efek klik, alarm, efek reaksi, atau efek keberhasilan. Generate hanya jika benar-benar diperlukan atau saya minta.
+- Tombol navigasi (Mulai, Lanjut, Kembali, Reset, Jeda, Home, dan sejenisnya): tidak wajib dibuat sebagai gambar; utamakan tombol CSS/HTML. Buat aset gambar tombol hanya jika desain memang membutuhkan bentuk khusus.
 
-ATURAN OUTPUT GAMBAR & SISTEM BATCH — WAJIB:
-1. Prioritas utama: 1 aset/gambar = 1 file terpisah agar paling mudah digunakan saat coding, disimpan, dan di-crop bila diperlukan.
-2. Jika keterbatasan AI membuat beberapa aset harus digenerate dalam 1 file/canvas, susun aset dalam grid yang rapi dan mudah dipotong.
-3. Dalam 1 baris, tampilkan maksimal 4 gambar/aset. Jika jumlah aset pada batch kurang dari 4, tidak perlu memaksakan menjadi 4.
-4. Setiap gambar/aset harus memiliki ruang kosong/gutter minimal 6 px pada sisi kiri, kanan, atas, dan bawah. Jarak minimal 6 px juga harus dipertahankan antar-aset agar hasil dapat di-crop tanpa mengenai aset di sebelahnya.
-5. Jangan biarkan karakter, bayangan, efek cahaya, outline, atau bagian objek lain melewati area batas/gutter aset tetangga. Setiap aset harus benar-benar terpisah secara visual.
-6. Jika memakai background transparan, pertahankan transparansi di area pemisah. Jika transparansi tidak didukung, gunakan background polos yang kontras dan konsisten agar proses crop mudah.
-7. Generate aset PER BATCH sesuai kemampuan AI/platform yang digunakan. Jangan memaksa seluruh inventaris aset dibuat dalam satu kali generate.
-8. Ukuran batch bersifat adaptif: gunakan jumlah aset yang masih dapat dihasilkan dengan kualitas dan konsistensi yang baik oleh AI saat itu. Jika kualitas mulai turun atau detail tercampur, kecilkan batch berikutnya.
-9. Beri label urutan kerja di luar gambar: Batch 1, Batch 2, Batch 3, dan seterusnya. Jangan menambahkan nama file/label panjang di dalam gambar aset kecuali memang bagian dari desain.
-10. Setelah setiap batch selesai, tampilkan daftar aset pada batch tersebut beserta nama file yang disarankan, status Selesai/Perlu Ulang, lalu lanjutkan ke batch berikutnya. Jika ada aset gagal atau tercampur, regenerate hanya aset tersebut dalam batch kecil atau satu per satu.
-11. Untuk aset yang membutuhkan beberapa pose/state, usahakan setiap pose/state menjadi file terpisah. Jika harus digabung dalam satu canvas, tetap gunakan aturan maksimal 4 aset per baris dan gutter minimal 6 px.
+ATURAN KUALITAS VISUAL — ILMIAH & REALISTIS — WAJIB:
+1. Semua gambar harus ilmiah dan realistis: bentuk, proporsi, warna, tekstur, material, dan cara kerja objek harus sesuai dengan kondisi nyata dan konsep sains/materi yang diajarkan.
+2. Gunakan gaya render realistis atau semi-realistis dengan detail jelas: pencahayaan, bayangan lembut, refleksi, transparansi kaca/cairan, dan tekstur permukaan yang tampak nyata. DILARANG membuat gambar berupa ikon vektor datar, clipart, doodle, kartun sederhana, atau ilustrasi berbentuk samar/tidak jelas.
+3. Akurasi ilmiah didahulukan daripada estetika. Jangan menambahkan detail yang salah secara sains (misalnya warna indikator yang tidak sesuai, jumlah bagian yang salah, arah aliran/gerak yang salah, skala yang tidak logis, alat laboratorium yang bentuknya keliru).
+4. Setiap alat, bahan, dan objek harus dapat dikenali dengan jelas oleh siswa: bagian-bagian penting terlihat, tidak tertutup efek, dan tidak terdistorsi.
+5. Untuk aset yang berubah karena variabel/reaksi (sebelum/sesudah, kosong/terisi, normal/aktif), setiap state harus menampilkan perubahan yang benar secara ilmiah dan berbeda jelas antar-state, dengan sudut pandang, skala, dan posisi objek yang konsisten.
+6. Jaga konsistensi sudut pandang, arah pencahayaan, skala relatif, dan palet warna di seluruh aset, baik dalam satu file maupun antar-file, sesuai Prompt 1 PRO.
+7. Ikon menu, maskot, dan karakter tetap harus konsisten dengan Prompt 1 PRO, tetapi dirender dengan kualitas detail yang sama (bukan vektor datar yang samar) dan proporsinya wajar.
+8. Jangan menaruh teks, label, angka, atau simbol yang tidak diperlukan di dalam gambar. Hindari teks acak/tidak terbaca yang dihasilkan AI. Label dan teks antarmuka dibuat dengan HTML/CSS.
+9. Resolusi harus cukup tajam agar tetap jelas saat ditampilkan di layar (disarankan minimal 512 px pada sisi terpanjang setiap aset setelah di-crop).
+
+ATURAN FORMAT FILE — WAJIB:
+1. Format output WAJIB WebP dengan kanal alpha (transparan). Gunakan kompresi kualitas tinggi atau lossless agar detail realistis tidak rusak. Nama file berekstensi .webp.
+2. DILARANG mengeluarkan hasil dalam format SVG/vektor sebagai pengganti WebP.
+3. Jika platform hanya dapat mengeluarkan format lain (misalnya PNG), tetap hasilkan gambar dengan kualitas yang sama, tandai file tersebut "perlu konversi ke WebP", dan jangan menurunkan kualitas visual.
+
+ATURAN FILE GAMBAR — WAJIB & KETAT:
+1. Satu file gambar berisi MAKSIMAL 8 aset. Jika aset pada satu kelompok lebih dari 8, pecah menjadi beberapa file gambar. Jangan pernah melebihi 8 aset per file.
+2. Susun aset dalam grid rapi dan lurus (baris dan kolom sejajar), maksimal 4 aset per baris (jadi maksimal 2 baris untuk 8 aset). Jika jumlah aset kurang dari 8, tidak perlu memaksakan grid penuh.
+3. Ruang kosong (gutter) minimal 6 px di sisi kiri, kanan, atas, dan bawah setiap aset. Jarak bersih minimal 6 px juga wajib dijaga antar-aset yang bersebelahan dan antara aset dengan tepi kanvas, agar mudah di-crop tanpa mengenai aset lain.
+4. Jarak 6 px dihitung dari bagian terluar aset, termasuk bayangan, glow/efek cahaya, refleksi, outline, dan partikel. Tidak ada elemen apa pun yang boleh melewati batas atau masuk ke area aset tetangga. Setiap aset harus benar-benar terpisah secara visual.
+5. Background WAJIB transparan di seluruh kanvas, termasuk area gutter. Jangan menaruh kotak, warna latar, papan, atau grid yang terlihat di belakang aset. Bayangan dan refleksi harus tetap semi-transparan dan tidak meninggalkan latar solid. Jika platform tidak dapat menghasilkan transparansi, gunakan satu warna latar polos kontras yang seragam (misalnya hijau atau magenta murni yang tidak dipakai pada aset), tandai file tersebut "BG belum transparan", dan sebutkan warna yang dipakai agar mudah dihapus.
+6. Kelompokkan aset dalam satu file berdasarkan kategori, gaya, atau skala yang sama agar konsisten dan mudah dipotong. Semua pose/state dari satu karakter atau objek sebaiknya berada dalam file yang sama (maksimal 8; jika lebih, lanjutkan di file berikutnya dengan gaya yang identik).
+7. Jangan menggabungkan seluruh inventaris ke satu gambar besar atau sprite sheet.
+
+ATURAN BATCH — WAJIB:
+1. Generate PER BATCH. Satu batch maksimal 10 file gambar (jadi maksimal 80 aset). Jika aset dalam satu batch banyak, generate beberapa file gambar sekaligus dalam batch yang sama, tetapi jangan melebihi 10 file.
+2. Ukuran batch bersifat adaptif: gunakan jumlah file/aset yang masih dapat dihasilkan dengan kualitas dan konsistensi baik. Jika kualitas mulai turun, detail tercampur, gaya tidak lagi realistis, atau gutter tidak terjaga, kecilkan batch berikutnya.
+3. Beri label urutan kerja di luar gambar: Batch 1, Batch 2, Batch 3, dan seterusnya.
+4. WAJIB PETAKAN DULU sebelum generate. Pada awal setiap batch, tampilkan Peta Batch berikut, lalu langsung lanjutkan generate sesuai peta tanpa menunggu persetujuan (kecuali saya minta konfirmasi):
+   a. Tabel file: nomor file (mis. B1-F01), nama file yang disarankan (.webp), kategori, jumlah aset (maks 8), layout grid (mis. 4x2), halaman pemakaian.
+   b. Isi tiap file: posisi setiap aset (Baris-Kolom, mis. R1K1) beserta nama aset, nama file crop yang disarankan (.webp), dan catatan akurasi ilmiah singkat (ciri penting yang harus tampak benar).
+   c. Total file dalam batch (maks 10) dan total aset.
+   Pastikan setiap aset dari inventaris Prompt 2 PRO muncul tepat satu kali dalam peta (tidak ada yang terlewat atau ganda) dan urutan mengikuti prioritas aset.
+5. Generate semua file gambar dalam batch sesuai peta. Jangan mengubah isi peta di tengah jalan; jika harus diubah (mis. karena hasil gagal), catat perubahannya.
+6. Setelah semua file dalam batch selesai, lakukan pemeriksaan tiap file: (a) jumlah aset sesuai peta dan tidak lebih dari 8, (b) gutter minimal 6 px di semua sisi, (c) tidak ada bagian aset yang bersentuhan atau tumpang tindih, (d) background transparan, (e) gaya, warna, dan proporsi konsisten dengan Prompt 1 PRO, (f) gambar realistis dan jelas (bukan vektor datar atau samar), (g) akurasi ilmiah benar untuk setiap aset dan state, (h) format WebP dengan alpha, (i) tidak ada teks acak di dalam gambar.
+7. Tampilkan hasil batch: daftar file beserta aset di dalamnya, dengan kolom nomor, nama file crop (.webp), posisi grid, kategori, halaman pemakaian, format, dan status Selesai/Perlu Ulang. Aset atau file yang gagal diregenerate saja dalam batch kecil atau satu per satu, lalu ulangi pemeriksaan.
+8. Setelah batch selesai dan lolos pemeriksaan, lanjutkan otomatis ke batch berikutnya dan mulai lagi dari langkah Peta Batch.
 
 ATURAN GENERATE:
-1. Gunakan Prompt 2 PRO sebagai daftar aset dan Prompt 3 PRO sebagai panduan visual.
-2. Generate aset Wajib terlebih dahulu: aset materi/skill, lalu elemen luck, ikon menu, karakter, bangunan/scene, dan obstacle.
-3. Aset luck harus jelas secara visual tetapi tidak menyerupai nilai akademik; bedakan ikon Skill, Luck, Nilai Murni, dan Nilai Game.
-4. Utamakan PNG transparan/SVG untuk karakter, dadu, kartu, wheel pointer, obstacle, ikon, dan item yang dipakai berulang.
-5. Untuk dadu/spin wheel/kartu, buat komponen yang mudah dianimasikan dengan CSS/JS; jangan menempelkan teks panjang ke gambar.
-6. Pertahankan gaya, palet, proporsi, outline, dan sudut pandang konsisten dengan Prompt 1 PRO.
-7. Jika karakter/obstacle/elemen luck memerlukan beberapa state, generate state minimum yang diperlukan secara terpisah.
-8. Jangan gabungkan seluruh inventaris aset ke satu sprite sheet. Prioritaskan 1 aset per file; bila perlu multi-aset dalam satu canvas, ikuti aturan batch, maksimal 4 aset per baris, dan gutter minimal 6 px.
-9. Untuk setiap aset selesai, tampilkan: nomor, nama file, kategori, scene pemakaian, format, dan status Selesai.
-10. Setelah aset utama selesai, buat Rekap Manifest Aset Final: Wajib selesai, Opsional selesai, Opsional belum dibuat.
+1. Gunakan nama aset dan fungsi aset dari Prompt 2 PRO sebagai sumber utama. Prompt 3 PRO menjadi panduan visual/gaya, tetapi boleh diperbaiki agar hasil lebih konsisten, lebih realistis, dan lebih akurat secara ilmiah.
+2. Generate aset Wajib terlebih dahulu, baru aset Opsional.
+3. Pertahankan gaya visual, palet warna, proporsi, sudut pandang, dan tingkat detail yang konsisten dengan Prompt 1 PRO, baik di dalam satu file maupun antar-file.
+4. Untuk alat/bahan/objek materi, prioritaskan kejelasan bentuk, kebenaran ilmiah, dan fungsi edukatif daripada dekorasi berlebihan.
+5. Untuk aset yang memerlukan beberapa pose/state, generate setiap state yang benar-benar dibutuhkan (misalnya normal/aktif/berubah, kosong/terisi, sebelum/sesudah reaksi), masing-masing sebagai satu aset di dalam grid.
+6. Setelah semua aset utama selesai, buat Rekap Manifest Aset Final yang memisahkan: Wajib selesai, Opsional selesai, dan Opsional belum dibuat.
 
 PENTING:
-- Jangan hanya menulis ulang prompt dari Prompt 3 PRO.
-- Jika fitur image generation tersedia, langsung gunakan fitur tersebut dan lanjutkan secara otomatis batch demi batch sampai aset utama selesai.
-- Jika platform tidak dapat menghasilkan file gambar/audio secara langsung, buat paket prompt final per aset dengan nama file konsisten dan tandai "perlu dieksekusi pada generator aset".
+- Jangan hanya menjelaskan cara membuat aset.
+- Jangan hanya mengulang prompt dari Prompt 3 PRO.
+- Jika fitur image generation tersedia, langsung gunakan fitur tersebut untuk menghasilkan aset sesuai Peta Batch.
+- Jika platform tidak dapat menghasilkan file gambar/audio secara langsung, tetap susun paket prompt final per FILE GAMBAR (bukan per aset) sesuai Peta Batch, lengkap dengan nama file (.webp), isi grid, gutter 6 px, BG transparan, gaya realistis-ilmiah, dan catatan akurasi ilmiah, lalu tandai jelas sebagai "perlu dieksekusi pada generator aset"; jangan mengubah daftar aset utama. Jangan beralih ke SVG/vektor sebagai solusi cadangan.
 
-Mulai dari aset materi/skill dan elemen mekanik utama, lalu ikon menu, maskot/karakter, bangunan, obstacle, dan terakhir aset opsional.`
+Mulai dengan Peta Batch 1 dari aset prioritas tertinggi yang paling berhubungan dengan materi, lalu lanjutkan otomatis sampai semua aset utama selesai.`
       },
       {
         title: "Prompt 5 PRO Coding Game Edukasi Skill & Luck (Gabungkan Semua Aset ke Desain)",
@@ -3350,71 +3457,123 @@ const teacherContentCategories = [
     prompts: [
       {
         title: "Prompt Komik Edukasi",
-        text: `Anda adalah seorang ilustrator komik edukasi profesional yang ahli membuat komik pembelajaran untuk siswa Indonesia. Tugas Anda: menyusun deskripsi visual (prompt gambar) yang sangat detail dan konsisten, sehingga saat dieksekusi oleh AI image generator, hasilnya jelas, akurat secara konsep, dan minim kesalahan (tangan cacat, wajah tidak konsisten, teks acak/gibberish, dll).
+        text: `Anda adalah seorang ilustrator komik edukasi profesional yang ahli membuat komik pembelajaran untuk siswa Indonesia. Tugas Anda: merancang dan menghasilkan komik edukasi dengan tokoh, lingkungan, dan gaya visual yang KONSISTEN di semua panel dan halaman, dengan konsep yang akurat dan minim kesalahan (tangan cacat, wajah tidak konsisten, teks acak/gibberish, dll).
+
+Platform: [ChatGPT / Claude]
+
+Anda bekerja dalam DUA TAHAP. JANGAN generate gambar komik sebelum guru mengonfirmasi di akhir Tahap 1.
 
 === DATA PENTING (WAJIB — tanyakan ke guru jika BELUM diisi, JANGAN diasumsikan) ===
-1. Mata Pelajaran   : {{mapel}}
-2. Topik/Konsep     : {{topik}}
-3. Jenjang          : {{jenjang}}  (SD/SMP/SMA)
+1. Mata Pelajaran : {{mapel}}
+2. Topik/Konsep   : {{topik}}
+3. Jenjang        : {{jenjang}}  (SD/SMP/SMA)
 
-=== DATA PENDUKUNG (jika guru mengisi, gunakan; JIKA KOSONG, pakai default berikut dan LANGSUNG lanjutkan generate — jangan bertanya) ===
-4. Kelas              : {{kelas}}  → default: kelas tengah pada jenjang tsb (mis. SMP → kelas VIII)
-5. Deskripsi Cerita   : {{deskripsi}}  → default: susun sendiri alur cerita sederhana & relevan berdasarkan {{topik}}, dengan pesan pembelajaran yang jelas
-6. Jumlah Panel       : {{jumlah_panel}}  → default: 4 panel
-7. Mode Generate      : {{mode}}  → default: "Satu Halaman Penuh" (langsung hasilkan satu halaman utuh berisi grid panel)
-8. Gaya Visual        : {{gaya}}  → default: "Flat Vector" (ramah untuk semua jenjang, warna solid, garis bersih); lihat daftar gaya di bawah jika guru ingin memilih gaya lain
-9. Format Khusus      : {{format}}  → default: orientasi potret, teks Bahasa Indonesia, dengan balon dialog/narasi singkat
-10. Catatan Tambahan  : {{catatan}}  → default: tidak ada, lewati saja jika kosong
+=== DATA PENDUKUNG (gunakan jika diisi; jika KOSONG, pakai default sebagai USULAN, lalu minta konfirmasi di Tahap 1) ===
+4. Kelas               : {{kelas}} → default: kelas tengah pada jenjang tsb (mis. SMP → kelas VIII)
+5. Tujuan Pembelajaran : {{tujuan}} → default: susun 1–3 tujuan sesuai topik
+6. Deskripsi Cerita    : {{deskripsi}} → default: tawarkan 2–3 opsi alur cerita (lihat Tahap 1)
+7. Tokoh Utama         : {{tokoh}} → default: rancang 2–3 tokoh (mis. 2 siswa + 1 guru/pemandu)
+8. Latar/Lingkungan    : {{latar}} → default: sesuai topik, dengan tata ruang tetap
+9. Gaya Visual         : {{gaya}} → default: "Flat Vector" (lihat daftar gaya di bawah)
+10. Format Halaman     : {{kertas}} + {{orientasi}} → default: A4 Potret (lihat daftar format di bawah)
+11. Jumlah Halaman     : {{jumlah_halaman}} → default: 1 halaman
+12. Panel per Halaman  : {{jumlah_panel}} → default: 4 panel
+13. Mode Output File   : {{mode_file}} → default: M3 (1 file = 1 halaman utuh); lihat daftar mode di bawah
+14. Penanganan Teks    : {{teks}} → default: balon dialog/narasi berisi teks sangat pendek (maks 8–10 kata, ejaan benar); jika hasil teks tidak rapi, regenerate dengan balon kosong
+15. Format File        : {{format_file}} → default: PNG (atau WebP kualitas tinggi jika platform mendukung)
+16. Catatan Tambahan   : {{catatan}} → default: tidak ada
 
-=== ATURAN EKSEKUSI — SANGAT PENTING ===
-- Jika ketiga Data Penting (Mapel, Topik, Jenjang) sudah terisi: LANGSUNG generate prompt komiknya. Jangan bertanya field lain satu per satu — isi otomatis dengan default di atas dan sebutkan singkat di awal jawaban "field mana saja yang dipakai default" agar guru bisa koreksi jika perlu.
-- Hanya berhenti dan bertanya jika salah satu dari Mapel/Topik/Jenjang benar-benar belum ada informasinya sama sekali.
-- Guru tetap bisa mengoreksi/meminta ubah default kapan saja setelah hasil pertama muncul (mis. "ganti gaya jadi manga", "tambah jadi 6 panel").
-
-=== DAFTAR PILIHAN GAYA VISUAL ===
-- "3D" → render 3D cartoon style, pencahayaan lembut, tekstur halus, mirip animasi Pixar/DreamWorks
-- "Manga" → gaya manga Jepang hitam-putih atau berwarna, garis tegas, ekspresi ekspresif khas manga
-- "Chibi" → karakter mini lucu, proporsi kepala besar, playful, cocok untuk SD
-- "Flat Vector" (default) → ilustrasi vektor datar, warna solid, garis bersih, bergaya modern infografis
-- "Watercolor" → gaya cat air lembut, cocok untuk cerita naratif/tematik alam
-- "Komik Barat (Western Ink)" → garis tebal ala komik superhero/strip, warna kontras
+=== DAFTAR GAYA VISUAL ===
+- "3D" → render 3D cartoon, pencahayaan lembut, tekstur halus, mirip animasi Pixar/DreamWorks
+- "Manga" → gaya manga Jepang hitam-putih atau berwarna, garis tegas, ekspresi ekspresif
+- "Chibi" → karakter mini lucu, kepala besar, playful, cocok untuk SD
+- "Flat Vector" (default) → ilustrasi vektor datar, warna solid, garis bersih, gaya infografis modern
+- "Watercolor" → cat air lembut, cocok untuk cerita naratif/tematik alam
+- "Komik Barat (Western Ink)" → garis tebal ala komik strip, warna kontras
 - "Semi-Realistis" → proporsi manusia realistis namun tetap gaya ilustrasi (cocok SMA)
 
-=== LANGKAH 1: BUAT "CHARACTER & STYLE BIBLE" (internal, tidak perlu ditanyakan ke guru) ===
-Sebelum membuat panel apa pun, susun dan kunci sendiri detail berikut agar konsisten di semua panel:
-- Deskripsi fisik tiap tokoh: usia, jenis kelamin, warna kulit, model rambut, pakaian, ekspresi khas, aksesoris pembeda.
-- Palet warna utama (3–5 warna dominan).
-- Gaya garis/render sesuai {{gaya}}.
-- Latar tempat utama sesuai {{topik}}.
-- Rasio aspek gambar sesuai {{format}}.
+=== DAFTAR FORMAT HALAMAN (WAJIB dipilih dan disebutkan jelas) ===
+- A4 Potret: 210×297 mm, rasio 1:1,414 (≈1240×1754 px @150 dpi; 2480×3508 px @300 dpi)
+- A4 Lanskap: 297×210 mm, rasio 1,414:1
+- A5 (Potret/Lanskap), A3 (Potret/Lanskap)
+- F4/Folio 215×330 mm, Letter 8,5×11 inci
+- Persegi 1:1 (media sosial), Slide 16:9 (presentasi/layar), Layar HP 9:16 (baca di ponsel)
+- Ukuran khusus: sebutkan lebar × tinggi atau rasio.
+Aturan format: (a) selalu tulis format kertas + orientasi + rasio di setiap prompt gambar; (b) sisakan margin aman minimal 10 mm dari tepi untuk cetak; (c) jika generator tidak mendukung ukuran persis, gunakan rasio terdekat dan sebutkan rasio yang dipakai.
 
-=== LANGKAH 2A: JIKA MODE = "SATU HALAMAN PENUH" (default) ===
-Susun satu prompt gambar berisi layout grid {{jumlah_panel}} panel dalam satu halaman komik:
-- Urutan panel jelas (kiri-atas ke kanan-bawah, alur baca standar komik).
-- Setiap panel diberi deskripsi adegan singkat namun spesifik (siapa, sedang apa, di mana, ekspresi apa).
-- Sisakan ruang kosong (gutter) antar panel dan ruang untuk balon dialog/narasi.
-- Sebutkan ulang elemen dari Character & Style Bible di setiap panel agar generator tidak "lupa" konsistensi.
+=== DAFTAR MODE OUTPUT FILE ===
+- M1: 1 file = 1 panel. Setiap panel menjadi gambar terpisah (tanpa bingkai halaman). Sebutkan rasio tiap panel.
+- M2: 1 file = beberapa panel (lembar panel). Jumlah panel per file ditentukan guru (disarankan 2–6 agar detail tetap jelas). Grid rapi, gutter antar-panel minimal 6 px dan seragam agar mudah di-crop, tidak ada elemen yang melewati batas panel.
+- M3: 1 file = 1 halaman komik utuh (multi-panel + gutter + ruang balon dialog) sesuai format kertas.
+- M4: Gabungan (mis. halaman utuh untuk semua halaman + panel terpisah untuk panel-panel kunci).
+Untuk komik beberapa halaman: 1 halaman = 1 file gambar, dengan urutan halaman jelas.
 
-=== LANGKAH 2B: JIKA MODE = "PER PANEL (SATU-SATU)" (jika guru memilih ini) ===
-Untuk setiap panel (1 sampai {{jumlah_panel}}), buat prompt terpisah dengan struktur:
+=== ATURAN BATCH GENERATE ===
+1. Satu kali generate (1 batch) maksimal 10 file gambar/halaman. Jika total file lebih dari 10, bagi menjadi Batch 1 (file 1–10), Batch 2 (file 11–20), dan seterusnya.
+2. Ukuran batch bersifat adaptif: jika kualitas turun, tokoh mulai tidak konsisten, atau teks mulai rusak, kecilkan batch berikutnya.
+3. Semua prompt di semua batch WAJIB memakai Character & Style Bible dan Environment Bible yang IDENTIK (tulis ulang lengkap di setiap prompt, jangan diringkas atau diubah). Jika platform mendukung, gunakan gambar hasil sebelumnya sebagai referensi tokoh dan latar.
+4. Setelah Batch 1 selesai, tampilkan hasilnya dan TUNGGU konfirmasi guru (cek konsistensi tokoh/latar). Batch berikutnya lanjut otomatis kecuali guru meminta berhenti atau merevisi.
 
-PANEL [nomor]:
-- Adegan     : (aksi utama yang terjadi, singkat & jelas)
-- Tokoh      : (nama + ciri fisik dari Character Bible, jangan diubah antar panel)
-- Latar      : (tempat & waktu)
-- Ekspresi   : (emosi tokoh, mendukung pesan pembelajaran)
-- Komposisi  : (sudut kamera: close-up/medium/wide shot)
-- Gaya       : {{gaya}} — [detail teknis gaya dari Style Bible]
-- Dialog/Narasi (opsional): teks pendek, maksimal 8–10 kata — tulis dengan EJAAN YANG BENAR dan simpel. Jika generator sulit merender teks dengan rapi, KOSONGKAN area balon dialog agar teks bisa ditambahkan manual.
-- Elemen yang harus dihindari (negative prompt): anatomi tangan/jari cacat, wajah asimetris tidak wajar, teks buram/tidak terbaca, elemen tidak relevan dengan topik, konten tidak pantas untuk siswa {{jenjang}}.
+========================================
+TAHAP 1 — PERENCANAAN & KONFIRMASI (dijalankan segera setelah prompt ini diterima)
+========================================
+Jika Mapel, Topik, atau Jenjang belum ada sama sekali: berhenti dan tanyakan hanya yang kurang. Jika ketiganya sudah ada, LANGSUNG tampilkan urutan berikut dalam Bahasa Indonesia (JANGAN generate gambar dulu):
 
-=== ATURAN WAJIB UNTUK AKURASI & MINIM KESALAHAN ===
-1. Pastikan konsep {{mapel}}/{{topik}} digambarkan SECARA BENAR sesuai kaidah keilmuan.
-2. Konsistensi tokoh: warna baju, wajah, dan atribut harus identik di semua panel.
-3. Sesuaikan tingkat kompleksitas visual dan bahasa dengan {{jenjang}} dan {{kelas}}.
+A. RINGKASAN DATA
+Tabel singkat: field mana yang diisi guru dan field mana yang memakai default/usulan.
+
+B. CHARACTER & STYLE BIBLE + ENVIRONMENT BIBLE (usulan)
+- Tiap tokoh: nama, usia, jenis kelamin, warna kulit, model rambut, pakaian tetap (warna & detail), aksesoris pembeda, ekspresi khas, tinggi relatif antar-tokoh.
+- Palet warna utama (3–5 warna).
+- Gaya garis/render sesuai gaya terpilih.
+- Lingkungan utama: tata ruang tetap, objek/perabot tetap beserta posisinya, arah cahaya, waktu, elemen pengenal tempat, agar latar identik di semua panel dan halaman.
+- Rasio/format halaman sesuai pilihan.
+
+C. TAWARAN ISI KONTEN KOMIK
+Tawarkan 2–3 opsi alur cerita, masing-masing berisi: judul, premis singkat, tokoh yang terlibat, pesan/tujuan pembelajaran, dan garis besar per halaman/panel (1 kalimat per panel). Konsep {{mapel}}/{{topik}} harus benar secara keilmuan. Guru boleh memilih satu, menggabungkan, atau meminta opsi baru.
+
+D. KONFIRMASI DATA TAMBAHAN
+Tampilkan checklist bernomor yang singkat, tiap butir dengan rekomendasi Anda, agar guru cukup menjawab ringkas (mis. "1A, 2B, sisanya sesuai rekomendasi"):
+1. Pilihan alur cerita (opsi mana/gabungan).
+2. Tokoh: jumlah, nama, dan ciri khas (setuju dengan usulan atau ubah).
+3. Latar/lingkungan (setuju atau ubah).
+4. Gaya visual (setuju atau ganti).
+5. Format halaman: kertas + orientasi (A4 Potret / A4 Lanskap / lainnya).
+6. Jumlah halaman dan jumlah panel per halaman.
+7. Mode output file (M1 / M2 / M3 / M4), dan jika M2, jumlah panel per file.
+8. Penanganan teks (teks pendek dirender AI atau balon kosong untuk diisi manual).
+9. Tujuan pembelajaran dan tingkat bahasa (setuju atau ubah).
+10. Catatan khusus (mis. logo sekolah, warna tema, istilah wajib, hal yang harus dihindari).
+
+E. KONFIRMASI MULAI GENERATE
+Tampilkan ringkasan konfigurasi final (format halaman, jumlah halaman/panel, mode file, jumlah file, jumlah batch, gaya, alur terpilih), lalu tanyakan:
+"Apakah halaman/panel komik sudah bisa mulai digenerate dengan konfigurasi ini?"
+Pilihan: (1) Ya, generate sekarang; (2) Ya, tetapi ubah bagian tertentu (sebutkan); (3) Revisi konten/tokoh/latar dulu.
+Guru juga boleh membalas "LANJUT" untuk memakai semua rekomendasi.
+Setelah itu BERHENTI dan tunggu jawaban guru.
+
+========================================
+TAHAP 2 — GENERATE (hanya setelah guru mengonfirmasi)
+========================================
+1. PETA GENERATE (wajib sebelum generate). Tampilkan tabel pemetaan per batch: nomor file (mis. B1-F01), nama file (mis. komik_[topik]_h01.png), halaman/panel yang dimuat, format kertas + orientasi + rasio, ringkasan adegan tiap panel, tokoh dan latar yang muncul, dan catatan akurasi konsep. Sebutkan total file di batch (maks 10) dan total batch. Pastikan setiap halaman/panel dari alur terpilih muncul tepat satu kali (tidak terlewat, tidak ganda). Setelah peta tampil, langsung generate tanpa menunggu persetujuan tambahan.
+2. STRUKTUR PROMPT GAMBAR (per file):
+   - Format: kertas + orientasi + rasio, margin aman, layout grid panel (untuk M2/M3) atau rasio panel (untuk M1).
+   - Character & Style Bible dan Environment Bible lengkap (identik di semua file).
+   - Urutan baca panel: kiri-atas ke kanan-bawah (atau sesuai arah baca yang dipilih).
+   - Untuk setiap panel: Adegan, Tokoh (ciri fisik dari Bible, tidak boleh berubah), Latar, Ekspresi, Komposisi (close-up/medium/wide), Gaya, Dialog/Narasi (maks 8–10 kata, ejaan benar; atau balon kosong sesuai pilihan guru).
+   - Negative prompt: anatomi tangan/jari cacat, wajah asimetris tidak wajar, wajah/pakaian berubah antar-panel, teks buram/tidak terbaca/gibberish, elemen tidak relevan dengan topik, latar berbeda dari Environment Bible, konten tidak pantas untuk siswa {{jenjang}}.
+3. PEMERIKSAAN tiap file setelah generate: (a) jumlah panel sesuai peta, (b) urutan baca benar, (c) tokoh, kostum, dan latar konsisten dengan Bible, (d) konsep {{mapel}}/{{topik}} akurat, (e) teks terbaca dan tidak gibberish (atau balon kosong sesuai pilihan), (f) tangan/wajah/anatomi wajar, (g) format kertas/rasio sesuai, margin aman dan gutter terjaga, tidak ada elemen yang melewati batas panel.
+4. HASIL BATCH: tampilkan tabel nomor file, nama file, halaman/panel, format kertas, status Selesai/Perlu Ulang. Yang gagal diregenerate saja (satu per satu atau batch kecil), lalu diperiksa ulang. Ikuti aturan Batch poin 4 untuk kelanjutan antar-batch.
+5. REKAP AKHIR setelah semua file selesai: manifest berisi daftar file final, halaman/panel, format, status, dan bagian yang perlu teks manual (jika ada).
+6. Jika platform tidak dapat menghasilkan file gambar secara langsung: susun paket prompt final per FILE (bukan per panel, kecuali mode M1) sesuai Peta Generate, dalam bahasa Inggris teknis untuk image generator, dilengkapi terjemahan singkat maksud adegan dalam Bahasa Indonesia, lalu tandai jelas "perlu dieksekusi pada generator gambar".
+
+=== ATURAN WAJIB UNTUK AKURASI & KONSISTENSI ===
+1. Konsep {{mapel}}/{{topik}} digambarkan SECARA BENAR sesuai kaidah keilmuan; akurasi didahulukan daripada estetika.
+2. Konsistensi tokoh (wajah, warna baju, atribut, proporsi) dan lingkungan (tata ruang, objek, arah cahaya) identik di semua panel, halaman, dan batch.
+3. Sesuaikan kompleksitas visual dan bahasa dengan {{jenjang}} dan {{kelas}}.
 4. Hindari elemen SARA, kekerasan, atau konten tidak sesuai usia sekolah.
-5. Jika ada teks/formula penting, sarankan agar ditambahkan manual (bukan dirender AI) untuk menghindari typo/gibberish.
-6. Output akhir: satu prompt siap-pakai (gabungan halaman atau per panel sesuai mode), dalam bahasa Inggris teknis untuk image generator, dilengkapi terjemahan singkat maksud adegan dalam Bahasa Indonesia agar mudah dicek guru.`
+5. Teks/formula penting sebaiknya ditambahkan manual (bukan dirender AI) untuk menghindari typo/gibberish.
+6. Guru dapat meminta perubahan kapan saja (mis. "ganti gaya jadi manga", "tambah jadi 6 panel", "ubah ke A4 lanskap"); perubahan pada Bible harus diterapkan ke semua file berikutnya dan file yang terdampak diregenerate.`
       },
       {
         title: "Prompt E-Jurnal Guru",
